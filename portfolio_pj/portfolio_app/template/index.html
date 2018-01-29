@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+        
+        <!-- hero wrapper start -->
+        <div class="hero-wrapper">
+			
+            <!-- hero-area start -->
+            <div class="hero-area home-hero-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-hero-item">
+                                <div class="display-table">
+                                    <div class="display-table-cell">
+                                        <h3></h3>
+                                        <h1>duy nguyen</h1>
+                                        <h2 class="cd-headline letters type">
+                                            <!-- <span>Experienced in</span> -->
+                                            <span class="cd-words-wrapper waiting">
+                                                <b class="is-visible">certified scrum master</b>
+                                                <b>certified scrum product owner</b>
+                                                <b>software developer</b>
+                                            </span>
+                                        </h2>
+                                        <a href="/portfolio" class="bordered-btn">see my works</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<a href="#about" class="scroll-next smooth"><i class="flaticon-down-arrow"></i></a>
+			</div>
+            <!-- hero-area end -->
+        </div>
+        <!-- hero wrapper end -->
+
+        <!-- content wrapper start -->
+        <div class="content-wrapper">
+			<!-- about area start -->
+<div class="section-padding" id="about">
+		<div class="container">
+			<!-- section title start -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-heading text-center">
+						<h2>about <span>me</span></h2>
+					</div>
+				</div>
+			</div>
+			<!-- section title end -->
+	
+			<div class="row">
+				<div class="col-md-6">
+					<!-- section title small start -->
+					<div class="section-heading-small">
+						<h4>my story</h4>
+					</div>
+					<!-- section title small end -->
+	
+					<!-- my story content start -->
+					<div class="about-content">
+						<p>I'm a Certified Scrum Master & Certified Product Owner, I'm familiar with Agile/Scrum theory & principles and being proficiency with many frameworks, from small-scale like Scrum, Kanban, ScrumBan.....to large-scale like Nexus, SAFe, LeSS....I have facilitated a group of Scrum Masters | Product Owners, training & coaching them on how to conduct Scrum in an effective manner. I'm also skillful with various user stories management, drafting techniques as a Product Owner. </p>
+						<p>Furthermore I'm also a Senior Developer/Tech Lead as well as hand-on experience on Mobile DevOps so that my strong technical background might be useful. I had built up more than 5+ CI/CD pipelines based on different tools/frameworks: Jenkins, Fabric, fastlane, Docker, … They are all currently running and automate the development process, additional with saving effort and money for the owners.</p>
+						<!-- about buttons start -->
+						<div class="about-buttons">
+							<a href="#" class="bordered-btn">download cv <i class="flaticon-download"></i></a>
+							<a href="https://www.upwork.com/o/profiles/users/_~0123ce0c5d230f4b28/" class="filled-btn smooth">hire me <i class="flaticon-mail"></i></a>
+						</div>
+						<!-- about buttons end -->
+					</div>
+					<!-- my story content end -->
+				</div>
+				<div class="col-md-6">
+					<!-- section title small start -->
+					<div class="section-heading-small">
+						<h4>my skills</h4>
+					</div>
+					<!-- section title small end -->
+	
+					<!-- skill start -->
+					<div class="skill">
+							{% for skill in skills %}
+						<!-- progress start -->
+						<div class="progress">
+							<div class="title">{{skill.name}}</div>
+							<div class="progress-bar wow fadeInLeft" data-progress="{{ skill.percent }}" style="width: {{ skill.percent }};" data-wow-duration="1s" data-wow-delay=".5s"> <span class=" wow fadeInLeft" data-wow-delay="1.5s">{{ skill.percent }}</span></div>
+						</div>
+						<!-- progress end -->
+							{% endfor %}
+					</div>
+					<!-- skill end -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- about area end -->
+	<!-- profile area end -->
+
+    		<!-- lifestyle area start -->
+    		<div class="section-padding" id="service">
+    			<div class="container">
+    				<!-- section title start -->
+    				<div class="row">
+    					<div class="col-md-12">
+    						<div class="section-heading text-center">
+    							<h2>what i <span>love</span></h2>
+    						</div>
+    					</div>
+    				</div>
+    				<!-- section title end -->
+                    <!-- lifestyle items start -->
+                    <div class="service-items service-style-1">
+                        <div class="row">
+							{% for hobby in hobbies %}
+							<div class="col-md-4 col-sm-6">
+									<div class="single-service-item text-center">
+										<i class="{{hobby.image}}"></i>
+										<h4>{{hobby.name}}</h4>
+										<p>{{hobby.quote}}</p>
+										<p>{{hobby.author}}</p>
+									</div>
+								</div>
+							{% endfor %}
+                        </div>
+                    </div>
+                    <!-- lifestyle items end -->
+    			</div>
+    		</div>
+    		<!-- lifestyle area end -->
+		
+			{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area profile-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-content">
+                    <h2>{{title}}</h2>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">home</a>
+                        </li>
+                        <li>{{title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb-area end -->
+
+{% for profile in profiles %}
+<!-- portfolio details start -->
+{% if forloop.counter0|divisibleby:2 %}
+<div class="section-padding">
+{% else %}
+<div class="section-padding bg-grey">
+{% endif %}
+        <div class="container">
+            <!-- section title start -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading text-center">
+                        <h2>{{profile.header}}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- section title end -->
+            {% for profileItem in profile.profileItems %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="portfolio-details-items">
+                        <div class="profile-details-info">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <!-- short description start -->
+                                    <div class="short-description">
+                                        <h4>{{profileItem.time}}</h4>
+                                    </div>
+                                    <!-- short description end -->
+                                </div>
+                                <div class="col-md-9">
+                                    <!-- description start -->
+                                    <div class="description">
+                                        <h3>{{profileItem.title}}</h3>
+                                        <h4>{{profileItem.subTitle}}</h4>
+                                        {% if profileItem.descriptions|length > 0 %}
+                                        {% for description in profileItem.descriptions %}
+                                        <p>{{description}}</p>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <!-- description end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!-- portfolio details end -->
+
+{% endblock %}

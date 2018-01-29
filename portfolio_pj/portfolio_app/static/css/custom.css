@@ -1,0 +1,95 @@
+/*--------------------------------------------------------------
+
+Template:  Royme Portfolio Template
+Author: RoyHridoy
+Version: 1.0
+Developed by: Hridoy Roy
+
+Note: This is the file where you can add your custom styles to change the look of the theme. But don't modify "style.css" file.
+
+---------------------------------------------------------------*/
+
+/******************************************
+You can put your custom css code here:
+*******************************************/
+
+.upwork-icon {
+    background-image: url(../img/upwork.ico);
+    background-size: cover;
+}
+
+.find-info li i {
+    font-size: 18px;
+}
+
+.profile-details-info .description h3 {
+    /*text-transform: uppercase;*/
+}
+.profile-details-info .description h4 {
+    /*text-transform: capitalize;*/
+    color: #777;
+}
+.profile-details-info .description p:last-child {
+    margin-bottom: 50px;
+}
+.profile-details-info .description h3 {
+    font-size: 18px;
+}
+.profile-details-info .description h4 {
+    font-size: 16px;
+}
+
+.profile-details-info .short-description h4 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.service-breadcrumb-area {
+    background-image: url(../img/breadcrumb/bg_service.jpg);
+}
+
+.contact-breadcrumb-area {
+    background-image: url(../img/breadcrumb/bg_contact.jpg);
+}
+
+.portfolio-breadcrumb-area {
+    background-image: url(../img/breadcrumb/bg_portfolio.jpg);
+}
+
+.profile-breadcrumb-area {
+    background-image: url(../img/breadcrumb/bg_profile.jpg);
+}
+
+.home-hero-area {
+    background-image: url(../img/breadcrumb/bg_home.jpg);
+}
+
+.portfolio-icon {
+    padding-right: 10px;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+    z-index: 9999999;
+  }
+  
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    width: 375px;
+    
+  }
+
+  .carousel-control.right,.carousel-control.left{
+    background: transparent;
+  }

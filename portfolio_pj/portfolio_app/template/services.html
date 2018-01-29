@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area service-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-content">
+                    <h2>{{title}}</h2>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">home</a>
+                        </li>
+                        <li>{{title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb-area end -->
+
+<!-- services area start -->
+<div class="section-padding" id="service">
+        <div class="container">
+            <!-- section title start -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading text-center">
+                        <h2>what i <span>do</span></h2>
+                    </div>
+                </div>
+            </div>
+            <!-- section title end -->
+            <!-- services items start -->
+            <div class="service-items service-style-1">
+                <div class="row">
+                    {% for service in services %}
+                    <div class="col-md-4 col-sm-6">
+                            <div class="single-service-item text-center">
+                                <i class="{{service.image}}"></i>
+                                <h4>{{service.name}}</h4>
+                                <p>{{service.description}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- services items end -->
+        </div>
+    </div>
+    <!-- services area end -->
+{% endblock %}

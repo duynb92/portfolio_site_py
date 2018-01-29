@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area contact-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-content">
+                    <h2>{{title}}</h2>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">home</a>
+                        </li>
+                        <li>{{title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb-area end -->
+
+<!-- contact us area start -->
+<div class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-5">
+                <ul class="find-info">
+                    <li>
+                        <i class="flaticon-placeholder"></i>
+                        Ho Chi Minh City, Vietnam.
+                        <!-- <br> Division name, Country name. -->
+                    </li>
+                    <li>
+                        <i class="flaticon-phone-call"></i>
+                        <a href="tel:84932053532">+84-932053532</a>
+                    </li>
+                    <li>
+                        <i class="flaticon-mail"></i>
+                        <a href="mailto:duynb92@gmail.com">duynb92@gmail.com</a>
+                        <a href="mailto:duy@duynb.com">duy@duynb.com</a>
+                    </li>
+                    <li>
+                        <i class="flaticon-skype"></i>
+                        <a href="">duy021092</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8 col-sm-7">
+                <div class="contact-form xs-mt-30">
+                    <form id="contact-form" action="mail.php" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="name" placeholder="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" name="phone" placeholder="Phone number" required>
+                            </div>
+                        </div>
+                        <input type="email" name="email" placeholder="your email" required>
+                        <input type="text" name="subject" placeholder="subject" required>
+                        <textarea name="message" id="message" placeholder="message" required></textarea>
+                        <button type="submit">send</button>
+                        <p class="form-messege"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- contact us area end -->
+{% endblock %}
