@@ -5,6 +5,10 @@ from django.shortcuts import render
 
 from models import *
 
+import os
+from django.http import HttpResponse
+from portfolio_pj import settings
+
 # Create your views here.
 def index(req):
     context = HomeContext("Home", Facade.getSkills(), Facade.getHobbies())
@@ -29,3 +33,14 @@ def contact(req):
 def blog(req):
     blog_context = BlogContext("Blog", [])
     return render(req, 'blog.html', context=vars(blog_context))
+
+def cv(req):
+    file_path = os.path.join(settings.STATIC_ROOT, 'CV_NBD_122017.pdf')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/pdf")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    else:
+        return render(req, 'eror-404.html')
+    

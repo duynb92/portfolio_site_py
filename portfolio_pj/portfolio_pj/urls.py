@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^contact', contact),
     url(r'^profile', profile),
     url(r'^blog', blog),
+    url(r'^cv', cv),
     url(r'', index),
 ]
