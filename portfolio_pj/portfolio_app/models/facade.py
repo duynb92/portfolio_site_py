@@ -304,7 +304,8 @@ class Facade:
                 "iOS Native | Google Maps API | Stripe | PHP/Laravel | MySql",
                 length="3 months",
                 categories=[Category.WEB, Category.MOBILE],
-                links=[Link("https://itunes.apple.com/us/app/sayswe/id1317229517?ls=1&mt=8",Platform.IOS)],
+                links=[Link("https://itunes.apple.com/us/app/sayswe/id1317229517?ls=1&mt=8",Platform.IOS),
+                Link("https://play.google.com/store/apps/details?id=org.sayswe.sayswe",Platform.ANDROID)],
                 screenshots=9),
             Project(
                 name="tacko",
