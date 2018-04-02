@@ -304,7 +304,7 @@ class Facade:
                 "iOS Native | Google Maps API | Stripe | PHP/Laravel | MySql",
                 length="3 months",
                 categories=[Category.WEB, Category.MOBILE],
-                links=[],
+                links=[Link("https://itunes.apple.com/us/app/sayswe/id1317229517?ls=1&mt=8",Platform.IOS)],
                 screenshots=9),
             Project(
                 name="tacko",
@@ -319,6 +319,32 @@ class Facade:
                 categories=[Category.WEB, Category.MOBILE],
                 links=[],
                 screenshots=13),
+            Project(
+                name="sociasta",
+                tag="sociasta",
+                description=
+                "Sociasta aims to connect people who are having the same activity or feeling the same emotions around the world.",
+                client="Pakistan",
+                roles="Scrum Master",
+                skills=
+                "iOS Native | Google Maps API | KML Files | PHP/Laravel | MySql",
+                length="3 months",
+                categories=[Category.WEB, Category.MOBILE],
+                links=[],
+                screenshots=8),
+            Project(
+                name="hellomojo",
+                tag="hellomojo",
+                description=
+                "Capture Everything. Anywhere. Anytime. Hello Mojo's documenting app will give you that extra peace of mind when you need it most.",
+                client="New Zealand",
+                roles="Scrum Master | Backend Developer",
+                skills=
+                "iOS Native | Google Maps API | ASP.Net | Microsoft Azure | .NET WebAPI 2",
+                length="2 months",
+                categories=[Category.WEB, Category.MOBILE],
+                links=[Link("https://hellomojo.com/",Platform.WEB)],
+                screenshots=11),
         ]
         return projects
 
