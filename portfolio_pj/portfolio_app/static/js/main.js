@@ -233,7 +233,7 @@ NOTE: This is main js file. All js plugin active & custom js included in this fi
 
         $(".project-lists").isotope({
             filter: selector,
-            stagger: 10
+            stagger: 50
         });
     });
 
