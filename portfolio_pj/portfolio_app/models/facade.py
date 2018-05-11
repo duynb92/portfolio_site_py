@@ -317,7 +317,7 @@ class Facade:
                 screenshots=10),
             Project(
                 name="sayswe",
-                tag="sayswe",
+                tag="multiply",
                 filters="native techlead sm",
                 description=
                 "Voting and plege platform for everyone to join and share their own opinions about the election around the world.",
