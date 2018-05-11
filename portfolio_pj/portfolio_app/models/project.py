@@ -1,7 +1,8 @@
 class Project:
-    def __init__(self, name, tag, description, client, roles, skills, length, categories, links, screenshots):
+    def __init__(self, name, tag, filters, description, client, roles, skills, length, categories, links, screenshots):
         self.name = name
         self.tag = tag
+        self.filters = filters
         self.description = description
         self.client = client
         self.roles = roles

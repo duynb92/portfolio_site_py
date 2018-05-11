@@ -24,26 +24,26 @@
 <div class="section-padding" id="portfolio">
     <div class="container">
         <!-- project filter end -->
-        <!--
         <div class="row">
             <div class="col-md-12">
                 <ul class="project-filter style-2 text-center">
                     <li class="active" data-filter="*">all</li>
-                    <li data-filter=".design">design</li>
-                    <li data-filter=".development">development</li>
-                    <li data-filter=".photography">photography</li>
-                    <li data-filter=".branding">branding</li>
+                    <li data-filter=".native">mobile native</li>
+                    <li data-filter=".xamarin">xamarin</li>
+                    <li data-filter=".net">.net</li>
+                    <li data-filter=".techlead">techinal leader</li>
+                    <li data-filter=".sm">scrum master</li>
                 </ul>
             </div>
         </div>
-        -->
         <!-- project filter end -->
 
         <!-- all project list start -->
-        <!-- portfolio details start -->
+        
         <div class="row project-lists">
-            <div class="col-xs-12">
                 {% for project in projects %}
+                <!-- portfolio details start -->
+            <div class="col-xs-12 {{project.filters}}">
                 <div class="portfolio-details-items">
                     <div class="portfolio-details-info">
                         <div class="row">
@@ -79,7 +79,8 @@
                                     <h4>
                                         <i class="portfolio-icon flaticon-unlink"></i>link: {% if project.links|length == 0 %}
                                         <span>Not yet available</span>
-                                        {% else %} {% for link in project.links %} {% if link.platform == 1 %}
+                                        {% else %} {% for link in project.links %} 
+                                        {% if link.platform == 1 %}
                                         <span>
                                             <a href="{{link.url}}" target="_blank">
                                                 <i class="flaticon-apple"></i>
@@ -125,6 +126,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- portfolio details end -->
 
                 <!-- Screenshots Modal Start-->
                 <div class="modal fade" id="screenshotModal{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="screenshotModal{{forloop.counter}}Label"
@@ -160,13 +162,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Screenshots Modal End-->
-
-                    {% endfor %}
                 </div>
+                <!-- Screenshots Modal End-->
+                {% endfor %}
             </div>
 
-            <!-- portfolio details end -->
+
             <!-- all project list end -->
         </div>
 </div>

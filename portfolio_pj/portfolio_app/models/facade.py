@@ -12,6 +12,7 @@ class Facade:
             Project(
                 name="Zingit",
                 tag="zingit",
+                filters="xamarin net",
                 description=
                 "When it comes to connecting buyers and sellers online, whether locally or nationally, we are passionate about doing it right. At Zingit we believe many of the online marketplaces available today fall short on delivering a seamless and enjoyable experience, and that is why we have created an exciting and innovative solution.",
                 client="New Zealand",
@@ -31,6 +32,7 @@ class Facade:
             Project(
                 name="Neatwork",
                 tag="neatwork",
+                filters="native",
                 description=
                 "Neatwork Pro is designed for lawyers, certified/chartered accountants (i.e. CPA, CA, CMA, CGA), certified financial analysts (CFA) and students of these professions. With Neatwork, you are able to filter displayed profiles based on professional specifications. For example, if you are looking to only network and have lunch with lawyers, simply add the filter in your Settings page. Meals and one-on-one encounters are widely known for their efficiency in building relationships. Optimize your lunch and coffee breaks!",
                 client="Canada",
@@ -51,6 +53,7 @@ class Facade:
             Project(
                 name="Con info",
                 tag="conifno",
+                filters="xamarin net",
                 description=
                 "The CON INFO* Serial Number Guide App allows you to determine the year model of Construction, Earthmoving, Mining and Logging Machinery and Equipment from over 400 manufacturers by simply entering the make, model and serial number.",
                 client="New Zealand",
@@ -70,6 +73,7 @@ class Facade:
             Project(
                 name="MLQPLUS TRUSTED LEADER",
                 tag="mlq",
+                filters="native",
                 description=
                 "A practical and interactive learning program designed to equip users with the skills and tools required for effective leadership. Access leadership content, resources and inspiration. Key features include: Learn: complete the Trusted Leader Program - 5 core modules designed by leadership experts covering a wide range of topics including foundations of effective leadership, coaching and communication, transactional leadership skills, transformational leadership skills and emotional intelligence. Interact: learn through a mix of bite-sized information, engaging visuals and interactive content to get the most of out each module. Access tools: access to worksheets, tip sheets and additional resources that can be downloaded right to your device or shared with others. Test your knowledge: track your progress through leadership quizzes and surveys.",
                 client="Australia",
@@ -89,6 +93,7 @@ class Facade:
             Project(
                 name="PLAYER REPORT v2",
                 tag="playerreport",
+                filters="xamarin net",
                 description=
                 "Coaches and scouts! Rate, compare and share soccer player's skills. Use with your team or when scouting or recruiting soccer players. You can compare and share your assessment of soccer players' skills through email with other coaches and scouts.",
                 client="OPTIMYSports",
@@ -109,6 +114,7 @@ class Facade:
             Project(
                 name="yukitomo",
                 tag="yukitomo",
+                filters="native",
                 description=
                 "Skiers and snowboarders, have you ever experienced getting lost or losing your friends in the mountains? Yukitomo helps you to find and locate your friends in realtime. Never get lost !",
                 client="Singapore",
@@ -126,6 +132,7 @@ class Facade:
             Project(
                 name="Okadabooks",
                 tag="okadabooks",
+                filters="native techlead",
                 description=
                 "The mobile online bookstore & the marketplace for writer to publish their book onto. Mobile apps are focused on reading experience. System is optimized for high performance & allow publisher controls their books as well.",
                 client="Okadabooks",
@@ -148,6 +155,7 @@ class Facade:
             Project(
                 name="abakus",
                 tag="abakus",
+                filters="native techlead",
                 description=
                 "A pocket-based financial management tool which stored your personal income and tax expenses along with all the receipts and cost based expenses associated with every property you own, allowing you to see your estimated annual tax return and the financial position of your portfolio at any time throughout the year, at just the touch of a button.",
                 client="Australia",
@@ -168,6 +176,7 @@ class Facade:
             Project(
                 name="sim library",
                 tag="sim",
+                filters="native techlead",
                 description=
                 "Mobile apps facilitate Singapore Institute of Management on room book management, schedule management, loans & requests management, events management (Workshops | Talks | Activities). The apps connect to various end-points (RESTful | SOAP | Legacy) to utilize large set of data through on Single Sign-On securiy mechanism.",
                 client="Singapore",
@@ -188,6 +197,7 @@ class Facade:
             Project(
                 name="ovvy",
                 tag="ovvy",
+                filters="native techlead",
                 description=
                 "Ovvy is the easiest way to find, compare and engage reliable Service Providers. Merchants can also showcase their skills effectively be notified of jobs they are interested in doing.",
                 client="Singapore",
@@ -208,6 +218,7 @@ class Facade:
             Project(
                 name="socialoop",
                 tag="socialoop",
+                filters="native techlead",
                 description=
                 "Social network apps connect people together, hosting activities, checkin, hobbies, or just update their mood. All in one.",
                 client="Singapore",
@@ -223,6 +234,7 @@ class Facade:
             Project(
                 name="ATOMS",
                 tag="atoms",
+                filters="native techlead net",
                 description=
                 "Are you looking for a way you can do more to help those in need? ATOMs is a modern way to spend time and money on other people. Thanks to this app, you can boost your own happiness by improving the lives of other human beings. Research shows this is much more effective than buying more things for yourself.",
                 client="Singapore",
@@ -244,6 +256,7 @@ class Facade:
             Project(
                 name="Billby",
                 tag="billby",
+                filters="native techlead",
                 description=
                 "Billby is the world first pocket based bill payment platform, giving you greater control over paying and managing your bills.",
                 client="Australia",
@@ -257,6 +270,7 @@ class Facade:
             Project(
                 name="fitaccess",
                 tag="fitaccess",
+                filters="native techlead",
                 description=
                 "FitAccess connect clients and trainers to get more traning together instantly. You can be a client who want to be trained and get fit, also be a trainer to provide a class for others.  More than getting in shape, we are connnecting people. Get out of your room and do some training.",
                 client="Australia",
@@ -270,6 +284,7 @@ class Facade:
             Project(
                 name="avb",
                 tag="avb",
+                filters="native techlead sm net",
                 description=
                 "Searching for clubs/bars/restaurants around you. See who have checked in and getting around with them instantly.",
                 client="New Zealand",
@@ -283,6 +298,7 @@ class Facade:
             Project(
                 name="axcro",
                 tag="axcro",
+                filters="native techlead sm",
                 description=
                 "Escrow-based shopping platform to gain consumer confidence whe purchasing service packages that are provided in parts over a period. This product will also serve as an additional platform to increase the sales of service provider by providing an alternative payment guaranteed platform.",
                 client="Singapore",
@@ -300,8 +316,9 @@ class Facade:
                         Platform.IOS),],
                 screenshots=10),
             Project(
-                name="multiply",
-                tag="multiply",
+                name="sayswe",
+                tag="sayswe",
+                filters="native techlead sm",
                 description=
                 "Voting and plege platform for everyone to join and share their own opinions about the election around the world.",
                 client="United States",
@@ -316,6 +333,7 @@ class Facade:
             Project(
                 name="tacko",
                 tag="tacko",
+                filters="native techlead",
                 description=
                 "Love to travel, but want to make money with benefit ? Tacko gives you many chances to buy and sell your items with other peoples when you are travelling around.",
                 client="Singapore",
@@ -329,6 +347,7 @@ class Facade:
             Project(
                 name="sociasta",
                 tag="sociasta",
+                filters="native techlead sm",
                 description=
                 "Sociasta aims to connect people who are having the same activity or feeling the same emotions around the world.",
                 client="Pakistan",
@@ -342,6 +361,7 @@ class Facade:
             Project(
                 name="hellomojo",
                 tag="hellomojo",
+                filters="native techlead sm net",
                 description=
                 "Capture Everything. Anywhere. Anytime. Hello Mojo's documenting app will give you that extra peace of mind when you need it most.",
                 client="New Zealand",
