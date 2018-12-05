@@ -439,6 +439,11 @@ class Facade:
                             "Expand your career opportunities by staying relevant and marketable across all industry sectors adopting Agile practices.",
                             "Engage with a community of recognized Scrum experts who are committed to continuous improvement."
                         ]),
+                    ProfileItem(
+                        time="2018",
+                        title="ACP-JSW | Atlassian Certified in Agile Development with Jira Software",
+                        subTitle="Atlassian.com",
+                        descriptions=[]),
                 ]),
         Profile(
             "work experiences",
@@ -449,9 +454,9 @@ class Facade:
                     subTitle="SCRUM Master | iOS Specialist | .NET Ninja",
                     descriptions=[
                         "- Started as a Junior Developer, work across 20+ outsource projects in Elance/Upwork and other clients",
-                        "- Depth knowledgements on basic and advanced programming techniques: REST APIs, threading, memory management, DI, Clean Architecture ... ",
+                        "- Depth knowledge on basic and advanced programming techniques: REST APIs, threading, memory management, DI, Clean Architecture ... ",
                         "- Leverage as an iOS Team Leader, training/coaching/mentoring team member from junior level ",
-                        "- Growth and scale up team in both size and depth ",
+                        "- Growth and scale up team in both size and quality",
                         "- Task management, planning the development path for team member ",
                         "- Join in technical R&D department to get ahead of new technoligies and applying/spreading across team: Functional Reactive Programming... ",
                         "- Collaborate to setup CI/CD pipelines ",
