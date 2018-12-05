@@ -460,7 +460,8 @@ class Facade:
                         "- Task management, planning the development path for team member ",
                         "- Join in technical R&D department to get ahead of new technoligies and applying/spreading across team: Functional Reactive Programming... ",
                         "- Collaborate to setup CI/CD pipelines ",
-                        "- Being trained as a Scrum Master, get rid of old-fashioned Waterfall and shift to Agile to gain productivity"
+                        "- Being trained as a Scrum Master, in charge and responsible to apply a lightweight Agile process, together with ecosystem of tools & frameworks, to help organization shift from traditional Waterfall to Agile to gain maximize productivity",
+                        "- Utilizing Atlassian product line: Jira, Confluence to all of departments: engineering, marketing, operation...."
                     ]),
                 ProfileItem(
                     time="Aug '17 - Present",
