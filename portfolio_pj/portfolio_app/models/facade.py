@@ -381,7 +381,7 @@ class Facade:
             Skill(name="C#", percent="85%"),
             Skill(name="Swift", percent="90%"),
             Skill(name="Obj-C", percent="80%"),
-            Skill(name="Python", percent="60%"),
+            Skill(name="Scripts (Bash/Ruby/Groovy)", percent="70%"),
         ]
         return skills
 
