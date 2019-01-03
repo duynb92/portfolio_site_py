@@ -378,9 +378,10 @@ class Facade:
     @staticmethod
     def getSkills():
         skills = [
-            Skill(name="C#", percent="85%"),
             Skill(name="Swift", percent="90%"),
             Skill(name="Obj-C", percent="80%"),
+            Skill(name="C#", percent="85%"),
+            Skill(name="Dart-Flutter", percent="60%"),
             Skill(name="Scripts (Bash/Ruby/Groovy)", percent="70%"),
         ]
         return skills
