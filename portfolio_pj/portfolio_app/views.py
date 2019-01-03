@@ -35,7 +35,7 @@ def blog(req):
     return render(req, 'blog.html', context=vars(blog_context))
 
 def cv(req):
-    file_path = os.path.join(settings.STATIC_ROOT, 'CV_NBD_122017.pdf')
+    file_path = os.path.join(settings.STATIC_ROOT, 'CV_2018.pdf')
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")

@@ -441,9 +441,14 @@ class Facade:
                         ]),
                     ProfileItem(
                         time="2018",
-                        title="ACP-JSW | Atlassian Certified in Agile Development with Jira Software",
+                        title="ACP-JSW | ACP-300 | Atlassian Certified in Agile Development with Jira Software",
                         subTitle="Atlassian.com",
-                        descriptions=[]),
+                        descriptions=["The Agile Development with Jira Software (ACP-JSW) credential builds on the professional's existing agile skills, with a focus on optimizing the power of Jira Software for their development teams. This credential is for scrum masters, project leads and board administrators."]),
+                        ProfileItem(
+                        time="2018",
+                        title="AC-JPA | ACP-600 | Atlassian Certified in Jira Project Administration",
+                        subTitle="Atlassian.com",
+                        descriptions=["Capable Project Administrators are essential to the optimal functioning of Jira Software in large organizations. Certified Jira Project Administrators are the power users who know how to configure projects and boards, customize workflows and manage..."]),
                 ]),
         Profile(
             "work experiences",
@@ -458,7 +463,7 @@ class Facade:
                         "- Leverage as an iOS Team Leader, training/coaching/mentoring team member from junior level ",
                         "- Growth and scale up team in both size and quality",
                         "- Task management, planning the development path for team member ",
-                        "- Join in technical R&D department to get ahead of new technoligies and applying/spreading across team: Functional Reactive Programming... ",
+                        "- Join in technical R&D department to get ahead of new technologies and applying/spreading across team: Functional Reactive Programming... ",
                         "- Collaborate to setup CI/CD pipelines ",
                         "- Being trained as a Scrum Master, in charge and responsible to apply a lightweight Agile process, together with ecosystem of tools & frameworks, to help organization shift from traditional Waterfall to Agile to gain maximize productivity",
                         "- Utilizing Atlassian product line: Jira, Confluence to all of departments: engineering, marketing, operation...."
