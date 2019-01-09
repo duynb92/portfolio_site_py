@@ -10,6 +10,45 @@ class Facade:
     def getProjects():
         projects = [
             Project(
+                name="OnlineLEDStore",
+                tag="onlineledstore",
+                filters="atlassian",
+                description=
+                "Jira, Confluence server custom complex workflow and integration setup for e-commerce SME",
+                client="United States",
+                roles="Jira & Confluence Administator",
+                skills="",
+                length="",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
+                name="Allen kkl-lurzen.ch",
+                tag="kkl-lurzen.ch",
+                filters="atlassian",
+                description=
+                "Implement custom workflow functions using ScriptRunner, mainly focus on task/subtasks creation, complex workflow cycle development.",
+                client="Switzerland",
+                roles="Jira Scripting",
+                skills="",
+                length="",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
+                name="Migration Server to Cloud",
+                tag="upmc",
+                filters="atlassian",
+                description=
+                "Perform migration client's self-hosted Jira & Confluence to Cloud, without any loss.",
+                client="",
+                roles="Jira Administrator",
+                skills="",
+                length="",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
                 name="Zingit",
                 tag="zingit",
                 filters="xamarin net",
