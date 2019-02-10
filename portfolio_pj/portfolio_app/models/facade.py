@@ -129,27 +129,27 @@ class Facade:
                         Platform.IOS),
                 ],
                 screenshots=11),
-            Project(
-                name="PLAYER REPORT v2",
-                tag="playerreport",
-                filters="xamarin net",
-                description=
-                "Coaches and scouts! Rate, compare and share soccer player's skills. Use with your team or when scouting or recruiting soccer players. You can compare and share your assessment of soccer players' skills through email with other coaches and scouts.",
-                client="OPTIMYSports",
-                roles="Developer",
-                skills=
-                "Xamarin | Xamarin.iOS | SQLite | Mobile Offline | Non-consumable IAP",
-                length="3 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://play.google.com/store/apps/details?id=com.optimysports.playerreport2&hl=vi",
-                        Platform.ANDROID),
-                    Link(
-                        "https://itunes.apple.com/vn/app/player-report-v2/id1043400437?l=vi&mt=8",
-                        Platform.IOS),
-                ],
-                screenshots=0),
+            # Project(
+            #     name="PLAYER REPORT v2",
+            #     tag="playerreport",
+            #     filters="xamarin net",
+            #     description=
+            #     "Coaches and scouts! Rate, compare and share soccer player's skills. Use with your team or when scouting or recruiting soccer players. You can compare and share your assessment of soccer players' skills through email with other coaches and scouts.",
+            #     client="OPTIMYSports",
+            #     roles="Developer",
+            #     skills=
+            #     "Xamarin | Xamarin.iOS | SQLite | Mobile Offline | Non-consumable IAP",
+            #     length="3 months",
+            #     categories=[Category.WEB, Category.MOBILE],
+            #     links=[
+            #         Link(
+            #             "https://play.google.com/store/apps/details?id=com.optimysports.playerreport2&hl=vi",
+            #             Platform.ANDROID),
+            #         Link(
+            #             "https://itunes.apple.com/vn/app/player-report-v2/id1043400437?l=vi&mt=8",
+            #             Platform.IOS),
+            #     ],
+            #     screenshots=0),
             Project(
                 name="yukitomo",
                 tag="yukitomo",
