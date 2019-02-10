@@ -48,67 +48,67 @@ class Facade:
                 categories=[],
                 links=[],
                 screenshots=0),
-            Project(
-                name="Zingit",
-                tag="zingit",
-                filters="xamarin net",
-                description=
-                "When it comes to connecting buyers and sellers online, whether locally or nationally, we are passionate about doing it right. At Zingit we believe many of the online marketplaces available today fall short on delivering a seamless and enjoyable experience, and that is why we have created an exciting and innovative solution.",
-                client="New Zealand",
-                roles="Developer",
-                skills="Xamarin | Xamarin.iOS | ASP.NET Web API",
-                length="6 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://play.google.com/store/apps/details?id=zingit.ui.droid&hl=en",
-                        Platform.ANDROID),
-                    Link("https://itunes.apple.com/app/id991759517",
-                         Platform.IOS),
-                ],
-                screenshots=0
-                ),
-            Project(
-                name="Neatwork",
-                tag="neatwork",
-                filters="native",
-                description=
-                "Neatwork Pro is designed for lawyers, certified/chartered accountants (i.e. CPA, CA, CMA, CGA), certified financial analysts (CFA) and students of these professions. With Neatwork, you are able to filter displayed profiles based on professional specifications. For example, if you are looking to only network and have lunch with lawyers, simply add the filter in your Settings page. Meals and one-on-one encounters are widely known for their efficiency in building relationships. Optimize your lunch and coffee breaks!",
-                client="Canada",
-                roles="Developer",
-                skills=
-                "iOS Native | Parse | Google Places API | Facebook SDK | Linkedin SDK | Google+ SDK",
-                length="6 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://play.google.com/store/apps/details?id=com.neatwork.neatworkpro&hl=en",
-                        Platform.ANDROID),
-                    Link(
-                        "https://itunes.apple.com/us/app/neat-work/id1084915840?mt=8",
-                        Platform.IOS),
-                ],
-                screenshots=0),
-            Project(
-                name="Con info",
-                tag="conifno",
-                filters="xamarin net",
-                description=
-                "The CON INFO* Serial Number Guide App allows you to determine the year model of Construction, Earthmoving, Mining and Logging Machinery and Equipment from over 400 manufacturers by simply entering the make, model and serial number.",
-                client="New Zealand",
-                roles="Techincal Leader",
-                skills="Xamarin | Xamarin.iOS | SQLite | ASP.NET Web API",
-                length="3 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://play.google.com/store/apps/details?id=com.coninfoapp.droid&hl=en",
-                        Platform.ANDROID),
-                    Link(
-                        "https://itunes.apple.com/au/app/con-info-serial-number-guide-for-heavymachinery/id1122500544?mt=8",
-                        Platform.IOS),
-                ],
-                screenshots=0),
+            # Project(
+            #     name="Zingit",
+            #     tag="zingit",
+            #     filters="xamarin net",
+            #     description=
+            #     "When it comes to connecting buyers and sellers online, whether locally or nationally, we are passionate about doing it right. At Zingit we believe many of the online marketplaces available today fall short on delivering a seamless and enjoyable experience, and that is why we have created an exciting and innovative solution.",
+            #     client="New Zealand",
+            #     roles="Developer",
+            #     skills="Xamarin | Xamarin.iOS | ASP.NET Web API",
+            #     length="6 months",
+            #     categories=[Category.WEB, Category.MOBILE],
+            #     links=[
+            #         Link(
+            #             "https://play.google.com/store/apps/details?id=zingit.ui.droid&hl=en",
+            #             Platform.ANDROID),
+            #         Link("https://itunes.apple.com/app/id991759517",
+            #              Platform.IOS),
+            #     ],
+            #     screenshots=0
+            #     ),
+            # Project(
+            #     name="Neatwork",
+            #     tag="neatwork",
+            #     filters="native",
+            #     description=
+            #     "Neatwork Pro is designed for lawyers, certified/chartered accountants (i.e. CPA, CA, CMA, CGA), certified financial analysts (CFA) and students of these professions. With Neatwork, you are able to filter displayed profiles based on professional specifications. For example, if you are looking to only network and have lunch with lawyers, simply add the filter in your Settings page. Meals and one-on-one encounters are widely known for their efficiency in building relationships. Optimize your lunch and coffee breaks!",
+            #     client="Canada",
+            #     roles="Developer",
+            #     skills=
+            #     "iOS Native | Parse | Google Places API | Facebook SDK | Linkedin SDK | Google+ SDK",
+            #     length="6 months",
+            #     categories=[Category.WEB, Category.MOBILE],
+            #     links=[
+            #         Link(
+            #             "https://play.google.com/store/apps/details?id=com.neatwork.neatworkpro&hl=en",
+            #             Platform.ANDROID),
+            #         Link(
+            #             "https://itunes.apple.com/us/app/neat-work/id1084915840?mt=8",
+            #             Platform.IOS),
+            #     ],
+            #     screenshots=0),
+            # Project(
+            #     name="Con info",
+            #     tag="conifno",
+            #     filters="xamarin net",
+            #     description=
+            #     "The CON INFO* Serial Number Guide App allows you to determine the year model of Construction, Earthmoving, Mining and Logging Machinery and Equipment from over 400 manufacturers by simply entering the make, model and serial number.",
+            #     client="New Zealand",
+            #     roles="Techincal Leader",
+            #     skills="Xamarin | Xamarin.iOS | SQLite | ASP.NET Web API",
+            #     length="3 months",
+            #     categories=[Category.WEB, Category.MOBILE],
+            #     links=[
+            #         Link(
+            #             "https://play.google.com/store/apps/details?id=com.coninfoapp.droid&hl=en",
+            #             Platform.ANDROID),
+            #         Link(
+            #             "https://itunes.apple.com/au/app/con-info-serial-number-guide-for-heavymachinery/id1122500544?mt=8",
+            #             Platform.IOS),
+            #     ],
+            #     screenshots=0),
             Project(
                 name="MLQPLUS TRUSTED LEADER",
                 tag="mlq",
@@ -494,7 +494,7 @@ class Facade:
             "work experiences",
             profileItems=[
                 ProfileItem(
-                    time="Jun '14 - Present",
+                    time="Jun '14 - Jul '18",
                     title="Beesightsoft",
                     subTitle="SCRUM Master | iOS Specialist | .NET Ninja",
                     descriptions=[
