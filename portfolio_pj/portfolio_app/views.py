@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from models import *
+from .models import *
 
 import os
 from django.http import HttpResponse
@@ -31,8 +31,15 @@ def contact(req):
     return render(req, 'contact-3.html', context=vars(context))
 
 def blog(req):
-    blog_context = BlogContext("Blog", [])
-    return render(req, 'blog.html', context=vars(blog_context))
+    blogs = Blog.objects.all()
+    blog_context = BlogContext("Blog", blogs)
+    return render(req, 'blog-list-small.html', context=vars(blog_context))
+
+def blogWithId(req, blog_id):
+    blog = Blog.objects.get(pk=blog_id)
+    blog_context = BlogDetailContext("Blog", blog)
+    return render(req, 'blog-details.html', context=vars(blog_context))
+    blogWithId
 
 def cv(req):
     file_path = os.path.join(settings.STATIC_ROOT, 'CV_NBD.pdf')

@@ -1,8 +1,8 @@
-from project import *
-from skill import *
-from profile import *
-from service import *
-from hobby import *
+from .project import *
+from .skill import *
+from .profile import *
+from .service import *
+from .hobby import *
 
 
 class Facade:

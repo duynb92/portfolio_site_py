@@ -1,4 +1,4 @@
-from base_context import BaseContext
+from .base_context import BaseContext
 from ..project import *
 
 class PortfolioContext(BaseContext):

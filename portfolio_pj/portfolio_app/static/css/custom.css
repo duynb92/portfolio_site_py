@@ -93,3 +93,8 @@ You can put your custom css code here:
   .carousel-control.right,.carousel-control.left{
     background: transparent;
   }
+
+  /* Remove strikethru title */
+  .blog-content h4 a:after {
+      height: 0px;
+}

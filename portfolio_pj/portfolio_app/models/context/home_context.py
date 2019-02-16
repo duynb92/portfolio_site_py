@@ -1,4 +1,4 @@
-from base_context import BaseContext
+from .base_context import BaseContext
 
 class HomeContext(BaseContext):
     def __init__(self,title, skills, hobbies):
