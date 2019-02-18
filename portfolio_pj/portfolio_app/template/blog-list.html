@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block content %}
+{% load calendar_converter %}
         <!-- breadcrumb-area start -->
-        <div class="breadcrumb-area">
+        <div class="breadcrumb-area blog-breadcrumb-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="breadcrumb-content text-center">
+                        <div class="breadcrumb-content">
                             <h2>{{title}}</h2>
                             <ul class="breadcrumb">
                                 <li><a href="/">home</a></li>
@@ -18,54 +19,45 @@
         <!-- breadcrumb-area end -->
 
         <!-- blog area start -->
-        <div class="section-padding blog-page column-1" id="blog">
+        <div class="section-padding blog-page" id="blog">
             <div class="container">
                 <div class="row">
                     <!-- blog posts start -->
                     <div class="col-md-9 col-sm-8">
                         <div class="row">
-                            <div class="col-md-12 col-sm-12">
+                                {% for blog in blogs %}
+                                <div class="col-md-12 col-sm-12">
                                 <div class="single-blog">
-                                    <div class="blog-bg blog-bg-5">
+                                    <div class="blog-bg blog-bg-1">
                                         <div class="blog-date">
-                                            <span>18</span>
-                                            <span>sep</span>
+                                            <span>{{blog.getDateOnly}}</span>
+                                            <span>{{blog.getMonthOnly}}</span>
                                         </div>
                                     </div>
                                     <div class="blog-content">
-                                        <h4><a href="blog-details.html">Plan for making a project</a></h4>
+                                        <h4><a href="blog/{{blog.id}}">{{blog.title}}</a></h4>
                                         <div class="info">
                                             <ul>
-                                                <li> <a href="#"> <i class="flaticon-user"></i> Hridoy roy</a></li>
-                                                <li> <a href="#"> <i class="flaticon-chat"></i> 4 comments</a></li>
+                                            <li>
+                                            <i class="fas fa-folder-open"></i>
+                                                <a href="/blog?category={{blog.category.id}}">{{blog.category.title}}</a>
+                                                </li>
+                                                <li> 
+                                                <i class="fas fa-hashtag"></i>
+                                                {% for tag in blog.tags.all %}
+                                                <a href="/blog?tag={{tag.id}}">
+                                                {% if forloop.last %}{{tag.title}}{% else %}{{tag.title}},{% endif %}
+                                                </a>
+                                                {% endfor %}
+                                                </li>
                                             </ul>
                                         </div>
-                                        <div class="descriptions">Lorem ipsum dolor sit amet, conse ctetur adipi scing elit. Sed conv llis lacinia enim vel blandit. In plac erat, ex nec sodales elem entum.</div>
-                                        <a href="blog-details.html" class="bordered-btn">read more</a>
+                                        <div class="descriptions">{{blog.getPreview | safe}}</div>
+                                        <a href="blog/{{blog.id}}" class="bordered-btn">read more</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="single-blog">
-                                    <div class="blog-bg blog-bg-7">
-                                        <div class="blog-date">
-                                            <span>24</span>
-                                            <span>sep</span>
-                                        </div>
-                                    </div>
-                                    <div class="blog-content">
-                                        <h4><a href="blog-details.html">Plan for making a project</a></h4>
-                                        <div class="info">
-                                            <ul>
-                                                <li> <a href="#"> <i class="flaticon-user"></i> Hridoy roy</a></li>
-                                                <li> <a href="#"> <i class="flaticon-chat"></i> 4 comments</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="descriptions">Lorem ipsum dolor sit amet, conse ctetur adipi scing elit. Sed conv llis lacinia enim vel blandit. In plac erat, ex nec sodales elem entum.</div>
-                                        <a href="blog-details.html" class="bordered-btn">read more</a>
-                                    </div>
-                                </div>
-                            </div>
+                                {% endfor %}
                         </div>
                         <div class="row">
                             <!-- pagination area start -->
@@ -86,33 +78,44 @@
                     </div>
                     <!-- blog posts end -->
                     
-                    <!-- blog sibebar start -->
+                    <!-- blog sidebar start -->
                     <div class="col-md-3 col-sm-4">
                         <div class="blog-sidebar">
-                            <div class="search-area">
+                            {% comment %} <div class="search-area">
                                 <!-- search box start -->
                                 <div class="search-box">
                                     <input type="text" placeholder="Search here...">
                                     <button><i class="flaticon-search"></i></button>
                                 </div>
                                 <!-- search box end -->
-                            </div>
+                            </div> {% endcomment %}
                             <!-- recent post start -->
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
                                     <h3>recent posts</h3>
                                 </div>
-                                <div class="single-sidebar-menu">
+                                <div class="single-sidebar-menu recent-post">
                                     <ul>
-                                        <li><a href="#">plan for making a project</a></li>
-                                        <li><a href="#">here goes another title</a></li>
-                                        <li><a href="#">other blog post title </a></li>
-                                        <li><a href="#">next blog post title here</a></li>
+                                    {% for blog in recent_blogs %}
+                                    <li>
+                                    {% comment %} <div class="row">
+                                    <div class="col-md-2 col-sm-2"> {% endcomment %}
+                                    {% if forloop.counter|divisibleby:2 %}
+                                    <i class="far fa-comment"></i>
+                                    {% else %}
+                                    <i class="far fa-comment-alt"></i>
+                                    {% endif %}
+                                    {% comment %} </div> {% endcomment %}
+                                    {% comment %} <div class="col-md-10 col-sm-10"> {% endcomment %}
+                                    <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+                                    {% comment %} </div> {% endcomment %}
+                                    </li>
+                                    {% endfor %}
                                     </ul>
                                 </div>
                             </div>
                             <!-- recent post end -->
-                            <!-- popular post start -->
+                            {% comment %} <!-- popular post start -->
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
                                     <h3>popular posts</h3>
@@ -126,7 +129,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!-- popular post end -->
+                            <!-- popular post end --> {% endcomment %}
                             <!-- catagory start -->
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
@@ -134,13 +137,9 @@
                                 </div>
                                 <div class="single-sidebar-menu">
                                     <ul>
-                                        <li><a href="#">popular (8)</a></li>
-                                        <li><a href="#">creative (4)</a></li>
-                                        <li><a href="#">features (3)</a></li>
-                                        <li><a href="#">letest (2)</a></li>
-                                        <li><a href="#">prize (4)</a></li>
-                                        <li><a href="#">condition (4)</a></li>
-                                        <li><a href="#">International (2)</a></li>
+                                    {% for category in categories %}
+                                        <li><i class="fas fa-folder-open"></i><a href="/blog?category={{category.id}}">{{ category.title }} ({{category.blog_set.all.count}})</a></li>
+                                    {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -152,18 +151,13 @@
                                 </div>
                                 <div class="single-sidebar-menu">
                                     <ul>
-                                        <li><a href="#">august 2017</a></li>
-                                        <li><a href="#">july 2017</a></li>
-                                        <li><a href="#">june 2017</a></li>
-                                        <li><a href="#">may 2017</a></li>
-                                        <li><a href="#">april 2017</a></li>
-                                        <li><a href="#">march 2017</a></li>
-                                        <li><a href="#">february 2017</a></li>
-                                        <li><a href="#">january 2017</a></li>
-                                        <li><a href="#">december 2016</a></li>
-                                        <li><a href="#">november 2016</a></li>
-                                        <li><a href="#">october 2016</a></li>
-                                        <li><a href="#">september 2016</a></li>
+                                    {% for key, value in archives.items %}
+                                        {% for month in value %}
+                                        <li>
+                                        <i class="far fa-calendar-alt"></i><a href="/blog">{{month|month_name}} {{key}}</a>
+                                        </li>
+                                        {% endfor %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -175,13 +169,11 @@
                                 </div>
                                 <div class="tag-menu">
                                     <ul>
-                                        <li><a href="#">creation</a></li>
-                                        <li><a href="#">portfolio</a></li>
-                                        <li><a href="#">latest</a></li>
-                                        <li><a href="#">development</a></li>
-                                        <li><a href="#">graphics</a></li>
-                                        <li><a href="#">design</a></li>
-                                        <li><a href="#">marketing</a></li>
+                                    {% for tag in tags %}
+                                    {% if tag.blog_set.all.count > 0%}
+                                    <li><a href="/blog?tag={{tag.id}}">{{tag.title}} ({{tag.blog_set.all.count}})</a></li>
+                                    {% endif %}
+                                    {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -194,4 +186,3 @@
         </div>
         <!-- blog area end -->
         {% endblock %}
-		

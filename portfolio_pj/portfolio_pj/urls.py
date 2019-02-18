@@ -24,8 +24,8 @@ urlpatterns = [
     path('service', service),
     path('contact', contact),
     path('profile', profile),
+    path('blog/<blog_id>', blogWithId),
     path('blog', blog),
-    path('blog/<int:blog_id>', blogWithId),
     path('cv', cv),
     path('', index),
 ]

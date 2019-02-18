@@ -60,12 +60,42 @@ You can put your custom css code here:
     background-image: url(../img/breadcrumb/bg_profile.jpg);
 }
 
+.blog-breadcrumb-area {
+    background-image: url(../img/breadcrumb/bg_blog.jpg);
+}
+
 .home-hero-area {
     background-image: url(../img/breadcrumb/bg_home.jpg);
 }
 
 .portfolio-icon {
     padding-right: 10px;
+}
+
+/* .descriptions {
+    height: 5.4em;
+    overflow: hidden;
+} */
+
+.single-sidebar-menu ul li a {
+    display: inline-block;
+}
+
+.recent-post ul li a:hover {
+    padding-left: 18px;
+    text-decoration: underline;
+}
+
+.recent-post ul li a {
+    display: inline;
+}
+
+.blog-content .info li a {
+    text-transform: capitalize;
+}
+
+.blog-content h4 a {
+    line-height: normal;
 }
 
 .modal {

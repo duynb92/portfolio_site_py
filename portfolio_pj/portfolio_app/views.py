@@ -31,15 +31,29 @@ def contact(req):
     return render(req, 'contact-3.html', context=vars(context))
 
 def blog(req):
-    blogs = Blog.objects.all()
-    blog_context = BlogContext("Blog", blogs)
-    return render(req, 'blog-list-small.html', context=vars(blog_context))
+    tag_id = req.GET.get('tag')
+    category_id = req.GET.get('category')
+    if (tag_id is not None): 
+        blogs = Tag.objects.get(pk=tag_id).blog_set.all()
+    elif (category_id is not None):
+        blogs = Category.objects.get(pk=category_id).blog_set.all()
+    else:
+        blogs = Blog.objects.all()
+    categories = Category.objects.all()
+    tags = Tag.objects.all()
+    recent_blogs = Blog.objects.all().order_by('-pub_date')[:7]
+    archives = Blog.getArchives()
+    blog_context = BlogContext("Blog", blogs, recent_blogs, categories, tags, archives)
+    return render(req, 'blog-list.html', context=vars(blog_context))
 
 def blogWithId(req, blog_id):
     blog = Blog.objects.get(pk=blog_id)
-    blog_context = BlogDetailContext("Blog", blog)
+    categories = Category.objects.all()
+    tags = Tag.objects.all()
+    recent_blogs = Blog.objects.all().order_by('-pub_date')[:7]
+    archives = Blog.getArchives()
+    blog_context = BlogDetailContext("Blog", blog, recent_blogs, categories, tags, archives)
     return render(req, 'blog-details.html', context=vars(blog_context))
-    blogWithId
 
 def cv(req):
     file_path = os.path.join(settings.STATIC_ROOT, 'CV_NBD.pdf')

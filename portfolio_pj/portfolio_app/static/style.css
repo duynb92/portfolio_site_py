@@ -1955,14 +1955,14 @@ Please do not change anything here! write in a custom.css file if required!
     text-transform: capitalize;
     font-size: 16px;
 }
-.single-sidebar-menu ul li a:before {
+/* .single-sidebar-menu ul li a:before {
     content: "\f108";
     font-family: 'flaticon';
     font-size: 12px;
     left: 0;
     position: absolute;
     top: 9px;
-}
+} */
 .single-sidebar-menu ul li a:hover {
     padding-left: 20px;
 }

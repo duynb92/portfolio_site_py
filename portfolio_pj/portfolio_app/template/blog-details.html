@@ -1,14 +1,15 @@
 {% extends 'base.html' %} {% block content %}
+{% load calendar_converter %}
         <!-- breadcrumb-area start -->
         <div class="breadcrumb-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="breadcrumb-content text-center">
+                        <div class="breadcrumb-content">
                             <h2>{{blog.title}}</h2>
                             <ul class="breadcrumb">
                                 <li><a href="/">home</a></li>
-                                <li>{{blog.title}}</li>
+                                <li><a href="/blog">blog</a></li>
                             </ul>
                         </div>
                     </div>
@@ -21,102 +22,212 @@
         <div class="section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-lg-10 col-lg-offset-1">
-                        <div class="blog-full-post">
-                            <!-- post image start -->
-                            <div class="large-img">
-                                <img src="assets/img/blog/1-large.jpg" alt="blog image">
+                    <!-- blog details start -->
+                    <div class="col-md-9 col-sm-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="blog-full-post">
+                                    <!-- post image start -->
+                                    <div class="large-img">
+                                        <img src="assets/img/blog/1-large.jpg" alt="blog image">
+                                    </div>
+                                    <!-- post image end -->
+                                    <!-- post details start -->
+                                    <div class="details-content">
+                                        {{blog.content | safe}}
+                                    </div>
+                                    <!-- post details end -->
+                                    <!-- post info start -->
+                                    <div class="blog-info">
+                                        <!-- post info -->
+                                        <p class="post-info">
+                                            <span> <i class="flaticon-user"></i> By Hridoy</span>
+                                            <span> <i class="flaticon-like"></i> (715)</span>
+                                            <span> <i class="flaticon-chat"></i> (139)</span>
+                                            <span class="pull-right"> <i class="flaticon-time"></i> 12, November, 2016</span>
+                                        </p>
+                                    </div>
+                                    <!-- post info end -->
+                                    <!-- post comment box start -->
+                                    <div class="comment-box">
+                                        <div class="comment-list">
+                                            <ul>
+                                                <!-- comment reply start -->
+                                                <li>
+                                                    <div class="author-img pull-left">
+                                                        <img src="assets/img/blog/user.jpg" alt="">
+                                                    </div>
+                                                    <div class="author-comment pull-left">
+                                                        <h5><a href="#">Hridoy roy</a>2017, 13 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
+                                                    </div>
+                                                </li>
+                                                <!-- comment reply end -->
+                                                <!-- comment reply start -->
+                                                <li class="comment-reply">
+                                                    <div class="author-img pull-left">
+                                                        <img src="assets/img/blog/user-2.jpg" alt="">
+                                                    </div>
+                                                    <div class="author-comment pull-left">
+                                                        <h5><a href="#">Jhon Doe</a>2017, 14 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
+                                                    </div>
+                                                </li>
+                                                <!-- comment reply end -->
+                                                <!-- comment reply start -->
+                                                <li>
+                                                    <div class="author-img pull-left">
+                                                        <img src="assets/img/blog/user.jpg" alt="">
+                                                    </div>
+                                                    <div class="author-comment pull-left">
+                                                        <h5><a href="#">Hridoy roy</a>2017, 15 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
+                                                    </div>
+                                                </li>
+                                                <!-- comment reply end -->
+                                                <!-- comment reply start -->
+                                                <li class="comment-reply">
+                                                    <div class="author-img pull-left">
+                                                        <img src="assets/img/blog/user-2.jpg" alt="">
+                                                    </div>
+                                                    <div class="author-comment pull-left">
+                                                        <h5><a href="#">Jhon Smith</a>2017, 17 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
+                                                    </div>
+                                                </li>
+                                                <!-- comment reply end -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- post comment box end -->
+                                    <!-- write comment start -->
+                                    <div class="blog-comment-form" id="contact-form">
+                                        <h4>write your comment</h4>
+                                        <!-- blog comment start -->
+                                        <form action="#">
+                                            <div class="input-box">
+                                                <input type="text" placeholder="Name*">
+                                                <input type="email" placeholder="Email address *">
+                                            </div>
+                                            <div class="input-textarea">
+                                                <textarea cols="30" rows="3" placeholder="Message"></textarea>
+                                            </div>
+                                            <button type="submit" class="dark-btn button">post comment</button>
+                                        </form>
+                                        <!-- blog comment end -->
+                                    </div>
+                                    <!-- write comment end -->
+                                </div>
                             </div>
-                            <!-- post image end -->
-                            <!-- post details start -->
-                            <div class="details-content">
-                                {{blog.content | safe}}
-                            </div>
-                            <!-- post details end -->
-                            <!-- post info start -->
-                            <div class="blog-info">
-                                <!-- post info -->
-                                <p class="post-info">
-                                    <span> <i class="flaticon-user"></i> By Hridoy</span>
-                                    <span> <i class="flaticon-like"></i> (715)</span>
-                                    <span> <i class="flaticon-chat"></i> (139)</span>
-                                    <span class="pull-right"> <i class="flaticon-time"></i> 12, November, 2016</span>
-                                </p>
-                            </div>
-                            <!-- post info end -->
-                            <!-- post comment box start -->
-                            <div class="comment-box">
-                                <div class="comment-list">
+                        </div>
+                    </div>
+                    <!-- blog details end -->
+
+                    <!-- blog sidebar start -->
+                    <div class="col-md-3 col-sm-4">
+                        <div class="blog-sidebar">
+                            {% comment %} <div class="search-area">
+                                <!-- search box start -->
+                                <div class="search-box">
+                                    <input type="text" placeholder="Search here...">
+                                    <button><i class="flaticon-search"></i></button>
+                                </div>
+                                <!-- search box end -->
+                            </div> {% endcomment %}
+                            <!-- recent post start -->
+                            <div class="single-sidebar">
+                                <div class="single-sidebar-title">
+                                    <h3>recent posts</h3>
+                                </div>
+                                <div class="single-sidebar-menu recent-post">
                                     <ul>
-                                        <!-- comment reply start -->
-                                        <li>
-                                            <div class="author-img pull-left">
-                                                <img src="assets/img/blog/user.jpg" alt="">
-                                            </div>
-                                            <div class="author-comment pull-left">
-                                                <h5><a href="#">Hridoy roy</a>2017, 13 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
-                                            </div>
-                                        </li>
-                                        <!-- comment reply end -->
-                                        <!-- comment reply start -->
-                                        <li class="comment-reply">
-                                            <div class="author-img pull-left">
-                                                <img src="assets/img/blog/user-2.jpg" alt="">
-                                            </div>
-                                            <div class="author-comment pull-left">
-                                                <h5><a href="#">Jhon Doe</a>2017, 14 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
-                                            </div>
-                                        </li>
-                                        <!-- comment reply end -->
-                                        <!-- comment reply start -->
-                                        <li>
-                                            <div class="author-img pull-left">
-                                                <img src="assets/img/blog/user.jpg" alt="">
-                                            </div>
-                                            <div class="author-comment pull-left">
-                                                <h5><a href="#">Hridoy roy</a>2017, 15 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
-                                            </div>
-                                        </li>
-                                        <!-- comment reply end -->
-                                        <!-- comment reply start -->
-                                        <li class="comment-reply">
-                                            <div class="author-img pull-left">
-                                                <img src="assets/img/blog/user-2.jpg" alt="">
-                                            </div>
-                                            <div class="author-comment pull-left">
-                                                <h5><a href="#">Jhon Smith</a>2017, 17 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
-                                            </div>
-                                        </li>
-                                        <!-- comment reply end -->
+                                    {% for blog in recent_blogs %}
+                                    <li>
+                                    {% comment %} <div class="row">
+                                    <div class="col-md-2 col-sm-2"> {% endcomment %}
+                                    {% if forloop.counter|divisibleby:2 %}
+                                    <i class="far fa-comment"></i>
+                                    {% else %}
+                                    <i class="far fa-comment-alt"></i>
+                                    {% endif %}
+                                    {% comment %} </div> {% endcomment %}
+                                    {% comment %} <div class="col-md-10 col-sm-10"> {% endcomment %}
+                                    <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+                                    {% comment %} </div> {% endcomment %}
+                                    </li>
+                                    {% endfor %}
                                     </ul>
                                 </div>
                             </div>
-                            <!-- post comment box end -->
-                            <!-- write comment start -->
-                            <div class="blog-comment-form" id="contact-form">
-                                <h4>write your comment</h4>
-                                <!-- blog comment start -->
-                                <form action="#">
-                                    <div class="input-box">
-                                        <input type="text" placeholder="Name*">
-                                        <input type="email" placeholder="Email address *">
-                                    </div>
-                                    <div class="input-textarea">
-                                        <textarea cols="30" rows="3" placeholder="Message"></textarea>
-                                    </div>
-                                    <button type="submit" class="dark-btn button">post comment</button>
-                                </form>
-                                <!-- blog comment end -->
+                            <!-- recent post end -->
+                            {% comment %} <!-- popular post start -->
+                            <div class="single-sidebar">
+                                <div class="single-sidebar-title">
+                                    <h3>popular posts</h3>
+                                </div>
+                                <div class="single-sidebar-menu">
+                                    <ul>
+                                        <li><a href="#">next blog post title here</a></li>
+                                        <li><a href="#">here goes another title</a></li>
+                                        <li><a href="#">other blog post title </a></li>
+                                        <li><a href="#">plan for making a project</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <!-- write comment end -->
+                            <!-- popular post end --> {% endcomment %}
+                            <!-- catagory start -->
+                            <div class="single-sidebar">
+                                <div class="single-sidebar-title">
+                                    <h3>Category</h3>
+                                </div>
+                                <div class="single-sidebar-menu">
+                                    <ul>
+                                    {% for category in categories %}
+                                        <li><i class="fas fa-folder-open"></i><a href="/blog?category={{category.id}}">{{ category.title }} ({{category.blog_set.all.count}})</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- catagory end -->
+                            <!-- archives start -->
+                            <div class="single-sidebar">
+                                <div class="single-sidebar-title">
+                                    <h3>Archives</h3>
+                                </div>
+                                <div class="single-sidebar-menu">
+                                    <ul>
+                                    {% for key, value in archives.items %}
+                                        {% for month in value %}
+                                        <li>
+                                        <i class="far fa-calendar-alt"></i><a href="/blog">{{month|month_name}} {{key}}</a>
+                                        </li>
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- archives end -->
+                            <!-- tag start -->
+                            <div class="single-sidebar">
+                                <div class="single-sidebar-title">
+                                    <h3>tags</h3>
+                                </div>
+                                <div class="tag-menu">
+                                    <ul>
+                                    {% for tag in tags %}
+                                    {% if tag.blog_set.all.count > 0%}
+                                    <li><a href="/blog?tag={{tag.id}}">{{tag.title}} ({{tag.blog_set.all.count}})</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- tag end -->
                         </div>
                     </div>
+                    <!-- blog sidebar end -->
                 </div>
             </div>
         </div>
         <!-- blog details area end -->
-        {% endblock %}
+{% endblock %}
