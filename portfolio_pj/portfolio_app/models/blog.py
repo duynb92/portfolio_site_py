@@ -44,6 +44,15 @@ class Blog(models.Model):
     def getYearOnly(self):
         return self.pub_date.strftime("%Y")
 
+    def getFirstImageUrl(self):
+        start = self.content.find("<img")
+        if (start > -1):
+            end = self.content.find("</img>")
+            substring = self.content[start:end]
+            return re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', substring)[0]
+        else:
+            return None
+
     @staticmethod
     def getArchives():
         blogs = Blog.objects.all().order_by('-pub_date')

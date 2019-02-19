@@ -25,17 +25,17 @@
                     <!-- blog posts start -->
                     <div class="col-md-9 col-sm-8">
                         <div class="row">
-                                {% for blog in blogs %}
+                                {% for blog in blogs.object_list %}
                                 <div class="col-md-12 col-sm-12">
                                 <div class="single-blog">
-                                    <div class="blog-bg blog-bg-1">
+                                    <div class="blog-bg" style="background-image: url('{{blog.getFirstImageUrl}}')">
                                         <div class="blog-date">
                                             <span>{{blog.getDateOnly}}</span>
                                             <span>{{blog.getMonthOnly}}</span>
                                         </div>
                                     </div>
                                     <div class="blog-content">
-                                        <h4><a href="blog/{{blog.id}}">{{blog.title}}</a></h4>
+                                        <h4><a href="blog/{{blog.getYearOnly}}/{{blog.getMonth}}/{{blog.slug}}">{{blog.title}}</a></h4>
                                         <div class="info">
                                             <ul>
                                             <li>
@@ -53,7 +53,7 @@
                                             </ul>
                                         </div>
                                         <div class="descriptions">{{blog.getPreview | safe}}</div>
-                                        <a href="blog/{{blog.id}}" class="bordered-btn">read more</a>
+                                        <a href="blog/{{blog.getYearOnly}}/{{blog.getMonth}}/{{blog.slug}}" class="bordered-btn">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,11 +65,19 @@
                                 <div class="pagination">
                                     <ul>
                                         <li><span>Pages:</span></li>
-                                        <li class="current"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#"> <i class="flaticon-next"></i> </a></li>
+                                        {% if blogs.has_previous %}
+                                        <li><a href="{{ request.path }}?page={{ blogs.previous_page_number }}"> <i class="flaticon-back"></i> </a></li>
+                                        {% endif %}
+                                        {% for i in blogs.paginator.page_range %}
+                                        {% if blogs.number == i %}
+                                            <li class="current"><a href="#">{{i}}</a></li>
+                                        {% else %}
+                                            <li><a href="{{ request.path }}?page={{ i }}">{{ i }}</a></li>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% if blogs.has_next %}
+                                        <li><a href="{{ request.path }}?page={{ blogs.next_page_number }}"> <i class="flaticon-next"></i> </a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -98,17 +106,12 @@
                                     <ul>
                                     {% for blog in recent_blogs %}
                                     <li>
-                                    {% comment %} <div class="row">
-                                    <div class="col-md-2 col-sm-2"> {% endcomment %}
                                     {% if forloop.counter|divisibleby:2 %}
                                     <i class="far fa-comment"></i>
                                     {% else %}
                                     <i class="far fa-comment-alt"></i>
                                     {% endif %}
-                                    {% comment %} </div> {% endcomment %}
-                                    {% comment %} <div class="col-md-10 col-sm-10"> {% endcomment %}
-                                    <a href="/blog/{{blog.id}}">{{blog.title}}</a>
-                                    {% comment %} </div> {% endcomment %}
+                                    <a href="/blog/{{blog.getYearOnly}}/{{blog.getMonth}}/{{blog.slug}}">{{blog.title}}</a>
                                     </li>
                                     {% endfor %}
                                     </ul>
@@ -133,12 +136,12 @@
                             <!-- catagory start -->
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
-                                    <h3>Category</h3>
+                                    <h3>Categories</h3>
                                 </div>
                                 <div class="single-sidebar-menu">
                                     <ul>
                                     {% for category in categories %}
-                                        <li><i class="fas fa-folder-open"></i><a href="/blog?category={{category.id}}">{{ category.title }} ({{category.blog_set.all.count}})</a></li>
+                                        <li><i class="fas fa-folder-open"></i><a href="/blog/category/{{category.slug}}">{{ category.title }} ({{category.blog_count}})</a></li>
                                     {% endfor %}
                                     </ul>
                                 </div>
@@ -154,7 +157,7 @@
                                     {% for key, value in archives.items %}
                                         {% for month in value %}
                                         <li>
-                                        <i class="far fa-calendar-alt"></i><a href="/blog">{{month|month_name}} {{key}}</a>
+                                        <i class="far fa-calendar-alt"></i><a href="/blog/{{key}}/{{month}}">{{month|month_name}} {{key}}</a>
                                         </li>
                                         {% endfor %}
                                         {% endfor %}
@@ -170,9 +173,9 @@
                                 <div class="tag-menu">
                                     <ul>
                                     {% for tag in tags %}
-                                    {% if tag.blog_set.all.count > 0%}
-                                    <li><a href="/blog?tag={{tag.id}}">{{tag.title}} ({{tag.blog_set.all.count}})</a></li>
-                                    {% endif %}
+                                    {% comment %} {% if tag.blog_set.all.count > 0%} {% endcomment %}
+                                    <li><a href="/blog/tag/{{tag.slug}}">{{tag.title}} ({{tag.blog_count}})</a></li>
+                                    {% comment %} {% endif %} {% endcomment %}
                                     {% endfor %}
                                     </ul>
                                 </div>

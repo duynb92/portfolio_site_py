@@ -2,7 +2,8 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Count
 from .models import *
 
 import os
@@ -31,29 +32,29 @@ def contact(req):
     return render(req, 'contact-3.html', context=vars(context))
 
 def blog(req):
-    tag_id = req.GET.get('tag')
-    category_id = req.GET.get('category')
-    if (tag_id is not None): 
-        blogs = Tag.objects.get(pk=tag_id).blog_set.all()
-    elif (category_id is not None):
-        blogs = Category.objects.get(pk=category_id).blog_set.all()
-    else:
-        blogs = Blog.objects.all()
-    categories = Category.objects.all()
-    tags = Tag.objects.all()
-    recent_blogs = Blog.objects.all().order_by('-pub_date')[:7]
-    archives = Blog.getArchives()
-    blog_context = BlogContext("Blog", blogs, recent_blogs, categories, tags, archives)
+    blogs = getBlogsWithPaging(req, Blog.objects.all().order_by('-pub_date'))
+    blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
     return render(req, 'blog-list.html', context=vars(blog_context))
 
-def blogWithId(req, blog_id):
-    blog = Blog.objects.get(pk=blog_id)
-    categories = Category.objects.all()
-    tags = Tag.objects.all()
-    recent_blogs = Blog.objects.all().order_by('-pub_date')[:7]
-    archives = Blog.getArchives()
-    blog_context = BlogDetailContext("Blog", blog, recent_blogs, categories, tags, archives)
+def blogWithSlug(req, blog_year, blog_month, blog_slug):
+    blog = Blog.objects.get(slug=blog_slug)
+    blog_context = BlogContext("Blog", blog, getRecentBlogs(), getCategories(), getTags(), getArchives())
     return render(req, 'blog-details.html', context=vars(blog_context))
+
+def blogArchive(req, blog_year, blog_month):
+    blogs = Blog.objects.filter(pub_date__year=blog_year, pub_date__month=blog_month)
+    blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    return render(req, 'blog-list.html', context=vars(blog_context))
+
+def blogWithTag(req, tag_slug):
+    blogs = getBlogsWithPaging(req,Tag.objects.get(slug=tag_slug).blog_set.all())
+    blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    return render(req, 'blog-list.html', context=vars(blog_context))
+
+def blogWithCategory(req, category_slug):
+    blogs = getBlogsWithPaging(req,Category.objects.get(slug=category_slug).blog_set.all())
+    blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    return render(req, 'blog-list.html', context=vars(blog_context))
 
 def cv(req):
     file_path = os.path.join(settings.STATIC_ROOT, 'CV_NBD.pdf')
@@ -65,3 +66,29 @@ def cv(req):
     else:
         return render(req, 'eror-404.html')
     
+# Private Methods
+def getCategories():
+    return Category.objects.annotate(blog_count=Count('blog')).filter(blog_count__gt=0).order_by('-blog_count')
+
+def getTags():
+    return Tag.objects.annotate(blog_count=Count('blog')).filter(blog_count__gt=0).order_by('-blog_count')
+
+def getRecentBlogs():
+    return Blog.objects.all().order_by('-pub_date')[:7]
+
+def getArchives():
+    return Blog.getArchives()
+
+def getBlogsWithPaging(req, blog_list):
+    max_paging = 2
+    page_no = req.GET.get('page')
+    blogs_paginator = Paginator(blog_list, max_paging)
+    try:
+        blogs = blogs_paginator.page(page_no)
+    except PageNotAnInteger:
+        blogs = blogs_paginator.page(1)
+    except EmptyPage:
+        blogs = blogs_paginator.page(blogs_paginator.num_pages)
+    for blog in blogs:
+        print(blog.getFirstImageUrl())
+    return blogs
