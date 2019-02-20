@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 import logging
 from .models import *
 from .forms import *
