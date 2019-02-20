@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcrumb-content">
-                            <h2>{{blog.title}}</h2>
+                            <h2>{{context.blog.title}}</h2>
                             <ul class="breadcrumb">
                                 <li><a href="/">home</a></li>
                                 <li><a href="/blog">blog</a></li>
@@ -29,18 +29,29 @@
                                 <div class="blog-full-post">
                                     <!-- post details start -->
                                     <div class="details-content">
-                                        {{blog.content | safe}}
+                                        {{context.blog.content | safe}}
                                     </div>
                                     <!-- post details end -->
                                     <!-- post info start -->
                                     <div class="blog-info">
                                         <!-- post info -->
-                                        <p class="post-info">
-                                            <span> <i class="flaticon-user"></i> By Hridoy</span>
-                                            <span> <i class="flaticon-like"></i> (715)</span>
-                                            <span> <i class="flaticon-chat"></i> (139)</span>
-                                            <span class="pull-right"> <i class="flaticon-time"></i> 12, November, 2016</span>
-                                        </p>
+                                        <div class="info">
+                                            <ul>
+                                            <li>
+                                            <i class="fas fa-folder-open"></i>
+                                            <a href="/blog?category={{context.blog.category.id}}">{{context.blog.category.title}}</a>
+                                            </li>
+                                            <li> 
+                                            <i class="fas fa-hashtag"></i>
+                                            {% for tag in context.blog.tags.all %}
+                                            <a href="/blog?tag={{tag.id}}">
+                                            {% if forloop.last %}{{tag.title}}{% else %}{{tag.title}},{% endif %}
+                                            </a>
+                                            {% endfor %}
+                                            </li>
+                                            <li class="pull-right"><i class="far fa-calendar-alt"></i> {{context.blog.getDateTime}} </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <!-- post info end -->
                                     <!-- post comment box start -->
@@ -53,7 +64,7 @@
                                                         <img src="assets/img/blog/user.jpg" alt="">
                                                     </div>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">Hridoy roy</a>2017, 13 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <h5><a href="#">Hridoy 11roy</a>2017, 13 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
                                                         <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
                                                     </div>
                                                 </li>
@@ -64,7 +75,7 @@
                                                         <img src="assets/img/blog/user-2.jpg" alt="">
                                                     </div>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">Jhon Doe</a>2017, 14 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <h5><a href="#">Jhon 11Doe</a>2017, 14 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
                                                         <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
                                                     </div>
                                                 </li>
@@ -75,7 +86,7 @@
                                                         <img src="assets/img/blog/user.jpg" alt="">
                                                     </div>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">Hridoy roy</a>2017, 15 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <h5><a href="#">Hridoy 11</a>2017, 15 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
                                                         <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
                                                     </div>
                                                 </li>
@@ -86,7 +97,7 @@
                                                         <img src="assets/img/blog/user-2.jpg" alt="">
                                                     </div>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">Jhon Smith</a>2017, 17 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
+                                                        <h5><a href="#">Jhon 111Smith</a>2017, 17 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
                                                         <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
                                                     </div>
                                                 </li>
@@ -99,14 +110,19 @@
                                     <div class="blog-comment-form" id="contact-form">
                                         <h4>write your comment</h4>
                                         <!-- blog comment start -->
-                                        <form action="#">
+                                        <form method="POST" action=""> {% csrf_token %}
+                                            {% comment %} {{ form.non_field_errors }}
                                             <div class="input-box">
-                                                <input type="text" placeholder="Name*">
-                                                <input type="email" placeholder="Email address *">
+                                            {{ form.name.errors }}
+                                            {{ form.name }}
+                                            {{ form.email.errors }}
+                                            {{ form.email }}
                                             </div>
                                             <div class="input-textarea">
-                                                <textarea cols="30" rows="3" placeholder="Message"></textarea>
-                                            </div>
+                                            {{ form.content.errors }}
+                                            {{ form.content }}
+                                            </div> {% endcomment %}
+                                            {{ form }}
                                             <button type="submit" class="dark-btn button">post comment</button>
                                         </form>
                                         <!-- blog comment end -->
@@ -136,7 +152,7 @@
                                 </div>
                                 <div class="single-sidebar-menu recent-post">
                                     <ul>
-                                    {% for blog in recent_blogs %}
+                                    {% for blog in context.recent_blogs %}
                                     <li>
                                     {% if forloop.counter|divisibleby:2 %}
                                     <i class="far fa-comment"></i>
@@ -172,7 +188,7 @@
                                 </div>
                                 <div class="single-sidebar-menu">
                                     <ul>
-                                    {% for category in categories %}
+                                    {% for category in context.categories %}
                                         <li><i class="fas fa-folder-open"></i><a href="/blog/category/{{category.slug}}">{{ category.title }} ({{category.blog_count}})</a></li>
                                     {% endfor %}
                                     </ul>
@@ -186,7 +202,7 @@
                                 </div>
                                 <div class="single-sidebar-menu">
                                     <ul>
-                                    {% for key, value in archives.items %}
+                                    {% for key, value in context.archives.items %}
                                         {% for month in value %}
                                         <li>
                                         <i class="far fa-calendar-alt"></i><a href="/blog/{{key}}/{{month}}">{{month|month_name}} {{key}}</a>
@@ -204,7 +220,7 @@
                                 </div>
                                 <div class="tag-menu">
                                     <ul>
-                                    {% for tag in tags %}
+                                    {% for tag in context.tags %}
                                     {% comment %} {% if tag.blog_set.all.count > 0%} {% endcomment %}
                                     <li><a href="/blog/tag/{{tag.slug}}">{{tag.title}} ({{tag.blog_count}})</a></li>
                                     {% comment %} {% endif %} {% endcomment %}

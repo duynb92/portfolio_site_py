@@ -5,4 +5,4 @@ from .context.profile_context import ProfileContext
 from .context.blog_context import BlogsContext, BlogContext
 from .context.home_context import HomeContext
 from .facade import Facade
-from .blog import Blog, Tag, Category
+from .blog import Blog, Tag, Category, BlogComment

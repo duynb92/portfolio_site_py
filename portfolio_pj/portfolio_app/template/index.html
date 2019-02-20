@@ -84,7 +84,7 @@
 	
 					<!-- skill start -->
 					<div class="skill">
-							{% for skill in skills %}
+							{% for skill in context.skills %}
 						<!-- progress start -->
 						<div class="progress">
 							<div class="title">{{skill.name}}</div>
@@ -119,10 +119,10 @@
 							{% for hobby in hobbies %}
 							<div class="col-md-4 col-sm-6">
 									<div class="single-service-item text-center">
-										<i class="{{hobby.image}}"></i>
-										<h4>{{hobby.name}}</h4>
-										<p>{{hobby.quote}}</p>
-										<p>{{hobby.author}}</p>
+										<i class="{{context.hobby.image}}"></i>
+										<h4>{{context.hobby.name}}</h4>
+										<p>{{context.hobby.quote}}</p>
+										<p>{{context.hobby.author}}</p>
 									</div>
 								</div>
 							{% endfor %}

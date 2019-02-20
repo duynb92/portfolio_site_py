@@ -20,6 +20,16 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+class BlogComment(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    content = models.TextField(max_length=1000)
+    parent = models.ForeignKey('self', on_delete=models.PROTECT)
+    
+    def __str__(self):
+        return self.title
+
 class Blog(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
@@ -31,6 +41,9 @@ class Blog(models.Model):
 
     def getPreview(self):
         return self.remove_tags(self.content)[:300] + "..."
+
+    def getDateTime(self):
+        return self.pub_date.strftime("%d, %B, %Y")
 
     def getDateOnly(self):
         return self.pub_date.strftime("%d")

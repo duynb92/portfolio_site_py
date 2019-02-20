@@ -6,12 +6,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-content">
-                    <h2>{{title}}</h2>
+                    <h2>{{context.title}}</h2>
                     <ul class="breadcrumb">
                         <li>
                             <a href="/">home</a>
                         </li>
-                        <li>{{title}}</li>
+                        <li>{{context.title}}</li>
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,7 @@
         <!-- all project list start -->
         
         <div class="row project-lists">
-                {% for project in projects %}
+                {% for project in context.projects %}
                 <!-- portfolio details start -->
             <div class="col-xs-12 {{project.filters}}">
                 <div class="portfolio-details-items">

@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-content">
-                    <h2>{{title}}</h2>
+                    <h2>{{context.title}}</h2>
                     <ul class="breadcrumb">
                         <li>
                             <a href="/">home</a>
                         </li>
-                        <li>{{title}}</li>
+                        <li>{{context.title}}</li>
                     </ul>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <!-- services items start -->
             <div class="service-items service-style-1">
                 <div class="row">
-                    {% for service in services %}
+                    {% for service in context.services %}
                     <div class="col-md-4 col-sm-6">
                             <div class="single-service-item text-center">
                                 <i class="{{service.image}}"></i>

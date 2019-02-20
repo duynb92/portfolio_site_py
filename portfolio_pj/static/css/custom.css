@@ -94,8 +94,30 @@ You can put your custom css code here:
     text-transform: capitalize;
 }
 
+.blog-info .info li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 95%;
+}
+.blog-info .info li:last-child {
+    margin-right: 0;
+}
+.blog-info .info li a {
+    color: #222;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+}
+.blog-info .info li a i {
+    margin-right: 5px;
+}
+
 .blog-content h4 a {
     line-height: normal;
+}
+
+.details-content {
+    margin-bottom: 30px;
+    font-size: 16px;
 }
 
 .modal {
