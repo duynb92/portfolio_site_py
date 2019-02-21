@@ -276,7 +276,7 @@
 
     <!-- ajax-mail js
         ************************* -->
-    <script src="/static/js/ajax-mail.js"></script>
+    {% comment %} <script src="/static/js/ajax-mail.js"></script> {% endcomment %}
 
     <!-- magnific-popup js
         ************************* -->
@@ -297,6 +297,10 @@
     <!-- Modal js
         ************************* -->
     <script src="/static/js/modal.js"></script>
+
+    <!--Moment js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
 
     {% block javascript %} {% endblock %}
 </body>

@@ -120,6 +120,26 @@ You can put your custom css code here:
     font-size: 16px;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea {
+    text-transform: none;
+}
+
+.comment-box ul li .author-comment {
+    padding-left: 0px;
+    width: 100%;
+}
+
+.comment-box ul li {
+    border-radius: 20px;
+}
+.author-comment p {
+    margin-top: 5px;
+}
+
 .modal {
     text-align: center;
     padding: 0!important;

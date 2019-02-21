@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 {% load calendar_converter %}
+{% load tz %}
         <!-- breadcrumb-area start -->
-        <div class="breadcrumb-area">
+        <div class="breadcrumb-area blog-breadcrumb-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -58,60 +59,38 @@
                                     <div class="comment-box">
                                         <div class="comment-list">
                                             <ul>
-                                                <!-- comment reply start -->
+                                            {% for comment in context.blog.blogcomment_set.all %}
+                                            {% if comment.isParent %}
+                                                <!-- comment start -->
                                                 <li>
-                                                    <div class="author-img pull-left">
-                                                        <img src="assets/img/blog/user.jpg" alt="">
-                                                    </div>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">Hridoy 11roy</a>2017, 13 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                        <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
+                                                        <h5><a href="">{{comment.name}}</a><span id="comment-timestamp" datetime="{{comment.timestamp|date:"c"}}"></span><a href="#comment-form" onclick="setParentComment('{{comment.id}}', '{{comment.name}}')" class="pull-right reply"><i class="fa fa-reply" aria-hidden="true"></i></a></h5>
+                                                        <p>{{comment.content}}</p>
                                                     </div>
                                                 </li>
-                                                <!-- comment reply end -->
+                                                {% else %}
+                                                <!-- comment end -->
                                                 <!-- comment reply start -->
                                                 <li class="comment-reply">
-                                                    <div class="author-img pull-left">
-                                                        <img src="assets/img/blog/user-2.jpg" alt="">
-                                                    </div>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">Jhon 11Doe</a>2017, 14 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                        <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
+                                                        <h5><a href="#">{{comment.name}}</a><span id="comment-timestamp" datetime="{{comment.timestamp|date:"c"}}"></span> </h5>
+                                                        <p>{{comment.content}}</p>
                                                     </div>
                                                 </li>
+                                                {% endif %}
                                                 <!-- comment reply end -->
-                                                <!-- comment reply start -->
-                                                <li>
-                                                    <div class="author-img pull-left">
-                                                        <img src="assets/img/blog/user.jpg" alt="">
-                                                    </div>
-                                                    <div class="author-comment pull-left">
-                                                        <h5><a href="#">Hridoy 11</a>2017, 15 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                        <p>tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspiciatis, consectetur tenetur rec ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo.</p>
-                                                    </div>
-                                                </li>
-                                                <!-- comment reply end -->
-                                                <!-- comment reply start -->
-                                                <li class="comment-reply">
-                                                    <div class="author-img pull-left">
-                                                        <img src="assets/img/blog/user-2.jpg" alt="">
-                                                    </div>
-                                                    <div class="author-comment pull-left">
-                                                        <h5><a href="#">Jhon 111Smith</a>2017, 17 August <a href="#" class="pull-right reply"><i class="flaticon-mail"></i></a></h5>
-                                                        <p>ae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo tem repudi andae repellat eos eius, non quibusdam obcaecati harum tenetur ex nostrum quo? Aliquam consequuntur ad optio ut perspici.</p>
-                                                    </div>
-                                                </li>
-                                                <!-- comment reply end -->
+                                                {% endfor %}
                                             </ul>
                                         </div>
                                     </div>
                                     <!-- post comment box end -->
                                     <!-- write comment start -->
-                                    <div class="blog-comment-form" id="contact-form">
-                                        <h4>write your comment</h4>
+                                    <div class="blog-comment-form" >
+                                    <h4 id="form-title">write your comment</h4>
                                         <!-- blog comment start -->
-                                        <form method="POST" action=""> {% csrf_token %}
-                                            {% comment %} {{ form.non_field_errors }}
+                                        <form method="POST" id="comment-form"> {% csrf_token %}
+                                            {{ form.non_field_errors }}
+                                            {{ form.parent.as_hidden }}
                                             <div class="input-box">
                                             {{ form.name.errors }}
                                             {{ form.name }}
@@ -121,9 +100,15 @@
                                             <div class="input-textarea">
                                             {{ form.content.errors }}
                                             {{ form.content }}
-                                            </div> {% endcomment %}
-                                            {{ form }}
-                                            <button type="submit" class="dark-btn button">post comment</button>
+                                            </div> 
+                                            <div class="row">
+                                            <div class="col-md-6 col-sm-6">
+                                            <button id="form-cancel-button" class="filled-btn" style="visibility:hidden" onclick="setParentComment('','')">cancel</button>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                            <button type="submit" class="dark-btn button pull-right">post comment</button>
+                                            </div>
+                                            </div>
                                         </form>
                                         <!-- blog comment end -->
                                     </div>
@@ -240,7 +225,35 @@
 
 {% block javascript %}
 <script>
-    // using jQuery
+    $(document).ready(function() {
+        //Adding validators to email input form
+        $('#comment-form #id_email').attr("title","Please provide a valid e-mail address");
+        $('#comment-form #id_email').attr("pattern","[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
+
+        //Convert to localtime
+        var now = moment();
+
+        $('span').each(function(i, e) {
+            if ($(e).attr("id") == 'comment-timestamp') {
+                var time = moment($(e).attr('datetime')).format("DD MMM YYYY, hh:mm a");
+                $(e).text(time);
+            }
+            
+        });
+    });
+
+    function setParentComment(commentId, commentName) {
+        $('#comment-form #id_parent').val(commentId);
+        if (commentId == '') {
+            $('.blog-comment-form #form-title').text("write your comment");
+            $('.blog-comment-form #form-cancel-button').attr("style", "visibility:hidden");
+        } else {
+            $('.blog-comment-form #form-title').text("reply to " + commentName + "'s comment");
+            $('.blog-comment-form #form-cancel-button').attr("style", "visibility:visible");
+        }
+    }
+
+    {% comment %} // using jQuery
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie != '') {
@@ -284,7 +297,7 @@
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
             }
         }
-    });
+    }); {% endcomment %}
 
 </script>
 {% endblock %}

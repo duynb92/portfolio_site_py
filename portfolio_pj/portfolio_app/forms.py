@@ -5,16 +5,9 @@ from .models import BlogComment
 class CommentForm(forms.ModelForm):
     class Meta:
         model = BlogComment
-        fields = ('name', 'email', 'content',)
+        fields = ('name', 'email', 'content', 'parent')
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Name'}),
-            'email': forms.TextInput(attrs={'placeholder': 'Email address'}),
-            'content': forms.Textarea(
-                attrs={'placeholder': 'Comment'}),
-        }
-        error_messages = {
-            'name': {
-                'max_length': ("Name is too long."),
-                'empty' : ("Name is empty."),
-            },
+            'name': forms.TextInput(attrs={'placeholder': 'Enter your name'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email address'}),
+            'content': forms.Textarea(attrs={'placeholder': 'Enter your comment'}),
         }

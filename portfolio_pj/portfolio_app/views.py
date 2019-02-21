@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 import logging
 from .models import *
 from .forms import *
@@ -36,7 +37,6 @@ def contact(req):
     return render(req, 'contact-3.html', {"context": context,})
 
 def blog(req):
-    print('HERERERE111111')
     blogs = getBlogsWithPaging(req, Blog.objects.all().order_by('-pub_date'))
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
     return render(req, 'blog-list.html', {"context": blog_context})
@@ -47,20 +47,24 @@ def blogWithSlug(req, blog_year, blog_month, blog_slug):
     blog_context = BlogContext("Blog", blog, getRecentBlogs(), getCategories(), getTags(), getArchives())
     # if this is a POST request we need to process the form data
     if req.method == 'POST':
-        print("HEERE")
         # create a form instance and populate it with data from the request:
-        form = CommentForm(request.POST)
+        form = CommentForm(req.POST)
         # check whether it's valid:
         if form.is_valid():
-            print("Form is valid")
             # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
+            # save the data
+            comment = form.save(commit=False)
+            if (form.cleaned_data['parent'] is not None):
+                comment.parent_id = form.cleaned_data['parent'].id
+            comment.blog_id = blog.id
+            comment.save()
+            form = CommentForm()
+            return HttpResponseRedirect("/blog/%s/%s/%s" % (blog_year,blog_month,blog_slug))
+        
     # if a GET (or any other method) we'll create a blank form
     else:
         form = CommentForm()
+
     return render(req, 'blog-details.html', {"context": blog_context, "form" : form})
 
 def blogArchive(req, blog_year, blog_month):
