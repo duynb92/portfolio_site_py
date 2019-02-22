@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 {% load calendar_converter %}
+{% load tz_detect %}
         <!-- breadcrumb-area start -->
         <div class="breadcrumb-area blog-breadcrumb-area">
             <div class="container">
@@ -34,12 +35,12 @@
                                     <div class="blog-bg" style="background-image: url('{{blog.getFirstImageUrl}}')">
                                     {% endif %}
                                         <div class="blog-date">
-                                            <span>{{blog.getDateOnly}}</span>
-                                            <span>{{blog.getMonthOnly}}</span>
+                                            <span>{{blog.pub_date|date:'d'}} {% tz_detect %}</span>
+                                            <span>{{blog.pub_date|date:'M'}} {% tz_detect %}</span>
                                         </div>
                                     </div>
                                     <div class="blog-content">
-                                        <h4><a href="blog/{{blog.getYearOnly}}/{{blog.getMonth}}/{{blog.slug}}">{{blog.title}}</a></h4>
+                                        <h4><a href="blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a></h4>
                                         <div class="info">
                                             <ul>
                                             <li>
@@ -57,7 +58,7 @@
                                             </ul>
                                         </div>
                                         <div class="descriptions">{{blog.getPreview | safe}}</div>
-                                        <a href="blog/{{blog.getYearOnly}}/{{blog.getMonth}}/{{blog.slug}}" class="bordered-btn">read more</a>
+                                        <a href="blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}" class="bordered-btn">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +116,7 @@
                                     {% else %}
                                     <i class="far fa-comment-alt"></i>
                                     {% endif %}
-                                    <a href="/blog/{{blog.getYearOnly}}/{{blog.getMonth}}/{{blog.slug}}">{{blog.title}}</a>
+                                    <a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a>
                                     </li>
                                     {% endfor %}
                                     </ul>
@@ -158,10 +159,10 @@
                                 </div>
                                 <div class="single-sidebar-menu">
                                     <ul>
-                                    {% for key, value in context.archives.items %}
+                                    {% for year, value in context.archives.items %}
                                         {% for month in value %}
                                         <li>
-                                        <i class="far fa-calendar-alt"></i><a href="/blog/{{key}}/{{month}}">{{month|month_name}} {{key}}</a>
+                                        <i class="far fa-calendar-alt"></i><a href="/blog/{{year}}/{{month}}">{{month|month_name}} {{year}}</a>
                                         </li>
                                         {% endfor %}
                                         {% endfor %}

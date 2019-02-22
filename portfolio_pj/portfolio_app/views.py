@@ -7,7 +7,6 @@ from django.db.models import Count
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
-import logging
 from .models import *
 from .forms import *
 
@@ -41,8 +40,7 @@ def blog(req):
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
     return render(req, 'blog-list.html', {"context": blog_context})
 
-def blogWithSlug(req, blog_year, blog_month, blog_slug):
-    logging.info('request MEAT for csrf: %s', req.META.get('CSRF_COOKIE'))
+def blogWithSlug(req, blog_year, blog_month, blog_day, blog_slug):
     blog = Blog.objects.get(slug=blog_slug)
     blog_context = BlogContext("Blog", blog, getRecentBlogs(), getCategories(), getTags(), getArchives())
     # if this is a POST request we need to process the form data
@@ -59,7 +57,7 @@ def blogWithSlug(req, blog_year, blog_month, blog_slug):
             comment.blog_id = blog.id
             comment.save()
             form = CommentForm()
-            return HttpResponseRedirect("/blog/%s/%s/%s" % (blog_year,blog_month,blog_slug))
+            return HttpResponseRedirect("/blog/%s/%s/%s/%s" % (blog_year,blog_month,blog_day,blog_slug))
         
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -68,7 +66,7 @@ def blogWithSlug(req, blog_year, blog_month, blog_slug):
     return render(req, 'blog-details.html', {"context": blog_context, "form" : form})
 
 def blogArchive(req, blog_year, blog_month):
-    blogs = Blog.objects.filter(pub_date__year=blog_year, pub_date__month=blog_month)
+    blogs = getBlogsWithPaging(req, Blog.objects.filter(pub_date__year=blog_year, pub_date__month=blog_month))
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
     return render(req, 'blog-list.html', {"context": blog_context})
 

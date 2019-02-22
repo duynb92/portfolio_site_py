@@ -3,9 +3,6 @@ from django.db import models
 from ckeditor.fields import RichTextField
 import re
 from autoslug import AutoSlugField
-from pytz import timezone, utc
-from django.conf import settings
-# from django.utils import timezone
 
 class Tag(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -90,12 +87,3 @@ class BlogComment(models.Model):
             return True
         else:
             return False
-
-    def utcisoformat(self):
-    # Return a datetime object in ISO 8601 format in UTC, without microseconds
-    # or time zone offset other than 'Z', e.g. '2011-06-28T00:00:00Z'. Useful
-    # for making Django DateTimeField values compatible with the
-    # jquery.localtime plugin.
-    # Convert datetime to UTC, remove microseconds, remove timezone, convert to string
-        TZ = timezone(settings.TIME_ZONE)
-        return TZ.localize(django.utils.timezone.make_aware(self.timestamp).replace(microsecond=0)).astimezone(utc).replace(tzinfo=None).isoformat() + 'Z'
