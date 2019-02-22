@@ -30,7 +30,7 @@
                                 <div class="col-md-12 col-sm-12">
                                 <div class="single-blog">
                                     {% if blog.getFirstImageUrl == None %}
-                                    <div class="blog-bg" style="background-image: url('https://goo.gl/x7fhph')">
+                                    <div class="blog-bg" style="background-image: url('https://goo.gl/mqkGjw')">
                                     {% else %}
                                     <div class="blog-bg" style="background-image: url('{{blog.getFirstImageUrl}}')">
                                     {% endif %}
@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="blog-content">
-                                        <h4><a href="blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a></h4>
+                                        <h4><a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a></h4>
                                         <div class="info">
                                             <ul>
                                             <li>
@@ -54,6 +54,10 @@
                                             {% if forloop.last %}{{tag.title}}{% else %}{{tag.title}},{% endif %}
                                             </a>
                                             {% endfor %}
+                                            </li>
+                                            <li class="pull-right">
+                                            <i class="far fa-comment"></i>
+                                            <a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}}#comment-form {% tz_detect %}"> {{blog.blogcomment_set.all|length}} {% if blog.blogcomment_set.all|length > 1 %} comments {% else %} comment {% endif %}</a>
                                             </li>
                                             </ul>
                                         </div>
