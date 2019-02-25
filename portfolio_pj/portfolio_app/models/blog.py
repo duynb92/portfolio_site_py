@@ -9,6 +9,8 @@ class Tag(models.Model):
     title = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from='title',unique=True,null=True)
 
+    timestamp = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return self.title
 
@@ -16,6 +18,8 @@ class Category(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from='title',unique=True,null=True)
+
+    timestamp = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title
@@ -28,6 +32,8 @@ class Blog(models.Model):
     pub_date = models.DateTimeField('date published')
     tags = models.ManyToManyField(Tag)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
+
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def getPreview(self):
         return self.remove_tags(self.content)[:300] + "..."
