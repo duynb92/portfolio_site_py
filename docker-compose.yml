@@ -20,6 +20,7 @@ services:
       - '5201:5201'
     volumes:
       - ./nginx/:/etc/nginx/conf.d
+      - static_volume:/app/static
     depends_on:
       - web
   web:
@@ -31,9 +32,11 @@ services:
       - db
     volumes:
       - ./portfolio_pj:/app
+      - static_volume:/app/static
     expose:
       - "5201"
 
 volumes:
   psql:
     driver: local
+  static_volume:
