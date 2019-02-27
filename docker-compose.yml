@@ -11,7 +11,7 @@ services:
     environment:
       - POSTGRES_USER=portfolio
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=portfolio_site
   nginx:
     image: nginx:latest
     container_name: portfolio_site_nginx
