@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': 'portfolio_site',
         'USER': 'portfolio',
         'PASSWORD': 'password',
-        #'HOST': 'db',
-        'HOST': 'localhost',
+        'HOST': 'db',
+        #'HOST': 'localhost',
         'PORT': '',
     }
 }
