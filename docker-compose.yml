@@ -7,7 +7,6 @@ services:
     restart: always
     volumes:
       - psql:/var/lib/postgres/data
-      - ./backupdb:/backupdb
     environment:
       - POSTGRES_USER=portfolio
       - POSTGRES_PASSWORD=password
@@ -27,7 +26,6 @@ services:
     build: ./portfolio_pj
     container_name: portfolio_site_web
     restart: always
-    # command: bash -c "python manage.py runserver 0.0.0.0:5201"
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:5201"
     depends_on:
       - db
