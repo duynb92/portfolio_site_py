@@ -27,7 +27,8 @@ services:
     build: ./portfolio_pj
     container_name: portfolio_site_web
     restart: always
-    command: bash -c "gunicorn portfolio_pj.wsgi -b 0.0.0.0:5201"
+    #command: bash -c "gunicorn portfolio_pj.wsgi -b 0.0.0.0:5201"
+    command: python manage.py runserver 0.0.0.0:5201
     depends_on:
       - db
     volumes:
