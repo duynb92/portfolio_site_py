@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': 'portfolio_site',
         'USER': 'portfolio',
         'PASSWORD': 'password',
-        'HOST': 'db',
-        # 'HOST': 'localhost',
+        #'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
@@ -132,7 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "/static/"),
+]
+#STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 # STATIC_URL = 'app/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/static/')
 
