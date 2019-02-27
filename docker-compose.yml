@@ -8,10 +8,10 @@ services:
     volumes:
       - psql:/var/lib/postgres/data
       - ./backupdb:/backupdb
-    # environment:
-    #   - POSTGRES_USER=portfolio
-    #   - POSTGRES_PASSWORD=password
-    #   - POSTGRES_DB=postgres
+    environment:
+      - POSTGRES_USER=portfolio
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
   nginx:
     image: nginx:latest
     container_name: portfolio_site_nginx
