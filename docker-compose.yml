@@ -8,10 +8,10 @@ services:
     volumes:
       - psql:/var/lib/postgres/data
       - ./backupdb:/backupdb
-    environment:
-      - POSTGRES_USER=portfolio
-      - POSTGRES_PASSWORD=password
-      #- POSTGRES_DB=portfolio_site
+    # environment:
+    #   - POSTGRES_USER=portfolio
+    #   - POSTGRES_PASSWORD=password
+    #   - POSTGRES_DB=postgres
   nginx:
     image: nginx:latest
     container_name: portfolio_site_nginx
@@ -28,7 +28,7 @@ services:
     container_name: portfolio_site_web
     restart: always
     #command: bash -c "gunicorn portfolio_pj.wsgi -b 0.0.0.0:5201"
-    command: python manage.py runserver 0.0.0.0:5201
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:5201"
     depends_on:
       - db
     volumes:
