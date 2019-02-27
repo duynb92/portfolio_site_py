@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres:11.1
+    container_name: portfolio_site_db
+    restart: always
+    volumes:
+      - psql:/var/lib/postgres/data
+      - ./backupdb:/backupdb
+    environment:
+      - POSTGRES_USER=portfolio
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=portfolio_site
+  nginx:
+    image: nginx:latest
+    container_name: portfolio_site_nginx
+    restart: always
+    ports:
+      - '5201:5201'
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d
+    depends_on:
+      - web
+  web:
+    build: ./portfolio_pj
+    container_name: portfolio_site_web
+    restart: always
+    command: bash -c "gunicorn portfolio_pj.wsgi -b 0.0.0.0:5201"
+    depends_on:
+      - db
+    volumes:
+      - ./portfolio_pj:/app
+    expose:
+      - "5201"
+
+volumes:
+  psql:
+    driver: local
