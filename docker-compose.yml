@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:11.1
     container_name: portfolio_site_db
-    restart: always
+    #restart: always
     volumes:
       - psql:/var/lib/postgres/data
     environment:
