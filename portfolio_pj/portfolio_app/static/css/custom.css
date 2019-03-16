@@ -120,6 +120,11 @@ You can put your custom css code here:
     font-size: 16px;
 }
 
+.details-content ul {
+    list-style: disc;
+    margin: 0px 0px 20px 40px;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="tel"],
