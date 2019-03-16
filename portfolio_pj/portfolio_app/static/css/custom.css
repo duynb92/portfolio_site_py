@@ -121,7 +121,7 @@ You can put your custom css code here:
 }
 
 .details-content ul {
-    list-style: disc;
+    list-style-type: disc;
     margin: 0px 0px 20px 40px;
 }
 
