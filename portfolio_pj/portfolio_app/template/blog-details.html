@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 {% load calendar_converter %}
-{% load tz_detect %}
         <!-- breadcrumb-area start -->
         <div class="breadcrumb-area blog-breadcrumb-area">
             <div class="container">
@@ -50,7 +49,7 @@
                                             </a>
                                             {% endfor %}
                                             </li>
-                                            <li class="pull-right"><i class="far fa-calendar-alt"></i> {{context.blog.pub_date|date:'d F Y'}} {% tz_detect %}</li>
+                                            <li class="pull-right"><i class="far fa-calendar-alt"></i> <span id="full-date">{{context.blog.pub_date|date:'c'}}</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -64,13 +63,13 @@
                                                 <!-- comment start -->
                                                 <li>
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="">{{comment.name}}</a><span>{{comment.timestamp|date:'d M Y, h:i a'}} {% tz_detect %}</span><a href="#comment-form" onclick="setParentComment('{{comment.id}}', '{{comment.name}}')" class="pull-right reply"><i class="fa fa-reply" aria-hidden="true"></i></a></h5>
+                                                        <h5><a href="">{{comment.name}}</a><span id="full-datetime">{{comment.timestamp|date:'c'}}</span><a href="#comment-form" onclick="setParentComment('{{comment.id}}', '{{comment.name}}')" class="pull-right reply"><i class="fa fa-reply" aria-hidden="true"></i></a></h5>
                                                 {% else %}
                                                 <!-- comment end -->
                                                 <!-- comment reply start -->
                                                 <li class="comment-reply">
                                                     <div class="author-comment pull-left">
-                                                        <h5><a href="#">{{comment.name}}</a><span>{{comment.timestamp|date:'d M Y, h:i a'}} {% tz_detect %}</span> </h5>
+                                                        <h5><a href="#">{{comment.name}}</a><span id="full-datetime">{{comment.timestamp|date:'c'}}</span></h5>
                                                 {% endif %}
                                                         <p>{{comment.content}}</p>
                                                     </div>
@@ -141,7 +140,7 @@
                                     {% else %}
                                     <i class="far fa-comment-alt"></i>
                                     {% endif %}
-                                    <a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a>
+                                    <a id="blog-url" datetime={{blog.pub_date|date:'c'}} href="/blog/{{blog.slug}}">{{blog.title}}</a>
                                     </li>
                                     {% endfor %}
                                     </ul>

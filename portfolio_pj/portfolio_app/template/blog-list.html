@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 {% load calendar_converter %}
-{% load tz_detect %}
         <!-- breadcrumb-area start -->
         <div class="breadcrumb-area blog-breadcrumb-area">
             <div class="container">
@@ -35,12 +34,12 @@
                                     <div class="blog-bg" style="background-image: url('{{blog.getFirstImageUrl}}')">
                                     {% endif %}
                                         <div class="blog-date">
-                                            <span>{{blog.pub_date|date:'d'}} {% tz_detect %}</span>
-                                            <span>{{blog.pub_date|date:'M'}} {% tz_detect %}</span>
+                                            <span id="date-only">{{blog.pub_date|date:'c'}}</span>
+                                            <span id="month-only">{{blog.pub_date|date:'c'}}</span>
                                         </div>
                                     </div>
                                     <div class="blog-content">
-                                        <h4><a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a></h4>
+                                        <h4><a id="blog-url" datetime={{blog.pub_date|date:'c'}} href="/blog/{{blog.slug}}">{{blog.title}}</a></h4>
                                         <div class="info">
                                             <ul>
                                             <li>
@@ -57,12 +56,12 @@
                                             </li>
                                             <li class="pull-right">
                                             <i class="far fa-comment"></i>
-                                            <a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}}#comment-form {% tz_detect %}"> {{blog.blogcomment_set.all|length}} {% if blog.blogcomment_set.all|length > 1 %} comments {% else %} comment {% endif %}</a>
+                                            <a id="blog-url" datetime={{blog.pub_date|date:'c'}} href="/blog/{{blog.slug}}#comment-form"> {{blog.blogcomment_set.all|length}} {% if blog.blogcomment_set.all|length > 1 %} comments {% else %} comment {% endif %}</a>
                                             </li>
                                             </ul>
                                         </div>
                                         <div class="descriptions">{{blog.getPreview | safe}}</div>
-                                        <a href="blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}" class="bordered-btn">read more</a>
+                                        <a id="blog-url" datetime={{blog.pub_date|date:'c'}} href="/blog/{{blog.slug}}" class="bordered-btn">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +119,7 @@
                                     {% else %}
                                     <i class="far fa-comment-alt"></i>
                                     {% endif %}
-                                    <a href="/blog/{{blog.pub_date|date:'Y'}}/{{blog.pub_date|date:'m'}}/{{blog.pub_date|date:'d'}}/{{blog.slug}} {% tz_detect %}">{{blog.title}}</a>
+                                    <a id="blog-url" datetime={{blog.pub_date|date:'c'}} href="/blog/{{blog.slug}}">{{blog.title}}</a>
                                     </li>
                                     {% endfor %}
                                     </ul>
