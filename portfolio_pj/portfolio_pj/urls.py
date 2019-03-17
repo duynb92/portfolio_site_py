@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from portfolio_app.views import *
-import tz_detect
 
 urlpatterns = [
     path('admin', admin.site.urls),
@@ -31,7 +30,6 @@ urlpatterns = [
     path('blog/tag/<slug:tag_slug>', blogWithTag),
     path('blog/category/<slug:category_slug>', blogWithCategory),
     path('blog', blog),
-    path('tz_detect/', include('tz_detect.urls')),
     path('cv', cv),
     path('', index),
     
