@@ -104,7 +104,7 @@ def getArchives():
     return Blog.getArchives()
 
 def getBlogsWithPaging(req, blog_list):
-    max_paging = 2
+    max_paging = 5
     page_no = req.GET.get('page')
     blogs_paginator = Paginator(blog_list, max_paging)
     try:
