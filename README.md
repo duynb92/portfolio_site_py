@@ -3,7 +3,7 @@ Portfolio site written using Python and Django framework
 
 ### Useful command
 #### Start docker
-```docker-compose up```
+```docker-compose up -d --build```
 #### Stop docker
 ```docker-compose down```
 #### Collectstatic
