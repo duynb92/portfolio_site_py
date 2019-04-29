@@ -444,10 +444,10 @@ class Facade:
     def getSkills():
         skills = [
             Skill(name="Swift", percent="90%"),
-            Skill(name="Obj-C", percent="80%"),
-            Skill(name="C#", percent="85%"),
+            Skill(name="Obj-C", percent="85%"),
+            Skill(name="C#", percent="80%"),
             Skill(name="Dart-Flutter", percent="60%"),
-            Skill(name="Python", percent="70%"),
+            Skill(name="Python", percent="75%"),
             Skill(name="Scripts (Bash/Ruby/Groovy)", percent="70%"),
         ]
         return skills
