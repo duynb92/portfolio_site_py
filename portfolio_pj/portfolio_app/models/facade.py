@@ -570,19 +570,25 @@ class Facade:
                     ),
                     ProfileItem(
                         time="ALM",
-                        title="Atlassian JIRA, Atlassian Confluence, ChatOps (HipChat | Slack)",
+                        title="JIRA, Confluence, JIRA Service Desk, ChatOps (HipChat | Slack)",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="Framework",
-                        title="Xamarin | iOS (Objective-C/Swift) | RxSwift | ASP.NET (MVC/Web API/Core) | NodeJS",
+                        title="Xamarin | iOS (Objective-C/Swift) | RxSwift | ASP.NET (MVC/Web API/Core) | Flutter",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="Architecture",
                         title="OOP/SOLID/DRY | Design Patterns | IoC/Dependency Injection | MVC/MVP/MVVM/Clean Architecture | Functional Reactive Programming",
+                        subTitle="",
+                        descriptions=[]
+                    ),
+                    ProfileItem(
+                        time="Testing",
+                        title="TDD | BDD | iOS Testing frameworks (Quick, Nimble)",
                         subTitle="",
                         descriptions=[]
                     ),
