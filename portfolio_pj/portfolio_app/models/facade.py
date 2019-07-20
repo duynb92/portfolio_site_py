@@ -511,12 +511,22 @@ class Facade:
                         title="ACP-JSW | ACP-300 | Atlassian Certified in Agile Development with Jira Software",
                         subTitle="Atlassian.com",
                         descriptions=["The Agile Development with Jira Software (ACP-JSW) credential builds on the professional's existing agile skills, with a focus on optimizing the power of Jira Software for their development teams. This credential is for scrum masters, project leads and board administrators."]),
-                        ProfileItem(
+                    ProfileItem(
                         time="2018",
                         title="AC-JPA | ACP-600 | Atlassian Certified in Jira Project Administration",
                         subTitle="Atlassian.com",
-                        descriptions=["Capable Project Administrators are essential to the optimal functioning of Jira Software in large organizations. Certified Jira Project Administrators are the power users who know how to configure projects and boards, customize workflows and manage..."]),
-                ]),
+                        descriptions=["Capable Project Administrators are essential to the optimal functioning of Jira Software in large organizations. Certified Jira Project Administrators are the power users who know how to configure projects and boards, customize workflows and manage project permissions in their organization's Jira Server or Data Center instance. They live in Jira day-to-day, and can help scale their instance to meet the demand of their business, so their Jira Administrator and teams can get more work done."]),
+                    ProfileItem(
+                        time="2019",
+                        title="ACP-JSD | ACP-400 | Atlassian Certified Jira Service Desk Administrator",
+                        subTitle="Atlassian.com",
+                        descriptions=["The Atlassian Certified Professional Jira Service Desk Administrator (ACP-JSD) manages, customizes, and configures Jira Service Desk. Certification in Jira Service Desk Administration covers the skills needed to set up and optimize Jira Service Desk for any service management team."]),
+                    ProfileItem(
+                        time="2019",
+                        title="ACP-JA | ACP-100 | Atlassian Certified Jira Administrator",
+                        subTitle="Atlassian.com",
+                        descriptions=["The Atlassian Certified Professional Jira Administrator (ACP-JA) manages, customizes, and configures Jira from within the Jira user interface, while ensuring the performance, scalability and day-to-day manageability of the product. The ACP-JA has proven skills needed to optimize Jira for any development or business team."]),
+            ]),
         Profile(
             "work experiences",
             profileItems=[
