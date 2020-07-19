@@ -10,131 +10,96 @@ class Facade:
     def getProjects():
         projects = [
             Project(
-                name="OnlineLEDStore",
-                tag="onlineledstore",
+                name="Respect Confluence theme customizations",
+                tag="respect",
                 filters="atlassian",
                 description=
-                "JIRA, Confluence server custom complex workflow and integration setup for e-commerce SME",
+                "Building intranet platform using Confluence, using Refined for customize Confluence and add structure, theme, layout and navigation.",
+                client="Australia",
+                roles="Confluence Administator",
+                skills="Confluence Configuration | Refined for Confluence",
+                length="2 months",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
+                name="JarvisAnalytics Jira/JSD/Confluence",
+                tag="jarvisanalytics",
+                filters="atlassian",
+                description=
+                "Jira/JSD Cloud cleanup, setting up JSD workflows. Create dashboards and reports on Jira. Create custom templates for meeting notes, client reports.",
                 client="United States",
-                roles="JIRA & Confluence Administator",
-                skills="Linux | JIRA Configuration | JIRA REST API | Confluence REST API",
+                roles="Jira & Confluence Administator",
+                skills="Jira/JSD/Confluence Configuration | Jira REST API | Confluence REST API",
                 length="3 months",
                 categories=[],
                 links=[],
                 screenshots=0),
             Project(
-                name="Allen kkl-lurzen.ch",
-                tag="kkl-lurzen.ch",
+                name="CASupport JEMH Cloud Configuration",
+                tag="casupport",
                 filters="atlassian",
                 description=
-                "Implement custom workflow functions using ScriptRunner, mainly focus on task/subtasks creation, complex workflow cycle development. Writing script using Groovy, apply to specific workflow for specific use cases. Working with conditions, validators, post-functions, REST Endpoints",
-                client="Switzerland",
-                roles="JIRA Scripting",
-                skills="Groovy scripting | ScriptRunner | MyGroovy | JIRA REST API",
-                length="Time-based tasks",
+                "Basic and advanced configurations for Enterprise Mail Handler for Jira (JEMH) on Jira Service Desk to customize email template, like adding actions, automate workflows, approve/decline requests.",
+                client="United States",
+                roles="JSD Administator",
+                skills="JSD Configuration | JEMH",
+                length="1 months",
                 categories=[],
                 links=[],
                 screenshots=0),
             Project(
-                name="Migration Server to Cloud",
+                name="OnlineLEDStore",
+                tag="onlineledstore",
+                filters="atlassian",
+                description=
+                "Jira & Confluence server custom complex workflow and integration setup for e-commerce SME. Writing groovy scripts to automate the workflows, syncing data between Jira and Confluence.",
+                client="United States",
+                roles="Jira & Confluence Administator",
+                skills="Linux | Jira/Confluence Configuration | Jira REST API | Confluence REST API",
+                length="3 months",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
+                name="Migration Jira Server to Jira Cloud",
                 tag="upmc",
                 filters="atlassian",
                 description=
-                "Perform migration client's self-hosted JIRA & Confluence to Cloud, without any data loss. The self-hosted JIRA instance have 1000+ users and 120+ projects, Confluence have 160+ spaces with over 15GB of attachments.",
+                "Perform migration client's self-hosted Jira & Confluence to Cloud, without any data loss. The self-hosted Jira instance have 1000+ users and 120+ projects, Confluence have 160+ spaces with over 15GB of attachments.",
                 client="United States",
-                roles="JIRA Administrator",
-                skills="Linux | JIRA & Confluence Migration & Troubleshooting",
+                roles="Jira Administrator",
+                skills="Linux | Jira & Confluence Migration & Troubleshooting",
                 length="1 month",
                 categories=[],
                 links=[],
                 screenshots=0),
             Project(
-                name="Migration from desk.com to JIRA Service Desk Cloud",
+                name="Migration from desk.com to Jira Service Desk Cloud",
                 tag="barcodes",
                 filters="atlassian",
                 description=
-                "Moving and transform 30k+ tickets from desk.com to JIRA issues. Replicate desk.com workflows and transitions on JIRA Service Desk. Apply automate mailbox gateway and automation rules follow clients' requirements.",
+                "Moving and transform 30k+ tickets from desk.com to Jira issues. Replicate desk.com workflows and transitions on Jira Service Desk. Apply automate mailbox gateway and automation rules follow clients' requirements.",
                 client="United States",
-                roles="JIRA Administrator",
-                skills="Linux | JIRA Service Desk Migration & Configuration | Python scripting | JIRA CLI",
+                roles="Jira Administrator",
+                skills="Linux | Jira Service Desk Migration & Configuration | Python scripting | Jira CLI",
                 length="1 month",
                 categories=[],
                 links=[],
                 screenshots=0),
             Project(
-                name="Migration from ConnectWise to JIRA Service Desk Server",
+                name="Migration from ConnectWise to Jira Service Desk Server",
                 tag="appnovation",
                 filters="atlassian",
                 description=
-                "Moving and transform 20k+ tickets from ConnectWise to JIRA issues. Implement customize workflows and transitions for different request types, portal settings and configurations. Setting up and configure Tempo Timesheets integrated with JSD.",
+                "Moving and transform 20k+ tickets from ConnectWise to Jira issues. Implement customize workflows and transitions for different request types, portal settings and configurations. Setting up and configure Tempo Timesheets integrated with JSD.",
                 client="United States",
-                roles="JIRA Administrator",
-                skills="Linux | JIRA Service Desk Migration & Configuration | Python scripting | ScriptRunner | Tempo Timesheets",
+                roles="Jira Administrator",
+                skills="Linux | Jira Service Desk Migration & Configuration | Python scripting | ScriptRunner | Tempo Timesheets",
                 length="1 month",
                 categories=[],
                 links=[],
                 screenshots=0),
-            # Project(
-            #     name="Zingit",
-            #     tag="zingit",
-            #     filters="xamarin net",
-            #     description=
-            #     "When it comes to connecting buyers and sellers online, whether locally or nationally, we are passionate about doing it right. At Zingit we believe many of the online marketplaces available today fall short on delivering a seamless and enjoyable experience, and that is why we have created an exciting and innovative solution.",
-            #     client="New Zealand",
-            #     roles="Developer",
-            #     skills="Xamarin | Xamarin.iOS | ASP.NET Web API",
-            #     length="6 months",
-            #     categories=[Category.WEB, Category.MOBILE],
-            #     links=[
-            #         Link(
-            #             "https://play.google.com/store/apps/details?id=zingit.ui.droid&hl=en",
-            #             Platform.ANDROID),
-            #         Link("https://itunes.apple.com/app/id991759517",
-            #              Platform.IOS),
-            #     ],
-            #     screenshots=0
-            #     ),
-            # Project(
-            #     name="Neatwork",
-            #     tag="neatwork",
-            #     filters="native",
-            #     description=
-            #     "Neatwork Pro is designed for lawyers, certified/chartered accountants (i.e. CPA, CA, CMA, CGA), certified financial analysts (CFA) and students of these professions. With Neatwork, you are able to filter displayed profiles based on professional specifications. For example, if you are looking to only network and have lunch with lawyers, simply add the filter in your Settings page. Meals and one-on-one encounters are widely known for their efficiency in building relationships. Optimize your lunch and coffee breaks!",
-            #     client="Canada",
-            #     roles="Developer",
-            #     skills=
-            #     "iOS Native | Parse | Google Places API | Facebook SDK | Linkedin SDK | Google+ SDK",
-            #     length="6 months",
-            #     categories=[Category.WEB, Category.MOBILE],
-            #     links=[
-            #         Link(
-            #             "https://play.google.com/store/apps/details?id=com.neatwork.neatworkpro&hl=en",
-            #             Platform.ANDROID),
-            #         Link(
-            #             "https://itunes.apple.com/us/app/neat-work/id1084915840?mt=8",
-            #             Platform.IOS),
-            #     ],
-            #     screenshots=0),
-            # Project(
-            #     name="Con info",
-            #     tag="conifno",
-            #     filters="xamarin net",
-            #     description=
-            #     "The CON INFO* Serial Number Guide App allows you to determine the year model of Construction, Earthmoving, Mining and Logging Machinery and Equipment from over 400 manufacturers by simply entering the make, model and serial number.",
-            #     client="New Zealand",
-            #     roles="Techincal Leader",
-            #     skills="Xamarin | Xamarin.iOS | SQLite | ASP.NET Web API",
-            #     length="3 months",
-            #     categories=[Category.WEB, Category.MOBILE],
-            #     links=[
-            #         Link(
-            #             "https://play.google.com/store/apps/details?id=com.coninfoapp.droid&hl=en",
-            #             Platform.ANDROID),
-            #         Link(
-            #             "https://itunes.apple.com/au/app/con-info-serial-number-guide-for-heavymachinery/id1122500544?mt=8",
-            #             Platform.IOS),
-            #     ],
-            #     screenshots=0),
             Project(
                 name="MLQPLUS TRUSTED LEADER",
                 tag="mlq",
@@ -155,27 +120,6 @@ class Facade:
                         Platform.IOS),
                 ],
                 screenshots=11),
-            # Project(
-            #     name="PLAYER REPORT v2",
-            #     tag="playerreport",
-            #     filters="xamarin net",
-            #     description=
-            #     "Coaches and scouts! Rate, compare and share soccer player's skills. Use with your team or when scouting or recruiting soccer players. You can compare and share your assessment of soccer players' skills through email with other coaches and scouts.",
-            #     client="OPTIMYSports",
-            #     roles="Developer",
-            #     skills=
-            #     "Xamarin | Xamarin.iOS | SQLite | Mobile Offline | Non-consumable IAP",
-            #     length="3 months",
-            #     categories=[Category.WEB, Category.MOBILE],
-            #     links=[
-            #         Link(
-            #             "https://play.google.com/store/apps/details?id=com.optimysports.playerreport2&hl=vi",
-            #             Platform.ANDROID),
-            #         Link(
-            #             "https://itunes.apple.com/vn/app/player-report-v2/id1043400437?l=vi&mt=8",
-            #             Platform.IOS),
-            #     ],
-            #     screenshots=0),
             Project(
                 name="yukitomo",
                 tag="yukitomo",
@@ -445,10 +389,10 @@ class Facade:
         skills = [
             Skill(name="Swift", percent="90%"),
             Skill(name="Obj-C", percent="85%"),
+            Skill(name="Scripts (Bash/Ruby/Groovy)", percent="80%"),
             Skill(name="C#", percent="80%"),
-            Skill(name="Dart-Flutter", percent="60%"),
             Skill(name="Python", percent="75%"),
-            Skill(name="Scripts (Bash/Ruby/Groovy)", percent="70%"),
+            Skill(name="Dart-Flutter", percent="60%"),
         ]
         return skills
 
@@ -531,6 +475,16 @@ class Facade:
             "work experiences",
             profileItems=[
                 ProfileItem(
+                    time="Aug '17 - Present",
+                    title="Upwork",
+                    subTitle="Professional Freelancer",
+                    descriptions=[]),
+                ProfileItem(
+                    time="Aug '19 - Present",
+                    title="DinDinn Corporation Pte. Ltd.",
+                    subTitle="Software Engineer",
+                    descriptions=[]),
+                ProfileItem(
                     time="Jun '14 - Jul '18",
                     title="Beesightsoft",
                     subTitle="SCRUM Master | iOS Specialist | .NET Ninja",
@@ -544,12 +498,7 @@ class Facade:
                         "- Collaborate to setup CI/CD pipelines ",
                         "- Being trained as a Scrum Master, in charge and responsible to apply a lightweight Agile process, together with ecosystem of tools & frameworks, to help organization shift from traditional Waterfall to Agile to gain maximize productivity",
                         "- Utilizing Atlassian product line: Jira, Confluence to all of departments: engineering, marketing, operation...."
-                    ]),
-                ProfileItem(
-                    time="Aug '17 - Present",
-                    title="Upwork",
-                    subTitle="Professional Freelancer",
-                    descriptions=[]),
+                    ])
             ]),
             Profile(
                 "PROFESSIONAL SKILLS",
@@ -580,7 +529,7 @@ class Facade:
                     ),
                     ProfileItem(
                         time="ALM",
-                        title="JIRA, Confluence, JIRA Service Desk, ChatOps (HipChat | Slack)",
+                        title="Jira, Confluence, Jira Service Desk, ChatOps (HipChat | Slack)",
                         subTitle="",
                         descriptions=[]
                     ),
@@ -656,7 +605,7 @@ class Facade:
             Service(
                 name="DevOps Consultant",
                 description=
-                "Architect, design full pipeline of DevOps from ALM (JIRA | Git) through CI (Jenkins) to CD (Docker | Configuration Management)",
+                "Architect, design full pipeline of DevOps from ALM (Jira | Git) through CI (Jenkins) to CD (Docker | Configuration Management)",
                 image="flaticon-infinite-symbol"),
             Service(
                 name="Software Development",
