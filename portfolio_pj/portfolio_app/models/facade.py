@@ -10,7 +10,7 @@ class Facade:
     def getProjects():
         projects = [
             Project(
-                name="Respect Confluence theme customizations",
+                name="Confluence theme customizations",
                 tag="respect",
                 filters="atlassian",
                 description=
@@ -23,7 +23,7 @@ class Facade:
                 links=[],
                 screenshots=0),
             Project(
-                name="JarvisAnalytics Jira/JSD/Confluence",
+                name="Jira/JSD/Confluence",
                 tag="jarvisanalytics",
                 filters="atlassian",
                 description=
@@ -36,7 +36,7 @@ class Facade:
                 links=[],
                 screenshots=0),
             Project(
-                name="CASupport JEMH Cloud Configuration",
+                name="JEMH Cloud Configuration",
                 tag="casupport",
                 filters="atlassian",
                 description=
@@ -49,11 +49,11 @@ class Facade:
                 links=[],
                 screenshots=0),
             Project(
-                name="OnlineLEDStore",
+                name="JIRA Implementation for B2B & eCommerce business",
                 tag="onlineledstore",
                 filters="atlassian",
                 description=
-                "Jira & Confluence server custom complex workflow and integration setup for e-commerce SME. Writing groovy scripts to automate the workflows, syncing data between Jira and Confluence.",
+                "Jira & Confluence server custom complex workflow and integration setup for e-commerce SME. Writing groovy scripts to automate the workflows, syncing data between Jira and Confluence. Using ScriptRunner for automation tasks and customize behaviours.",
                 client="United States",
                 roles="Jira & Confluence Administator",
                 skills="Linux | Jira/Confluence Configuration | Jira REST API | Confluence REST API",
