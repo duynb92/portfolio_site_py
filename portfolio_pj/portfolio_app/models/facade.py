@@ -23,7 +23,7 @@ class Facade:
                 links=[],
                 screenshots=0),
             Project(
-                name="Jira/JSD/Confluence",
+                name="Jira/JSD/Confluence Administration tasks",
                 tag="jarvisanalytics",
                 filters="atlassian",
                 description=
@@ -36,7 +36,7 @@ class Facade:
                 links=[],
                 screenshots=0),
             Project(
-                name="JEMH Cloud Configuration",
+                name="JEMH Cloud Configurations",
                 tag="casupport",
                 filters="atlassian",
                 description=
@@ -62,7 +62,7 @@ class Facade:
                 links=[],
                 screenshots=0),
             Project(
-                name="Migration Jira Server to Jira Cloud",
+                name="Migration from Jira Server to Jira Cloud",
                 tag="upmc",
                 filters="atlassian",
                 description=
