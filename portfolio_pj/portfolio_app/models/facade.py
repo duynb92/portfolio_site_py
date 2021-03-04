@@ -480,7 +480,12 @@ class Facade:
                     subTitle="Professional Freelancer",
                     descriptions=[]),
                 ProfileItem(
-                    time="Aug '19 - Present",
+                    time="Jan '21 - Present",
+                    title="Delivery Hero APAC",
+                    subTitle="Software Engineer",
+                    descriptions=[]),
+                ProfileItem(
+                    time="Aug '19 - Nov '20",
                     title="DinDinn Corporation Pte. Ltd.",
                     subTitle="Software Engineer",
                     descriptions=[]),
