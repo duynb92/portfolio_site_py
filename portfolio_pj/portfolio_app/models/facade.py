@@ -470,6 +470,26 @@ class Facade:
                         title="ACP-JA | ACP-100 | Atlassian Certified Jira Administrator",
                         subTitle="Atlassian.com",
                         descriptions=["The Atlassian Certified Professional Jira Administrator (ACP-JA) manages, customizes, and configures Jira from within the Jira user interface, while ensuring the performance, scalability and day-to-day manageability of the product. The ACP-JA has proven skills needed to optimize Jira for any development or business team."]),
+                    ProfileItem(
+                        time="2020",
+                        title="ACP-MJCP | ACP-620 | Atlassian Certified in Managing Jira Cloud Projects",
+                        subTitle="Atlassian.com",
+                        descriptions=["The Managing Jira Cloud Projects Certification builds on the professional's existing agile skills, with a focus on optimizing the power of Jira Software for their development teams. This credential is for scrum masters, project administrators, project leads and board administrators who can configure and automate Jira Software Scrum and Kanban projects for classic and next-gen."]),
+                    ProfileItem(
+                        time="2020",
+                        title="ACP-JCA | ACP-120 | Atlassian Certified Jira Administrator for Cloud",
+                        subTitle="Atlassian.com",
+                        descriptions=["The Atlassian Certified Professional Jira Administrator (ACP-JA) manages, customizes, and configures Jira from within the Jira user interface, while ensuring the performance, scalability and day-to-day manageability of the product. The ACP-JA has proven skills needed to optimize Jira for any development or business team."]),
+                    ProfileItem(
+                        time="2020",
+                        title="JCP | ASB-153 | Atlassian Skills Badge: Configuring and Troubleshooting Permissions in Jira",
+                        subTitle="Atlassian.com",
+                        descriptions=["The Badge holder has extended their Jira skills by attending an Atlassian Skillbuilder course and passing an online quiz on Configuring and Troubleshooting Permissions in Jira."]),
+                    ProfileItem(
+                        time="2020",
+                        title="ACM | Atlassian Certified Master",
+                        subTitle="Atlassian.com",
+                        descriptions=["ACM is Atlassian's most prestigious Certification. Atlassian Certified Masters hold at least four Atlassian Certified Professional-level credentials, demonstrating their expertise across multiple Atlassian products."]),
             ]),
         Profile(
             "work experiences",
@@ -478,6 +498,16 @@ class Facade:
                     time="Aug '17 - Present",
                     title="Upwork",
                     subTitle="Professional Freelancer",
+                    descriptions=[]),
+                ProfileItem(
+                    time="May '21 - Present",
+                    title="Appnovation HK | Atlassian Gold Solution Partner",
+                    subTitle="Atlassian Developer",
+                    descriptions=[]),
+                ProfileItem(
+                    time="May '21 - Present",
+                    title="EleganceGroup | Atlassian Silver Solution Partner",
+                    subTitle="Senior Atlassian Architect",
                     descriptions=[]),
                 ProfileItem(
                     time="Jan '21 - Present",
@@ -493,17 +523,7 @@ class Facade:
                     time="Jun '14 - Jul '18",
                     title="Beesightsoft",
                     subTitle="SCRUM Master | iOS Specialist | .NET Ninja",
-                    descriptions=[
-                        "- Started as a Junior Developer, work across 20+ outsource projects in Elance/Upwork and other clients",
-                        "- Depth knowledge on basic and advanced programming techniques: REST APIs, threading, memory management, DI, Clean Architecture ... ",
-                        "- Leverage as an iOS Team Leader, training/coaching/mentoring team member from junior level ",
-                        "- Growth and scale up team in both size and quality",
-                        "- Task management, planning the development path for team member ",
-                        "- Join in technical R&D department to get ahead of new technologies and applying/spreading across team: Functional Reactive Programming... ",
-                        "- Collaborate to setup CI/CD pipelines ",
-                        "- Being trained as a Scrum Master, in charge and responsible to apply a lightweight Agile process, together with ecosystem of tools & frameworks, to help organization shift from traditional Waterfall to Agile to gain maximize productivity",
-                        "- Utilizing Atlassian product line: Jira, Confluence to all of departments: engineering, marketing, operation...."
-                    ])
+                    descriptions=[])
             ]),
             Profile(
                 "PROFESSIONAL SKILLS",
