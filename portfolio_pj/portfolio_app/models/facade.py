@@ -390,7 +390,6 @@ class Facade:
             Skill(name="Swift", percent="90%"),
             Skill(name="Obj-C", percent="85%"),
             Skill(name="Scripts (Bash/Ruby/Groovy)", percent="80%"),
-            Skill(name="C#", percent="80%"),
             Skill(name="Python", percent="75%"),
             Skill(name="Dart-Flutter", percent="60%"),
         ]
@@ -412,12 +411,6 @@ class Facade:
             Profile(
                 "certificates",
                 profileItems=[
-                    ProfileItem(
-                        time="2011",
-                        title=
-                        "Microsoft Server 2008 System Administrator - MCITP-SA",
-                        subTitle="Nhat Nghe Education JSC",
-                        descriptions=[]),
                     ProfileItem(
                         time="2014",
                         title="Best Member of the Year",
@@ -490,29 +483,39 @@ class Facade:
                         title="ACM | Atlassian Certified Master",
                         subTitle="Atlassian.com",
                         descriptions=["ACM is Atlassian's most prestigious Certification. Atlassian Certified Masters hold at least four Atlassian Certified Professional-level credentials, demonstrating their expertise across multiple Atlassian products."]),
+                    ProfileItem(
+                        time="2022",
+                        title="ACP-MJSP | ACP-420 | Atlassian Certified Jira Service Project Manager",
+                        subTitle="Atlassian.com",
+                        descriptions=["Certification in Managing Jira Service Projects for Cloud (ACP-MJSP) showcases those who can interpret and translate business requirements into service project configurations. They are experts in features specific to service projects, including request types, queues and SLAs. They manage permissions and notifications for customers and agents, and optimize customer experience through portal configurations and knowledge base design. They streamline the team's work using automation, dashboards and reports."]),
+                    ProfileItem(
+                        time="2022",
+                        title="ITIL 4 ® Foundation",
+                        subTitle="Axelos",
+                        descriptions=["ITIL® 4 Foundation demonstrates this individual understands the key concepts of IT and digital service delivery including the key concepts, guiding principles and practices of ITIL® 4 for service management. They have a fundamental understanding of the modern organisation’s end-to-end operating model for the creation, delivery and continual improvement of technology-enabled products and services. They have an awareness of how cultural or behavioural principles benefits the wider organisation."]),
             ]),
         Profile(
             "work experiences",
             profileItems=[
-                ProfileItem(
-                    time="Aug '17 - Present",
-                    title="Upwork",
-                    subTitle="Professional Freelancer",
-                    descriptions=[]),
-                ProfileItem(
-                    time="May '21 - Present",
-                    title="Appnovation HK | Atlassian Gold Solution Partner",
-                    subTitle="Atlassian Developer",
-                    descriptions=[]),
-                ProfileItem(
-                    time="May '21 - Present",
-                    title="EleganceGroup | Atlassian Silver Solution Partner",
-                    subTitle="Senior Atlassian Architect",
-                    descriptions=[]),
+                #ProfileItem(
+                #    time="Aug '17 - Present",
+                #    title="Upwork",
+                #    subTitle="Professional Freelancer",
+                #    descriptions=[]),
+                #ProfileItem(
+                #    time="May '21 - Present",
+                #   title="EleganceGroup | Atlassian Gold Solution Partner",
+                #   subTitle="Senior Atlassian Architect",
+                #   descriptions=[]),
                 ProfileItem(
                     time="Jan '21 - Present",
                     title="Delivery Hero APAC",
-                    subTitle="Software Engineer",
+                    subTitle="Senior Software Engineer",
+                    descriptions=[]),
+                ProfileItem(
+                    time="May '21 - Sep '21",
+                    title="Appnovation HK | Atlassian Gold Solution Partner",
+                    subTitle="Atlassian Developer",
                     descriptions=[]),
                 ProfileItem(
                     time="Aug '19 - Nov '20",
@@ -536,43 +539,43 @@ class Facade:
                     ),
                     ProfileItem(
                         time="IDE & Tools",
-                        title="Visual Studio, Xamarin Studio, XCode, Visual Studio Code, Sublime Text",
+                        title="XCode, Visual Studio Code",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="VCS / DVCS",
-                        title="SVN, Git Bash, Bitbucket | GitHub | GitLab, Git Flow | GitHub Flow | GitLab Flow, Git Submodule | Subtree",
+                        title="Bitbucket | GitHub | GitLab",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="CI & Build Tools",
-                        title="Jenkins | Code quality (swiftlint, PEP8) | xcodebuild (iOS), xctest (iOS)",
+                        title="Jenkins | Bitrise | TravisCI, Code quality (swiftlint), xcodebuild (iOS), xctest (iOS)",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="ALM",
-                        title="Jira, Confluence, Jira Service Desk, ChatOps (HipChat | Slack)",
+                        title="Jira, Confluence, Jira Service Management, Slack",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
-                        time="Framework",
-                        title="Xamarin | iOS (Objective-C/Swift) | RxSwift | ASP.NET (MVC/Web API/Core) | Flutter",
+                        time="Framework & Dependency Manager",
+                        title="RxSwift, GoogleMap, GoogleAnalytics, CocoaPods | Carthage",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="Architecture",
-                        title="OOP/SOLID/DRY | Design Patterns | IoC/Dependency Injection | MVC/MVP/MVVM/Clean Architecture | Functional Reactive Programming",
+                        title="OOP/SOLID/DRY, Design Patterns, IoC/Dependency Injection, MVC/MVP/MVVM/Clean Architecture, Functional Reactive Programming",
                         subTitle="",
                         descriptions=[]
                     ),
                     ProfileItem(
                         time="Testing",
-                        title="TDD | BDD | iOS Testing frameworks (Quick, Nimble)",
+                        title="TDD | BDD, iOS Testing frameworks (Quick, Nimble)",
                         subTitle="",
                         descriptions=[]
                     ),
