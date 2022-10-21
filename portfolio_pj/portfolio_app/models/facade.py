@@ -512,11 +512,11 @@ class Facade:
                     title="Delivery Hero APAC",
                     subTitle="Senior Software Engineer",
                     descriptions=[]),
-                ProfileItem(
-                    time="May '21 - Sep '21",
-                    title="Appnovation HK | Atlassian Gold Solution Partner",
-                    subTitle="Atlassian Developer",
-                    descriptions=[]),
+                #ProfileItem(
+                #    time="May '21 - Sep '21",
+                #    title="Appnovation HK | Atlassian Gold Solution Partner",
+                #    subTitle="Atlassian Developer",
+                #    descriptions=[]),
                 ProfileItem(
                     time="Aug '19 - Nov '20",
                     title="DinDinn Corporation Pte. Ltd.",
