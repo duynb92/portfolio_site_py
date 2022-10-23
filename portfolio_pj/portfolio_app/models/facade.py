@@ -509,7 +509,7 @@ class Facade:
                 #   descriptions=[]),
                 ProfileItem(
                     time="Jan '21 - Present",
-                    title="Delivery Hero APAC",
+                    title="foodpanda | Delivery Hero APAC Pte. Ltd",
                     subTitle="Senior Software Engineer",
                     descriptions=[]),
                 #ProfileItem(
@@ -519,7 +519,7 @@ class Facade:
                 #    descriptions=[]),
                 ProfileItem(
                     time="Aug '19 - Nov '20",
-                    title="DinDinn Corporation Pte. Ltd.",
+                    title="DinDinn Corporation Pte. Ltd",
                     subTitle="Software Engineer",
                     descriptions=[]),
                 ProfileItem(
