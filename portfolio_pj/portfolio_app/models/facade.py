@@ -412,18 +412,8 @@ class Facade:
                 "certificates",
                 profileItems=[
                     ProfileItem(
-                        time="2014",
-                        title="Best Member of the Year",
-                        subTitle="Beesightsoft",
-                        descriptions=[]),
-                    ProfileItem(
-                        time="2015",
-                        title="Best Team Leader of the Year",
-                        subTitle="Beesightsoft",
-                        descriptions=[]),
-                    ProfileItem(
-                        time="2016",
-                        title="Most Active Support of the Year",
+                        time="2014 - 2015 - 2016",
+                        title="Best Member of the Year | Best Team Leader of the Year | Most Active Support of the Year",
                         subTitle="Beesightsoft",
                         descriptions=[]),
                     ProfileItem(
@@ -493,6 +483,11 @@ class Facade:
                         title="ITIL 4 ® Foundation",
                         subTitle="Axelos",
                         descriptions=["ITIL® 4 Foundation demonstrates this individual understands the key concepts of IT and digital service delivery including the key concepts, guiding principles and practices of ITIL® 4 for service management. They have a fundamental understanding of the modern organisation’s end-to-end operating model for the creation, delivery and continual improvement of technology-enabled products and services. They have an awareness of how cultural or behavioural principles benefits the wider organisation."]),
+                    ProfileItem(
+                        time="2022",
+                        title="TIL® 4 Specialist - Create, Deliver and Support",
+                        subTitle="Axelos",
+                        descriptions=["“Create, Deliver and Support” module provides IT practitioners with an understanding of service quality and improvement methods, enabling them to continue to deliver innovative yet reliable tech-enabled services to their customers in an increasingly competitive market."]),
             ]),
         Profile(
             "work experiences",
@@ -557,7 +552,7 @@ class Facade:
                     ),
                     ProfileItem(
                         time="ALM",
-                        title="Jira, Confluence, Jira Service Management, Slack",
+                        title="Jira, Confluence, Jira Service Management",
                         subTitle="",
                         descriptions=[]
                     ),
