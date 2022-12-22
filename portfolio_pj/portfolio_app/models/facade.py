@@ -487,7 +487,7 @@ class Facade:
                         time="2022",
                         title="TIL® 4 Specialist - Create, Deliver and Support",
                         subTitle="Axelos",
-                        descriptions=["“Create, Deliver and Support” module provides IT practitioners with an understanding of service quality and improvement methods, enabling them to continue to deliver innovative yet reliable tech-enabled services to their customers in an increasingly competitive market."]),
+                        descriptions=["ITIL 4 ® Specialist Create, Deliver and Support demonstrates this individual has an understanding and skills on how to plan, build and integrate different value streams and activities to create, deliver and support IT and digitally-enabled products and services, and relevant practices, methods and tools. They demonstrate sufficient understanding and application of ITIL 4 practices to the creation, delivery and support across support services, the service value systems and value streams."]),
             ]),
         Profile(
             "work experiences",
