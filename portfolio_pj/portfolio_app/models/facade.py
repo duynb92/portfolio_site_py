@@ -488,11 +488,11 @@ class Facade:
                 description=
                 "Consult and helping businesses optimize their usage of Atlassian tools",
                 image="flaticon-two-thin-arrows-forming-a-circle"),
-            #Service(
-            #    name="DevOps Consultant",
-            #    description=
-            #    "Architect, design full pipeline of DevOps from ALM (Jira | Git) through CI (Jenkins) to CD (Docker | Configuration Management)",
-            #    image="flaticon-infinite-symbol"),
+            Service(
+                name="DevOps Consultant",
+                description=
+                "Architect, design full pipeline of DevOps from ALM (Jira | Git) through CI (Jenkins) to CD (Docker | Configuration Management)",
+                image="flaticon-infinite-symbol"),
             Service(
                 name="Software Development",
                 description=
