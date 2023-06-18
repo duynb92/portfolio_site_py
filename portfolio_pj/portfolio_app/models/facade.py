@@ -10,15 +10,41 @@ class Facade:
     def getProjects():
         projects = [
             Project(
-                name="Confluence theme customizations",
-                tag="respect",
-                filters="atlassian",
+                name="HubSpot Blog Content Management Toolbox",
+                tag="zapier",
+                filters="custom-integration",
                 description=
-                "Building intranet platform using Confluence, using Refined for customize Confluence and add structure, theme, layout and navigation.",
-                client="Australia",
-                roles="Confluence Administator",
-                skills="Confluence Configuration | Refined for Confluence",
-                length="2 months",
+                "Streamline content marketing with a Zapier custom app connecting Jira, Confluence, and HubSpot. Effortlessly create and manage marketing materials, empowering companies and individuals to maximize productivity.",
+                client="NA",
+                roles="Zapier Platform",
+                skills="Javascript",
+                length="2 weeks",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
+                name="HubSpot Social Content Management Toolbox",
+                tag="zapier",
+                filters="custom-integration",
+                description=
+                "Boost social media marketing efficiency with a Zapier custom app linking Jira, HubSpot. Streamline content creation and management, empowering companies and individuals to maximize their social media presence effortlessly.",
+                client="NA",
+                roles="Zapier Platform",
+                skills="Javascript",
+                length="2 weeks",
+                categories=[],
+                links=[],
+                screenshots=0),
+            Project(
+                name="Timesheet & payroll system",
+                tag="zapier",
+                filters="custom-integration",
+                description=
+                "Simplify your payroll management with a custom integration built in Zapier. Effortlessly retrieve timesheets from Upwork, transform and store data in Google Sheets as a powerful database. Seamlessly generate invoices in QuickBooks using the integrated database, streamlining your time tracking and invoicing process.",
+                client="NA",
+                roles="Zapier Platform",
+                skills="Javascript",
+                length="1 month",
                 categories=[],
                 links=[],
                 screenshots=0),
@@ -121,24 +147,6 @@ class Facade:
                 ],
                 screenshots=11),
             Project(
-                name="yukitomo",
-                tag="yukitomo",
-                filters="native",
-                description=
-                "Skiers and snowboarders, have you ever experienced getting lost or losing your friends in the mountains? Yukitomo helps you to find and locate your friends in realtime. Never get lost !",
-                client="Singapore",
-                roles="Technical Leader",
-                skills=
-                "iOS Native | Google Maps API | Firebase Realtime Chat | Realtime Geocoding",
-                length="5 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://itunes.apple.com/us/app/yukitomo/id1072053931?mt=8",
-                        Platform.IOS),
-                ],
-                screenshots=0),
-            Project(
                 name="Okadabooks",
                 tag="okadabooks",
                 filters="native techlead",
@@ -161,27 +169,6 @@ class Facade:
                         Platform.IOS),
                 ],
                 screenshots=5),
-            Project(
-                name="abakus",
-                tag="abakus",
-                filters="native techlead",
-                description=
-                "A pocket-based financial management tool which stored your personal income and tax expenses along with all the receipts and cost based expenses associated with every property you own, allowing you to see your estimated annual tax return and the financial position of your portfolio at any time throughout the year, at just the touch of a button.",
-                client="Australia",
-                roles="Technical Leader",
-                skills=
-                "iOS Native | Offline Caching | Cross-platform subscription IAP",
-                length="4 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://play.google.com/store/apps/details?id=com.windorwilgainvestments.abakus",
-                        Platform.ANDROID),
-                    Link(
-                        "https://itunes.apple.com/au/app/abakus/id1129055100?ls=1&mt=8",
-                        Platform.IOS),
-                ],
-                screenshots=0),
             Project(
                 name="sim library",
                 tag="sim",
@@ -225,44 +212,6 @@ class Facade:
                 ],
                 screenshots=9),
             Project(
-                name="socialoop",
-                tag="socialoop",
-                filters="native techlead",
-                description=
-                "Social network apps connect people together, hosting activities, checkin, hobbies, or just update their mood. All in one.",
-                client="Singapore",
-                roles="Technical Leader",
-                skills=
-                "iOS Native | Chat | XMPP Framework | Google Maps SDK | Google Maps API | Push Notification",
-                length="5 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    
-                ],
-                screenshots=9),
-            Project(
-                name="ATOMS",
-                tag="atoms",
-                filters="native techlead net",
-                description=
-                "Are you looking for a way you can do more to help those in need? ATOMs is a modern way to spend time and money on other people. Thanks to this app, you can boost your own happiness by improving the lives of other human beings. Research shows this is much more effective than buying more things for yourself.",
-                client="Singapore",
-                roles="Technical Leader",
-                skills=
-                "ASP.NET Web API | Azure | SignalR | Android | iOS | AngularJS | Paypal SDK",
-                length="4 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link("http://atoms.sg", Platform.WEB),
-                    Link(
-                        "https://play.google.com/store/apps/details?id=com.alpsnetworks.atoms",
-                        Platform.ANDROID),
-                    Link(
-                        "https://itunes.apple.com/us/app/atoms-sg/id1186676679",
-                        Platform.IOS),
-                ],
-                screenshots=5),
-            Project(
                 name="Billby",
                 tag="billby",
                 filters="native techlead",
@@ -290,97 +239,6 @@ class Facade:
                 categories=[Category.WEB, Category.MOBILE],
                 links=[],
                 screenshots=10),
-            Project(
-                name="avb",
-                tag="avb",
-                filters="native techlead sm net",
-                description=
-                "Searching for clubs/bars/restaurants around you. See who have checked in and getting around with them instantly.",
-                client="New Zealand",
-                roles="Scrum Master",
-                skills=
-                "iOS Native | RxSwift MVVM | Android Native | RxJava | ASP.NET Web API | Google Maps API | SignalR | RealmDB",
-                length="3 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[],
-                screenshots=0),
-            Project(
-                name="axcro",
-                tag="axcro",
-                filters="native techlead sm",
-                description=
-                "Escrow-based shopping platform to gain consumer confidence whe purchasing service packages that are provided in parts over a period. This product will also serve as an additional platform to increase the sales of service provider by providing an alternative payment guaranteed platform.",
-                client="Singapore",
-                roles="Scrum Master",
-                skills=
-                "iOS Native | Android Native | Google Maps API | Google Civic Information API | PHP/Laravel | MySql",
-                length="3 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[
-                    Link(
-                        "https://play.google.com/store/apps/details?id=com.app.axcro",
-                        Platform.ANDROID),
-                    Link(
-                        "https://itunes.apple.com/us/app/axcro/id1369884767?ls=1&mt=8",
-                        Platform.IOS),],
-                screenshots=10),
-            Project(
-                name="sayswe",
-                tag="multiply",
-                filters="native techlead sm",
-                description=
-                "Voting and plege platform for everyone to join and share their own opinions about the election around the world.",
-                client="United States",
-                roles="Scrum Master",
-                skills=
-                "iOS Native | Google Maps API | Stripe | PHP/Laravel | MySql",
-                length="3 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[Link("https://itunes.apple.com/us/app/sayswe/id1317229517?ls=1&mt=8",Platform.IOS),
-                Link("https://play.google.com/store/apps/details?id=org.sayswe.sayswe",Platform.ANDROID)],
-                screenshots=9),
-            Project(
-                name="tacko",
-                tag="tacko",
-                filters="native techlead",
-                description=
-                "Love to travel, but want to make money with benefit ? Tacko gives you many chances to buy and sell your items with other peoples when you are travelling around.",
-                client="Singapore",
-                roles="Scrum Master",
-                skills=
-                "iOS Native | RxSwift MVVM | Google Maps API | Stripe | Paypal | PHP/Laravel | MySql",
-                length="5 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[],
-                screenshots=13),
-            Project(
-                name="sociasta",
-                tag="sociasta",
-                filters="native techlead sm",
-                description=
-                "Sociasta aims to connect people who are having the same activity or feeling the same emotions around the world.",
-                client="Pakistan",
-                roles="Scrum Master",
-                skills=
-                "iOS Native | Google Maps API | KML Files | PHP/Laravel | MySql",
-                length="3 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[],
-                screenshots=8),
-            Project(
-                name="hellomojo",
-                tag="hellomojo",
-                filters="native techlead sm net",
-                description=
-                "Capture Everything. Anywhere. Anytime. Hello Mojo's documenting app will give you that extra peace of mind when you need it most.",
-                client="New Zealand",
-                roles="Scrum Master | Backend Developer",
-                skills=
-                "iOS Native | Google Maps API | ASP.Net | Microsoft Azure | .NET WebAPI 2",
-                length="2 months",
-                categories=[Category.WEB, Category.MOBILE],
-                links=[Link("https://hellomojo.com/",Platform.WEB)],
-                screenshots=11),
         ]
         return projects
 
