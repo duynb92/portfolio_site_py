@@ -247,9 +247,9 @@ class Facade:
         skills = [
             Skill(name="Swift", percent="90%"),
             Skill(name="Obj-C", percent="85%"),
-            Skill(name="Scripts (Bash/Ruby/Groovy)", percent="80%"),
+            Skill(name="Scripting (Bash/Ruby/Groovy)", percent="80%"),
             Skill(name="Python", percent="75%"),
-            Skill(name="Dart-Flutter", percent="60%"),
+            Skill(name="Javascript", percent="60%")
         ]
         return skills
 
@@ -376,6 +376,11 @@ class Facade:
                     subTitle="Software Engineer",
                     descriptions=[]),
                 ProfileItem(
+                    time="Jul '18 - Jul '19",
+                    title="Upwork",
+                    subTitle="Professional Freelancer",
+                    descriptions=[]),
+                ProfileItem(
                     time="Jun '14 - Jul '18",
                     title="Beesightsoft",
                     subTitle="SCRUM Master | iOS Specialist | .NET Ninja",
@@ -479,19 +484,19 @@ class Facade:
     def getServices():
         services = [
             Service(
-                name="Agile Consultant",
+                name="Atlassian Consultant",
                 description=
-                "Consult, coaching how to steer with Agile best practices, tools, processes: Scrum | Kanban | Scrumban | BDD | TDD | XP",
+                "Consult and helping businesses optimize their usage of Atlassian tools",
                 image="flaticon-two-thin-arrows-forming-a-circle"),
-            Service(
-                name="DevOps Consultant",
-                description=
-                "Architect, design full pipeline of DevOps from ALM (Jira | Git) through CI (Jenkins) to CD (Docker | Configuration Management)",
-                image="flaticon-infinite-symbol"),
+            #Service(
+            #    name="DevOps Consultant",
+            #    description=
+            #    "Architect, design full pipeline of DevOps from ALM (Jira | Git) through CI (Jenkins) to CD (Docker | Configuration Management)",
+            #    image="flaticon-infinite-symbol"),
             Service(
                 name="Software Development",
                 description=
-                "Building clean and robust application using various programming languages: Swift, Objective-C, .NET, Python",
+                "Building clean and robust applications leveraging cutting-edge technologies: Swift, Objective-C, Python, Zapier",
                 image="flaticon-computer"),
         ]
         return services
