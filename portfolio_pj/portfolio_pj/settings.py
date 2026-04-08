@@ -20,13 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lhk!7v1lq-00#qkr^6l@*r*&%px6(nrgusn)pz!v40uovwmm=2'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'lhk!7v1lq-00#qkr^6l@*r*&%px6(nrgusn)pz!v40uovwmm=2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['www.duynb.com','duynb.com','172.104.173.244', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    'www.duynb.com',
+    'duynb.com',
+    '127.0.0.1',
+    'localhost',
+    os.environ.get('RAILWAY_PUBLIC_DOMAIN', ''),
+]
 
 
 # Application definition
@@ -44,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,13 +88,8 @@ WSGI_APPLICATION = 'portfolio_pj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'portfolio_site',
-        'USER': 'portfolio',
-        'PASSWORD': 'password',
-        'HOST': 'db',
-        #'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -133,6 +134,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # STATIC_URL = 'app/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/static/')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # CKEDITOR_BASEPATH = '/static/'
 CKEDITOR_CONFIGS = {
