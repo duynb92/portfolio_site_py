@@ -292,50 +292,10 @@ class Facade:
                             "Engage with a community of recognized Scrum experts who are committed to continuous improvement."
                         ]),
                     ProfileItem(
-                        time="2018",
-                        title="ACP-JSW | ACP-300 | Atlassian Certified in Agile Development with Jira Software",
-                        subTitle="Atlassian.com",
-                        descriptions=["The Agile Development with Jira Software (ACP-JSW) credential builds on the professional's existing agile skills, with a focus on optimizing the power of Jira Software for their development teams. This credential is for scrum masters, project leads and board administrators."]),
-                    ProfileItem(
-                        time="2018",
-                        title="AC-JPA | ACP-600 | Atlassian Certified in Jira Project Administration",
-                        subTitle="Atlassian.com",
-                        descriptions=["Capable Project Administrators are essential to the optimal functioning of Jira Software in large organizations. Certified Jira Project Administrators are the power users who know how to configure projects and boards, customize workflows and manage project permissions in their organization's Jira Server or Data Center instance. They live in Jira day-to-day, and can help scale their instance to meet the demand of their business, so their Jira Administrator and teams can get more work done."]),
-                    ProfileItem(
-                        time="2019",
-                        title="ACP-JSD | ACP-400 | Atlassian Certified Jira Service Desk Administrator",
-                        subTitle="Atlassian.com",
-                        descriptions=["The Atlassian Certified Professional Jira Service Desk Administrator (ACP-JSD) manages, customizes, and configures Jira Service Desk. Certification in Jira Service Desk Administration covers the skills needed to set up and optimize Jira Service Desk for any service management team."]),
-                    ProfileItem(
-                        time="2019",
-                        title="ACP-JA | ACP-100 | Atlassian Certified Jira Administrator",
-                        subTitle="Atlassian.com",
-                        descriptions=["The Atlassian Certified Professional Jira Administrator (ACP-JA) manages, customizes, and configures Jira from within the Jira user interface, while ensuring the performance, scalability and day-to-day manageability of the product. The ACP-JA has proven skills needed to optimize Jira for any development or business team."]),
-                    ProfileItem(
                         time="2020",
-                        title="ACP-MJCP | ACP-620 | Atlassian Certified in Managing Jira Cloud Projects",
+                        title="ACE | Atlassian Certified Expert",
                         subTitle="Atlassian.com",
-                        descriptions=["The Managing Jira Cloud Projects Certification builds on the professional's existing agile skills, with a focus on optimizing the power of Jira Software for their development teams. This credential is for scrum masters, project administrators, project leads and board administrators who can configure and automate Jira Software Scrum and Kanban projects for classic and next-gen."]),
-                    ProfileItem(
-                        time="2020",
-                        title="ACP-JCA | ACP-120 | Atlassian Certified Jira Administrator for Cloud",
-                        subTitle="Atlassian.com",
-                        descriptions=["The Atlassian Certified Professional Jira Administrator (ACP-JA) manages, customizes, and configures Jira from within the Jira user interface, while ensuring the performance, scalability and day-to-day manageability of the product. The ACP-JA has proven skills needed to optimize Jira for any development or business team."]),
-                    ProfileItem(
-                        time="2020",
-                        title="JCP | ASB-153 | Atlassian Skills Badge: Configuring and Troubleshooting Permissions in Jira",
-                        subTitle="Atlassian.com",
-                        descriptions=["The Badge holder has extended their Jira skills by attending an Atlassian Skillbuilder course and passing an online quiz on Configuring and Troubleshooting Permissions in Jira."]),
-                    ProfileItem(
-                        time="2020",
-                        title="ACM | Atlassian Certified Master",
-                        subTitle="Atlassian.com",
-                        descriptions=["ACM is Atlassian's most prestigious Certification. Atlassian Certified Masters hold at least four Atlassian Certified Professional-level credentials, demonstrating their expertise across multiple Atlassian products."]),
-                    ProfileItem(
-                        time="2022",
-                        title="ACP-MJSP | ACP-420 | Atlassian Certified Jira Service Project Manager",
-                        subTitle="Atlassian.com",
-                        descriptions=["Certification in Managing Jira Service Projects for Cloud (ACP-MJSP) showcases those who can interpret and translate business requirements into service project configurations. They are experts in features specific to service projects, including request types, queues and SLAs. They manage permissions and notifications for customers and agents, and optimize customer experience through portal configurations and knowledge base design. They streamline the team's work using automation, dashboards and reports."]),
+                        descriptions=["ACE is Atlassian's most prestigious Certification. Atlassian Certified Experts hold at least four Atlassian Certified Professional-level credentials, demonstrating their expertise across multiple Atlassian products."]),
                     ProfileItem(
                         time="2022",
                         title="ITIL 4 ® Foundation",
@@ -343,9 +303,14 @@ class Facade:
                         descriptions=["ITIL® 4 Foundation demonstrates this individual understands the key concepts of IT and digital service delivery including the key concepts, guiding principles and practices of ITIL® 4 for service management. They have a fundamental understanding of the modern organisation’s end-to-end operating model for the creation, delivery and continual improvement of technology-enabled products and services. They have an awareness of how cultural or behavioural principles benefits the wider organisation."]),
                     ProfileItem(
                         time="2022",
-                        title="TIL® 4 Specialist - Create, Deliver and Support",
+                        title="ITIL® 4 Specialist - Create, Deliver and Support",
                         subTitle="Axelos",
                         descriptions=["ITIL 4 ® Specialist Create, Deliver and Support demonstrates this individual has an understanding and skills on how to plan, build and integrate different value streams and activities to create, deliver and support IT and digitally-enabled products and services, and relevant practices, methods and tools. They demonstrate sufficient understanding and application of ITIL 4 practices to the creation, delivery and support across support services, the service value systems and value streams."]),
+                    ProfileItem(
+                        time="2023",
+                        title="Certified Zapier Expert",
+                        subTitle="Zapier",
+                        descriptions=["Officially recognized by Zapier for my advanced automation skills, including building complex workflows, integrating APIs, and optimizing business processes."]),
             ]),
         Profile(
             "work experiences",
@@ -365,11 +330,11 @@ class Facade:
                     title="foodpanda | Delivery Hero APAC Pte. Ltd",
                     subTitle="Senior Software Engineer",
                     descriptions=[]),
-                #ProfileItem(
-                #    time="May '21 - Sep '21",
-                #    title="Appnovation HK | Atlassian Gold Solution Partner",
-                #    subTitle="Atlassian Developer",
-                #    descriptions=[]),
+                ProfileItem(
+                   time="July '20 - Dec '24",
+                   title="AgileOps",
+                   subTitle="Co-founder | Advisor",
+                   descriptions=[]),
                 ProfileItem(
                     time="Aug '19 - Nov '20",
                     title="DinDinn Corporation Pte. Ltd",

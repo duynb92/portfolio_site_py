@@ -21,7 +21,6 @@ from portfolio_app.views import *
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('portfolio', portfolio),
     path('services', service),
     path('contact', contact),
     path('profile', profile),
@@ -32,5 +31,5 @@ urlpatterns = [
     path('blog', blog),
     path('cv', cv),
     path('', index),
-    
+
 ] + staticfiles_urlpatterns()
