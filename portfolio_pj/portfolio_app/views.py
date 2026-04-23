@@ -31,6 +31,10 @@ def service(req):
     service_context = ServiceContext("Services", Facade.getServices())
     return render(req, 'services.html', {"context": service_context,})
 
+def lab(req):
+    lab_context = LabContext("Lab", Facade.getSideProjects())
+    return render(req, 'lab.html', {"context": lab_context})
+
 def contact(req):
     context = BaseContext("Contact")
     return render(req, 'contact-3.html', {"context": context,})

@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area lab-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-content">
+                    <h2>{{ context.title }}</h2>
+                    <ul class="breadcrumb">
+                        <li><a href="/">home</a></li>
+                        <li>{{ context.title }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb-area end -->
+
+<!-- lab projects area start -->
+<div class="section-padding" id="lab">
+    <div class="container">
+        <div class="row project-lists">
+            {% for project in context.side_projects %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-project-item-2">
+                    <div class="portfolio-img {% if not project.thumbnail %}lab-placeholder-bg{% endif %}"
+                         {% if project.thumbnail %}style="background-image: url('/static/img/lab/{{ project.thumbnail }}');"{% endif %}>
+                        <div class="project-hover">
+                            <div class="project-buttons">
+                                {% if project.github_url %}
+                                <a href="{{ project.github_url }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                {% endif %}
+                                {% if project.demo_url %}
+                                <a href="{{ project.demo_url }}" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>{{ project.name }}</h3>
+                        <p>{% for tag in project.tech_tags %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- lab projects area end -->
+
+{% endblock %}
