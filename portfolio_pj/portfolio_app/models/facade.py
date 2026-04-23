@@ -465,7 +465,7 @@ class Facade:
             ),
             SideProject(
                 name="🚧 Expiry Tracker",
-                thumbnail="coming-soon-1.jpg",
+                thumbnail="coming-soon.jpg",
                 tech_tags=["go", "swiftui", "kotlin"],
                 github_url="",
                 demo_url=""
