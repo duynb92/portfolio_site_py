@@ -3,6 +3,7 @@ from .skill import *
 from .profile import *
 from .service import *
 from .hobby import *
+from .side_project import SideProject
 
 
 class Facade:
@@ -444,6 +445,32 @@ class Facade:
                 image="flaticon-soccer-ball-variant")
         ]
         return hobbies
+
+    @staticmethod
+    def getSideProjects():
+        return [
+            SideProject(
+                name="🟢 Claude Tools Directory",
+                thumbnail="only-claude.png",
+                tech_tags=["nextjs", "typescript"],
+                github_url="",
+                demo_url="https://only-claude.duynb.com"
+            ),
+            SideProject(
+                name="🟢 AI Status Monitor",
+                thumbnail="ai-status.png",
+                tech_tags=["nextjs", "typescript"],
+                github_url="https://github.com/duynb92/all-ai-statuses",
+                demo_url="https://ai-status.duynb.com"
+            ),
+            SideProject(
+                name="🚧 Expiry Tracker",
+                thumbnail="coming-soon-1.jpg",
+                tech_tags=["go", "swiftui", "kotlin"],
+                github_url="",
+                demo_url=""
+            ),
+        ]
 
     @staticmethod
     def getServices():

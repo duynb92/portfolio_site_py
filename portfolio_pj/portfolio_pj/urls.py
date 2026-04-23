@@ -22,6 +22,7 @@ from portfolio_app.views import *
 urlpatterns = [
     path('admin', admin.site.urls),
     path('services', service),
+    path('lab', lab),
     path('contact', contact),
     path('profile', profile),
     path('blog/<int:blog_year>/<int:blog_month>', blogArchive),

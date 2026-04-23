@@ -103,3 +103,4 @@ ENV/
 *.sqlite3
 
 portfolio_pj/static/*
+.claude/settings.local.json

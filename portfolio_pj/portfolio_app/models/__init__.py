@@ -1,4 +1,6 @@
 from .context.base_context import BaseContext
+from .context.lab_context import LabContext
+from .side_project import SideProject
 from .context.portfolio_context import PortfolioContext
 from .context.service_context import ServiceContext
 from .context.profile_context import ProfileContext

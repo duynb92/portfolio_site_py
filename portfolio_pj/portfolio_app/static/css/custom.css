@@ -175,3 +175,15 @@ textarea {
   .blog-content h4 a:after {
       height: 0px;
 }
+
+/* =========================================
+   Lab Page
+   ========================================= */
+
+.lab-breadcrumb-area {
+    background-image: url(https://lh3.googleusercontent.com/pw/AL9nZEV7WEcLNeFCJQW21yPgv46Ar1ZUzma2m9sE6LkThfR6eObXaQ-QYzt1-tI_yXiffZeemQMHz_LI_wYmFlpbpoAGzKf21GcVCT17bhFe4kBOw_9wJ0rYIxwG33xwhCITKmKe1Rhacmy6j4lsmjIdgDL4=w1223-h979-no);
+}
+
+.lab-placeholder-bg {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+}
