@@ -461,16 +461,20 @@ class Facade:
                 thumbnail="ai-status.png",
                 tech_tags=["nextjs", "typescript"],
                 github_url="https://github.com/duynb92/all-ai-statuses",
-                demo_url="https://ai-status.duynb.com",
-                google_play_url="https://ai-status.duynb.com"
+                demo_url="https://ai-status.duynb.com"
+            ),
+            SideProject(
+                name="🟢 Coffee Mate",
+                thumbnail="coffee-mate.png",
+                tech_tags=["swiftui", "coredata"],
+                demo_url="https://coffeemate-lp.duynb.com",
+                apple_store_url="https://apps.apple.com/app/coffee-order-translator/id6757706484"
             ),
             SideProject(
                 name="🚧 Expiry Tracker",
                 thumbnail="coming-soon.jpg",
                 tech_tags=["go", "swiftui", "kotlin"],
-                github_url="",
-                demo_url="",
-                apple_store_url="https://ai-status.duynb.com"
+                demo_url="https://expiry-tracker-lp.duynb.com"
             ),
         ]
 
