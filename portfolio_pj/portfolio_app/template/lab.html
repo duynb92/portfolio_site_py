@@ -35,6 +35,12 @@
                                 {% if project.demo_url %}
                                 <a href="{{ project.demo_url }}" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                                 {% endif %}
+                                {% if project.apple_store_url %}
+                                <a href="{{ project.apple_store_url }}" target="_blank" title="App Store"><img src="/static/img/icons/app-store.svg" alt="App Store" style="width:20px;height:20px;vertical-align:middle;"></a>
+                                {% endif %}
+                                {% if project.google_play_url %}
+                                <a href="{{ project.google_play_url }}" target="_blank" title="Google Play"><img src="/static/img/icons/google-play.svg" alt="Google Play" style="width:20px;height:20px;vertical-align:middle;"></a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
