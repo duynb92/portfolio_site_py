@@ -258,23 +258,48 @@ class Facade:
     def getProfiles():
         profiles = [
             Profile(
-                "education",
+                "Certifications",
                 profileItems=[
                     ProfileItem(
-                        time="2010-2015",
-                        title=
-                        "University of Information Technology - Vietnam National University HCMC",
-                        subTitle="Bachelor of Engineering",
-                        descriptions=[])
-                ]),
-            Profile(
-                "certificates",
-                profileItems=[
+                        time="2026",
+                        title="Claude Certified Architect",
+                        subTitle="Anthropic.com",
+                        descriptions=["Anthropic’s first official certification, designed to verify that engineers can design and ship production-grade Claude AI applications at enterprise scale."],
+                        link="https://verify.skilljar.com/c/azj8io6jcx2a"),
                     ProfileItem(
-                        time="2014 - 2015 - 2016",
-                        title="Best Member of the Year | Best Team Leader of the Year | Most Active Support of the Year",
-                        subTitle="Beesightsoft",
-                        descriptions=[]),
+                        time="2023",
+                        title="Certified Zapier Expert",
+                        subTitle="Zapier",
+                        descriptions=["Officially recognized by Zapier for my advanced automation skills, including building complex workflows, integrating APIs, and optimizing business processes."],
+                        link="https://verify.skilljar.com/c/5nxbf2655e7y"),
+                    ProfileItem(
+                        time="2022",
+                        title="ITIL® 4 Specialist - Create, Deliver and Support",
+                        subTitle="Axelos",
+                        descriptions=["ITIL 4 ® Specialist Create, Deliver and Support demonstrates this individual has an understanding and skills on how to plan, build and integrate different value streams and activities to create, deliver and support IT and digitally-enabled products and services, and relevant practices, methods and tools. They demonstrate sufficient understanding and application of ITIL 4 practices to the creation, delivery and support across support services, the service value systems and value streams."],
+                        link="https://1drv.ms/b/c/383EFE1C5687C4BF/IQAdYYYJE2T_SqxRqXB06iUEAewtkcmA1gJPScfx_2ue8R8?e=vjdHye"),
+                    ProfileItem(
+                        time="2022",
+                        title="ITIL® 4 Foundation",
+                        subTitle="Axelos",
+                        descriptions=["ITIL® 4 Foundation demonstrates this individual understands the key concepts of IT and digital service delivery including the key concepts, guiding principles and practices of ITIL® 4 for service management. They have a fundamental understanding of the modern organisation’s end-to-end operating model for the creation, delivery and continual improvement of technology-enabled products and services. They have an awareness of how cultural or behavioural principles benefits the wider organisation."],
+                        link="https://1drv.ms/b/c/383EFE1C5687C4BF/IQBNb2qxx7KORrVlFTDOATBgAQiv35t0wlv4tTVD07y1zOM?e=EdMsri"),
+                    ProfileItem(
+                        time="2020",
+                        title="ACE | Atlassian Certified Expert",
+                        subTitle="Atlassian.com",
+                        descriptions=["ACE is Atlassian’s most prestigious Certification. Atlassian Certified Experts hold at least four Atlassian Certified Professional-level credentials, demonstrating their expertise across multiple Atlassian products."],
+                        link="https://cp.certmetrics.com/atlassian/en/public/badge/c?id=AT00138007&ccat=62&date=2024-1-18"),
+                    ProfileItem(
+                        time="2017",
+                        title="CSPO | CERTIFIED Scrum Product Owner",
+                        subTitle="ScrumAlliance.org",
+                        descriptions=[
+                            "Learn the foundation of Scrum and the scope of the Certified Scrum Product Owner’s role from the best minds in Scrum.",
+                            "Demonstrate to employers and peers your attainment of core Scrum knowledge.",
+                            "Expand your career opportunities by staying relevant and marketable across all industry sectors adopting Agile practices.",
+                            "Engage with a community of recognized Scrum experts who are committed to continuous improvement."
+                        ]),
                     ProfileItem(
                         time="2017",
                         title="PSM I | Professional Scrum Master I",
@@ -283,35 +308,10 @@ class Facade:
                             "Demonstrated a fundamental level of Scrum mastery, proving an understanding of Scrum as described in the Scrum Guide and the concepts of applying Scrum."
                         ]),
                     ProfileItem(
-                        time="2017",
-                        title="CSPO | CERTIFIED Scrum Product Owner",
-                        subTitle="ScrumAlliance.org",
-                        descriptions=[
-                            "Learn the foundation of Scrum and the scope of the Certified Scrum Product Owner's role from the best minds in Scrum.",
-                            "Demonstrate to employers and peers your attainment of core Scrum knowledge.",
-                            "Expand your career opportunities by staying relevant and marketable across all industry sectors adopting Agile practices.",
-                            "Engage with a community of recognized Scrum experts who are committed to continuous improvement."
-                        ]),
-                    ProfileItem(
-                        time="2020",
-                        title="ACE | Atlassian Certified Expert",
-                        subTitle="Atlassian.com",
-                        descriptions=["ACE is Atlassian's most prestigious Certification. Atlassian Certified Experts hold at least four Atlassian Certified Professional-level credentials, demonstrating their expertise across multiple Atlassian products."]),
-                    ProfileItem(
-                        time="2022",
-                        title="ITIL 4 ® Foundation",
-                        subTitle="Axelos",
-                        descriptions=["ITIL® 4 Foundation demonstrates this individual understands the key concepts of IT and digital service delivery including the key concepts, guiding principles and practices of ITIL® 4 for service management. They have a fundamental understanding of the modern organisation’s end-to-end operating model for the creation, delivery and continual improvement of technology-enabled products and services. They have an awareness of how cultural or behavioural principles benefits the wider organisation."]),
-                    ProfileItem(
-                        time="2022",
-                        title="ITIL® 4 Specialist - Create, Deliver and Support",
-                        subTitle="Axelos",
-                        descriptions=["ITIL 4 ® Specialist Create, Deliver and Support demonstrates this individual has an understanding and skills on how to plan, build and integrate different value streams and activities to create, deliver and support IT and digitally-enabled products and services, and relevant practices, methods and tools. They demonstrate sufficient understanding and application of ITIL 4 practices to the creation, delivery and support across support services, the service value systems and value streams."]),
-                    ProfileItem(
-                        time="2023",
-                        title="Certified Zapier Expert",
-                        subTitle="Zapier",
-                        descriptions=["Officially recognized by Zapier for my advanced automation skills, including building complex workflows, integrating APIs, and optimizing business processes."]),
+                        time="2014 - 2015 - 2016",
+                        title="Best Member of the Year | Best Team Leader of the Year | Most Active Support of the Year",
+                        subTitle="Beesightsoft",
+                        descriptions=[]),
             ]),
         Profile(
             "work experiences",
@@ -352,6 +352,16 @@ class Facade:
                     subTitle="SCRUM Master | iOS Specialist | .NET Ninja",
                     descriptions=[])
             ]),
+            Profile(
+                "education",
+                profileItems=[
+                    ProfileItem(
+                        time="2010-2015",
+                        title=
+                        "University of Information Technology - Vietnam National University HCMC",
+                        subTitle="Bachelor of Engineering",
+                        descriptions=[])
+                ]),
             Profile(
                 "PROFESSIONAL SKILLS",
                 profileItems=[
