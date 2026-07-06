@@ -265,7 +265,7 @@ class Facade:
                         title="Claude Certified Architect",
                         subTitle="Anthropic.com",
                         descriptions=["Anthropic’s first official certification, designed to verify that engineers can design and ship production-grade Claude AI applications at enterprise scale."],
-                        link="https://verify.skilljar.com/c/azj8io6jcx2a"),
+                        link="https://www.credly.com/badges/2bfb0239-335f-4ed8-9e01-bf42efb688d7"),
                     ProfileItem(
                         time="2023",
                         title="Certified Zapier Expert",
