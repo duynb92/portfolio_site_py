@@ -213,6 +213,12 @@ textarea {
     object-fit: contain;
 }
 
+.lang-icon-card.lang-icon-card--no-border {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
 /* =========================================
    Lab Page
    ========================================= */

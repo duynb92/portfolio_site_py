@@ -79,7 +79,7 @@
 					<!-- lang icons start -->
 					<div class="lang-icons-grid">
 						{% for skill in context.skills %}
-						<div class="lang-icon-card wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}">
+						<div class="lang-icon-card lang-icon-card--no-border wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}">
 							<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">
 						</div>
 						{% endfor %}
