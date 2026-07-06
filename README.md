@@ -12,3 +12,8 @@ Portfolio site written using Python and Django framework
 ```docker images```
 #### Delete <none> docker - docker is not being used
 ```docker rmi $(docker images --filter "dangling=true" -q --no-trunc)```
+### Run tests
+```
+cd portfolio_pj
+python manage.py test portfolio_app -v 2
+```
