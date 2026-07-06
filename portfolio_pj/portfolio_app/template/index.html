@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}     
         <!-- hero wrapper start -->
         <div class="hero-wrapper">
@@ -75,18 +76,15 @@
 					</div>
 					<!-- section title small end -->
 	
-					<!-- skill start -->
-					<div class="skill">
-							{% for skill in context.skills %}
-						<!-- progress start -->
-						<div class="progress">
-							<div class="title">{{skill.name}}</div>
-							<div class="progress-bar wow fadeInLeft" data-progress="{{ skill.percent }}" style="width: {{ skill.percent }};" data-wow-duration="1s" data-wow-delay=".5s"> <span class=" wow fadeInLeft" data-wow-delay="1.5s">{{ skill.percent }}</span></div>
+					<!-- lang icons start -->
+					<div class="lang-icons-grid">
+						{% for skill in context.skills %}
+						<div class="lang-icon-card lang-icon-card--no-border wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}">
+							<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">
 						</div>
-						<!-- progress end -->
-							{% endfor %}
+						{% endfor %}
 					</div>
-					<!-- skill end -->
+					<!-- lang icons end -->
 				</div>
 			</div>
 		</div>
