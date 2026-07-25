@@ -4,6 +4,7 @@ from .profile import *
 from .service import *
 from .hobby import *
 from .side_project import SideProject
+from .certification import Certification
 
 
 class Facade:
@@ -245,13 +246,15 @@ class Facade:
 
     @staticmethod
     def getSkills():
+        cdn = "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/{}/default.svg"
         skills = [
-            Skill(name="Swift", percent="90%", icon="img/lang-icons/swift.svg"),
-            Skill(name="Python", percent="75%", icon="img/lang-icons/python.svg"),
-            Skill(name="TypeScript", percent="70%", icon="img/lang-icons/typescript.svg"),
-            Skill(name="Go", percent="65%", icon="img/lang-icons/go.svg"),
-            Skill(name="Scripting (Bash/Ruby/Groovy)", percent="80%", icon="img/lang-icons/bash.svg"),
-            Skill(name="Javascript", percent="60%", icon="img/lang-icons/javascript.svg"),
+            Skill(name="Swift", percent="90%", icon=cdn.format("swift")),
+            Skill(name="Python", percent="75%", icon=cdn.format("python")),
+            Skill(name="Node.js", percent="60%", icon=cdn.format("nodejs")),
+            Skill(name="Go", percent="65%", icon="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/go/light.svg"),
+            Skill(name="TypeScript", percent="70%", icon=cdn.format("typescript")),
+            Skill(name="Bash", percent="80%", icon=cdn.format("gnu-bash")),
+            Skill(name="Ruby", percent="80%", icon=cdn.format("ruby"))
         ]
         return skills
 
@@ -487,6 +490,27 @@ class Facade:
                 tech_tags=["go", "swiftui", "kotlin"],
                 demo_url="https://expiry-tracker-lp.duynb.com"
             ),
+        ]
+
+    @staticmethod
+    def getCertifications():
+        return [
+            Certification(
+                name="Claude",
+                icon="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg",
+                link="https://www.credly.com/users/duy-nguyen.446d7901/badges/credly"),
+            Certification(
+                name="Google Cloud",
+                icon="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-cloud/default.svg",
+                link="https://www.skills.google/public_profiles/5d7f3359-0912-46b9-b584-2ced13dd36cb"),
+            Certification(
+                name="Atlassian",
+                icon="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/atlassian/default.svg",
+                link="https://cp.certmetrics.com/atlassian/en/public/badge/c?id=AT00138007&ccat=62&date=2024-1-18"),
+            Certification(
+                name="ITIL",
+                icon="img/cert-icons/itil.png",
+                link="https://1drv.ms/b/c/383EFE1C5687C4BF/IQBNb2qxx7KORrVlFTDOATBgAYLhzBmiAuJkqhS2yQNqu1c?e=VFWgfs"),
         ]
 
     @staticmethod
