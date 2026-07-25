@@ -97,6 +97,7 @@ if os.environ.get('DATABASE_URL'):
             'PASSWORD': _url.password,
             'HOST': _url.hostname,
             'PORT': _url.port or 5432,
+            'OPTIONS': {'options': '-c timezone=UTC'},
         }
     }
 elif os.environ.get('DB_NAME'):
@@ -108,6 +109,7 @@ elif os.environ.get('DB_NAME'):
             'PASSWORD': os.environ.get('DB_PASSWORD'),
             'HOST': os.environ.get('DB_HOST', 'db'),
             'PORT': os.environ.get('DB_PORT', '5432'),
+            'OPTIONS': {'options': '-c timezone=UTC'},
         }
     }
 else:
@@ -143,7 +145,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-#TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
