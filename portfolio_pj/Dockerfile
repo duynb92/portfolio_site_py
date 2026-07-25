@@ -9,4 +9,4 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 RUN python manage.py collectstatic --noinput
 
-CMD gunicorn portfolio_pj.wsgi -b 0.0.0.0:$PORT
+CMD python manage.py migrate && gunicorn portfolio_pj.wsgi -b 0.0.0.0:$PORT
