@@ -219,6 +219,11 @@ textarea {
     background: transparent;
 }
 
+a.lang-icon-card {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* =========================================
    Lab Page
    ========================================= */

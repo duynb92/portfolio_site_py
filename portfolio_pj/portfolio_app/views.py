@@ -16,7 +16,7 @@ from portfolio_pj import settings
 
 # Create your views here.
 def index(req):
-    context = HomeContext("Home", Facade.getSkills(), Facade.getHobbies())
+    context = HomeContext("Home", Facade.getSkills(), Facade.getCertifications(), Facade.getHobbies())
     return render(req, 'index.html', {"context": context})
 
 def profile(req):

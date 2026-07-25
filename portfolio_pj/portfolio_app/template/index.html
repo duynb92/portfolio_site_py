@@ -80,11 +80,27 @@
 					<div class="lang-icons-grid">
 						{% for skill in context.skills %}
 						<div class="lang-icon-card lang-icon-card--no-border wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}">
-							<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">
+							{% if skill.icon|slice:":4" == "http" %}<img src="{{ skill.icon }}" alt="{{ skill.name }}" title="{{ skill.name }}">{% else %}<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">{% endif %}
 						</div>
 						{% endfor %}
 					</div>
 					<!-- lang icons end -->
+
+					<!-- section title small start -->
+					<div class="section-heading-small" style="margin-top: 4rem;">
+						<h4>my certifications</h4>
+					</div>
+					<!-- section title small end -->
+
+					<!-- cert icons start -->
+					<div class="lang-icons-grid">
+						{% for cert in context.certifications %}
+						<a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer" class="lang-icon-card wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% else %}0.4s{% endif %}" title="{{ cert.name }}">
+							{% if cert.icon|slice:":4" == "http" %}<img src="{{ cert.icon }}" alt="{{ cert.name }}">{% else %}<img src="{% static cert.icon %}" alt="{{ cert.name }}">{% endif %}
+						</a>
+						{% endfor %}
+					</div>
+					<!-- cert icons end -->
 				</div>
 			</div>
 		</div>
