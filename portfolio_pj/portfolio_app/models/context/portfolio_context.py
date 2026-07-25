@@ -1,5 +1,6 @@
 from .base_context import BaseContext
-from ..project import *
+from ..project import Project
+
 
 class PortfolioContext(BaseContext):
     def __init__(self, title, projects):
