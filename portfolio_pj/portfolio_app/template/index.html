@@ -77,12 +77,18 @@
 					<!-- section title small end -->
 	
 					<!-- lang icons start -->
-					<div class="lang-icons-grid">
+					<div class="hex-grid">
 						{% for skill in context.skills %}
-						<div class="lang-icon-card lang-icon-card--no-border wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}">
-							{% if skill.icon|slice:":4" == "http" %}<img src="{{ skill.icon }}" alt="{{ skill.name }}" title="{{ skill.name }}">{% else %}<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">{% endif %}
+						{% if forloop.counter0|divisibleby:7 or forloop.counter0|add:"-5"|divisibleby:7 %}{% if not forloop.first %}</div>{% endif %}<div class="hex-row hex-row--offset">{% elif forloop.counter0|add:"-2"|divisibleby:7 %}</div><div class="hex-row">{% endif %}
+						<div class="hex-item wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}" title="{{ skill.name }}">
+							<div class="hex-shape">
+								<div class="hex-inner">
+									{% if skill.icon|slice:":4" == "http" %}<img src="{{ skill.icon }}" alt="{{ skill.name }}" title="{{ skill.name }}">{% else %}<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">{% endif %}
+								</div>
+							</div>
 						</div>
 						{% endfor %}
+						{% if context.skills %}</div>{% endif %}
 					</div>
 					<!-- lang icons end -->
 
