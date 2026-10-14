@@ -42,6 +42,18 @@ class StaticPageViewsTest(TestCase):
         self.assertTrue(hasattr(context, 'skills'))
         self.assertTrue(hasattr(context, 'hobbies'))
 
+    def test_index_renders_hero_roles_from_db(self):
+        response = self.client.get('/')
+        self.assertEqual(response.context['context'].hero_roles,
+                         ["Senior Software Engineer", "Claude & AWS & Google Certified"])
+        self.assertContains(response, 'data-roles="[&quot;Senior Software Engineer&quot;')
+
+    def test_index_hides_role_line_without_hero_roles(self):
+        from portfolio_app.models import HeroRole
+        HeroRole.objects.all().delete()
+        response = self.client.get('/')
+        self.assertNotContains(response, 'class="intro__role"')
+
     def test_profile_returns_200(self):
         response = self.client.get('/profile')
         self.assertEqual(response.status_code, 200)
@@ -65,6 +77,13 @@ class StaticPageViewsTest(TestCase):
     def test_lab_uses_correct_template(self):
         response = self.client.get('/lab')
         self.assertTemplateUsed(response, 'lab.html')
+
+    def test_lab_renders_notebook_entries(self):
+        response = self.client.get('/lab')
+        self.assertContains(response, 'EXP-01')
+        self.assertContains(response, 'class="lab-phone"')
+        self.assertContains(response, 'Screenshot pending')
+        self.assertContains(response, 'ai-status.duynb.com')
 
     def test_contact_returns_200(self):
         response = self.client.get('/contact')

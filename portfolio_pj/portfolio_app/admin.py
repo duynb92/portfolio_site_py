@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Blog, Tag, Category, BlogComment,
-    Skill, Certification, Hobby, Service, SideProject,
+    Skill, Certification, Tool, HeroRole, Hobby, Service, SideProject,
     Profile, ProfileItem, Project, Link,
 )
 
@@ -27,6 +27,18 @@ class CertificationAdmin(admin.ModelAdmin):
     list_editable = ('order',)
 
 
+@admin.register(Tool)
+class ToolAdmin(admin.ModelAdmin):
+    list_display = ('name', 'order')
+    list_editable = ('order',)
+
+
+@admin.register(HeroRole)
+class HeroRoleAdmin(admin.ModelAdmin):
+    list_display = ('text', 'order')
+    list_editable = ('order',)
+
+
 @admin.register(Hobby)
 class HobbyAdmin(admin.ModelAdmin):
     list_display = ('name', 'author', 'order')
@@ -41,8 +53,13 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(SideProject)
 class SideProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'thumbnail', 'order')
-    list_editable = ('order',)
+    list_display = ('name', 'status', 'started', 'thumbnail', 'order')
+    list_editable = ('status', 'order')
+    fieldsets = (
+        (None, {'fields': ('name', 'status', 'started', 'thumbnail', 'tech_tags_raw', 'order')}),
+        ('Notebook entry', {'fields': ('question', 'result', 'notes_raw')}),
+        ('Links', {'fields': ('demo_url', 'github_url', 'apple_store_url', 'google_play_url')}),
+    )
 
 
 class ProfileItemInline(admin.StackedInline):

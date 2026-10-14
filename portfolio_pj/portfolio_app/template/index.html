@@ -1,119 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}     
-        <!-- hero wrapper start -->
-        <div class="hero-wrapper">
-			
-            <!-- hero-area start -->
-            <div class="hero-area home-hero-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="single-hero-item">
-                                <div class="display-table">
-                                    <div class="display-table-cell">
-                                        <h3></h3>
-                                        <h1>duy nguyen</h1>
-                                        <h2 class="cd-headline letters type">
-                                            <span class="cd-words-wrapper waiting">
-                                                <b class="is-visible">senior software engineer</b>
-												<b>Claude Certified Architect</b>
-												<b>agile & atlassian certified expert</b>
-                                            </span>
-                                        </h2>
-                                        <a href="/lab" class="bordered-btn">see my works</a>
-                                    </div>
+{% block body_class %}home-page{% endblock %}
+{% block content %}
+        <!-- intro start -->
+        <section class="intro" aria-labelledby="intro-name">
+            <div class="container intro__grid">
+                <div class="intro__who">
+                    <h1 class="intro__name" id="intro-name">Duy Nguyen</h1>
+                    {% if context.hero_roles %}
+                    <p class="intro__role" aria-label="{{ context.hero_roles|join:', ' }}">
+                        <span class="intro__typed" aria-hidden="true" data-roles="{{ context.hero_roles_json }}">{{ context.hero_roles.0 }}</span><span class="intro__caret" aria-hidden="true"></span>
+                    </p>
+                    {% endif %}
+                    <p class="intro__what">I design AI integrations and automated workflows that take repetitive work off your team, and I lead the engineering that ships them to production.</p>
+                    <div class="intro__actions">
+                        <a href="/lab" class="intro__btn intro__btn--primary">See my work</a>
+                    </div>
+                </div>
+
+                <div class="intro__proof">
+                    <h2 class="intro__label">Skills</h2>
+                    <div class="hex-grid">
+                        {% for skill in context.skills %}
+                        {% if forloop.counter0|divisibleby:7 or forloop.counter0|add:"-5"|divisibleby:7 %}{% if not forloop.first %}</div>{% endif %}<div class="hex-row hex-row--offset">{% elif forloop.counter0|add:"-2"|divisibleby:7 %}</div><div class="hex-row">{% endif %}
+                        <div class="hex-item" title="{{ skill.name }}">
+                            <div class="hex-shape">
+                                <div class="hex-inner">
+                                    {% if skill.icon|slice:":4" == "http" %}<img src="{{ skill.icon }}" alt="{{ skill.name }}">{% else %}<img src="{% static skill.icon %}" alt="{{ skill.name }}">{% endif %}
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
+                        {% if context.skills %}</div>{% endif %}
                     </div>
-				</div>
-				<a href="#about" class="scroll-next smooth"><i class="flaticon-down-arrow"></i></a>
-			</div>
-            <!-- hero-area end -->
-        </div>
-        <!-- hero wrapper end -->
 
-        <!-- content wrapper start -->
-        <div class="content-wrapper">
-			<!-- about area start -->
-		<div class="section-padding" id="about">
-		<div class="container">
-			<!-- section title start -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="section-heading text-center">
-						<h2>about <span>me</span></h2>
-					</div>
-				</div>
-			</div>
-			<!-- section title end -->
-	
-			<div class="row">
-				<div class="col-md-6">
-					<!-- section title small start -->
-					<div class="section-heading-small">
-						<h4>my story</h4>
-					</div>
-					<!-- section title small end -->
-	
-					<!-- my story content start -->
-					<div class="about-content">
-						<p>With years of experience building production-grade applications, I bring both deep technical expertise and engineering leadership to every engagement — from hands-on architecture and CI/CD design to guiding teams through complex, high-scale delivery.</p>
-						<p>Today my focus centres on AI and automation. I design custom integrations and intelligent workflows that eliminate manual effort, accelerate team output, and create measurable efficiency gains &mdash; bridging the gap between cutting-edge technology and real business value.</p>
-						<!-- about buttons start -->
-						<div class="about-buttons">
-							<a href="https://www.upwork.com/fl/duynb" class="filled-btn smooth">hire me <i class="flaticon-mail"></i></a>
-						</div>
-						<!-- about buttons end -->
-					</div>
-					<!-- my story content end -->
-				</div>
-				<div class="col-md-6">
-					<!-- section title small start -->
-					<div class="section-heading-small">
-						<h4>my skills</h4>
-					</div>
-					<!-- section title small end -->
-	
-					<!-- lang icons start -->
-					<div class="hex-grid">
-						{% for skill in context.skills %}
-						{% if forloop.counter0|divisibleby:7 or forloop.counter0|add:"-5"|divisibleby:7 %}{% if not forloop.first %}</div>{% endif %}<div class="hex-row hex-row--offset">{% elif forloop.counter0|add:"-2"|divisibleby:7 %}</div><div class="hex-row">{% endif %}
-						<div class="hex-item wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% elif forloop.counter == 4 %}0.4s{% else %}0.5s{% endif %}" title="{{ skill.name }}">
-							<div class="hex-shape">
-								<div class="hex-inner">
-									{% if skill.icon|slice:":4" == "http" %}<img src="{{ skill.icon }}" alt="{{ skill.name }}" title="{{ skill.name }}">{% else %}<img src="{% static skill.icon %}" alt="{{ skill.name }}" title="{{ skill.name }}">{% endif %}
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-						{% if context.skills %}</div>{% endif %}
-					</div>
-					<!-- lang icons end -->
+                    <h2 class="intro__label">Certifications</h2>
+                    <div class="intro__badges">
+                        {% for cert in context.certifications %}
+                        <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer" class="intro__badge" title="{{ cert.name }}">
+                            {% if cert.icon|slice:":4" == "http" %}<img src="{{ cert.icon }}" alt="{{ cert.name }}">{% else %}<img src="{% static cert.icon %}" alt="{{ cert.name }}">{% endif %}
+                        </a>
+                        {% endfor %}
+                    </div>
 
-					<!-- section title small start -->
-					<div class="section-heading-small" style="margin-top: 4rem;">
-						<h4>my certifications</h4>
-					</div>
-					<!-- section title small end -->
+                    {% if context.tools %}
+                    <h2 class="intro__label">Tools</h2>
+                    <div class="intro__badges">
+                        {% for tool in context.tools %}
+                        <a {% if tool.link %}href="{{ tool.link }}" target="_blank" rel="noopener noreferrer" {% endif %}class="intro__badge" title="{{ tool.name }}">
+                            {% if tool.icon|slice:":4" == "http" %}<img src="{{ tool.icon }}" alt="{{ tool.name }}">{% else %}<img src="{% static tool.icon %}" alt="{{ tool.name }}">{% endif %}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        <!-- intro end -->
 
-					<!-- cert icons start -->
-					<div class="lang-icons-grid">
-						{% for cert in context.certifications %}
-						<a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer" class="lang-icon-card wow zoomIn" data-wow-duration="0.6s" data-wow-delay="{% if forloop.counter == 1 %}0.1s{% elif forloop.counter == 2 %}0.2s{% elif forloop.counter == 3 %}0.3s{% else %}0.4s{% endif %}" title="{{ cert.name }}">
-							{% if cert.icon|slice:":4" == "http" %}<img src="{{ cert.icon }}" alt="{{ cert.name }}">{% else %}<img src="{% static cert.icon %}" alt="{{ cert.name }}">{% endif %}
-						</a>
-						{% endfor %}
-					</div>
-					<!-- cert icons end -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- about area end -->
-	<!-- profile area end -->
-
+        {% comment %} "What I love" section, hidden while the home page is a single screen.
     		<!-- lifestyle area start -->
     		<div class="section-padding" id="service">
     			<div class="container">
@@ -145,5 +90,29 @@
     			</div>
     		</div>
     		<!-- lifestyle area end -->
+        {% endcomment %}
 		
-			{% endblock %}
+{% endblock %}
+
+{% block javascript %}
+<script>
+(function () {
+    var el = document.querySelector('.intro__typed');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var roles = JSON.parse(el.getAttribute('data-roles'));
+    if (roles.length < 2) return;
+    var i = 0, n = roles[0].length, deleting = false;
+    function tick() {
+        var word = roles[i];
+        n += deleting ? -1 : 1;
+        el.textContent = word.slice(0, n);
+        var delay = deleting ? 35 : 70;
+        if (!deleting && n === word.length) { deleting = true; delay = 2200; }
+        else if (deleting && n === 0) { deleting = false; i = (i + 1) % roles.length; delay = 400; }
+        setTimeout(tick, delay);
+    }
+    deleting = true;
+    setTimeout(tick, 2200);
+})();
+</script>
+{% endblock %}
