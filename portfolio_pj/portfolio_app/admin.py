@@ -47,8 +47,13 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(SideProject)
 class SideProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'thumbnail', 'order')
-    list_editable = ('order',)
+    list_display = ('name', 'status', 'started', 'thumbnail', 'order')
+    list_editable = ('status', 'order')
+    fieldsets = (
+        (None, {'fields': ('name', 'status', 'started', 'thumbnail', 'tech_tags_raw', 'order')}),
+        ('Notebook entry', {'fields': ('question', 'result', 'notes_raw')}),
+        ('Links', {'fields': ('demo_url', 'github_url', 'apple_store_url', 'google_play_url')}),
+    )
 
 
 class ProfileItemInline(admin.StackedInline):

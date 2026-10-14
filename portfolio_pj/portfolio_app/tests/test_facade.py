@@ -132,8 +132,21 @@ class FacadeGetSideProjectsTest(TestCase):
     def test_all_side_projects_have_required_fields(self):
         for sp in self.side_projects:
             self.assertTrue(sp.name)
-            self.assertTrue(sp.thumbnail)
             self.assertIsInstance(sp.tech_tags, list)
+            self.assertIsInstance(sp.notes, list)
+
+    def test_names_have_no_status_emoji(self):
+        for sp in self.side_projects:
+            self.assertFalse(sp.name.startswith(('🟢', '🚧')))
+
+    def test_status_moved_out_of_name(self):
+        statuses = {sp.name: sp.status for sp in self.side_projects}
+        self.assertEqual(statuses['Coffee Mate'], SideProject.STATUS_LIVE)
+        self.assertEqual(statuses['Expiry Tracker'], SideProject.STATUS_IN_PROGRESS)
+
+    def test_coming_soon_thumbnail_cleared(self):
+        for sp in self.side_projects:
+            self.assertNotEqual(sp.thumbnail, 'coming-soon.jpg')
 
     def test_not_empty(self):
         self.assertGreater(len(self.side_projects), 0)

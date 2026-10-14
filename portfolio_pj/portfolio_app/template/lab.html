@@ -21,35 +21,48 @@
 <!-- lab projects area start -->
 <div class="section-padding" id="lab">
     <div class="container">
-        <div class="row project-lists">
+        <div class="lab-notebook">
             {% for project in context.side_projects %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-project-item-2">
-                    <div class="portfolio-img {% if not project.thumbnail %}lab-placeholder-bg{% endif %}"
-                         {% if project.thumbnail %}style="background-image: url('/static/img/lab/{{ project.thumbnail }}');"{% endif %}>
-                        <div class="project-hover">
-                            <div class="project-buttons">
-                                {% if project.github_url %}
-                                <a href="{{ project.github_url }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                                {% endif %}
-                                {% if project.demo_url %}
-                                <a href="{{ project.demo_url }}" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                                {% endif %}
-                                {% if project.apple_store_url %}
-                                <a href="{{ project.apple_store_url }}" target="_blank" title="App Store"><img src="/static/img/icons/app-store.svg" alt="App Store" style="width:20px;height:20px;vertical-align:middle;"></a>
-                                {% endif %}
-                                {% if project.google_play_url %}
-                                <a href="{{ project.google_play_url }}" target="_blank" title="Google Play"><img src="/static/img/icons/google-play.svg" alt="Google Play" style="width:20px;height:20px;vertical-align:middle;"></a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>{{ project.name }}</h3>
-                        <p>{% for tag in project.tech_tags %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-                    </div>
+            <article class="lab-entry{% if project.is_live %} is-live{% endif %}">
+                <span class="lab-entry__dot" aria-hidden="true"></span>
+                <div class="lab-entry__meta">
+                    <span class="lab-entry__no">EXP-{{ forloop.counter|stringformat:"02d" }}</span>
+                    {% if project.started %}<span>{{ project.started|date:"M Y" }}</span>{% endif %}
+                    <span class="lab-stamp lab-stamp--{{ project.status }}">{{ project.get_status_display }}</span>
                 </div>
-            </div>
+                <h3>{{ project.name }}</h3>
+                <div class="lab-entry__stage">
+                    {% if not project.thumbnail %}
+                    <div class="lab-pending"><div><b>Screenshot pending</b>{{ project.tech_tags|join:" · " }}</div></div>
+                    {% elif project.is_mobile %}
+                    <div class="lab-phone"><img src="/static/img/lab/{{ project.thumbnail }}" alt="{{ project.name }} screenshot" loading="lazy"></div>
+                    {% else %}
+                    <div class="lab-browser">
+                        <div class="lab-browser__bar"><i></i><i></i><i></i><span>{{ project.demo_domain }}</span></div>
+                        <img src="/static/img/lab/{{ project.thumbnail }}" alt="{{ project.name }} screenshot" loading="lazy">
+                    </div>
+                    {% endif %}
+                </div>
+                {% if project.question or project.result %}
+                <dl class="lab-entry__qa">
+                    {% if project.question %}<div><dt>Question</dt><dd class="is-question">{{ project.question }}</dd></div>{% endif %}
+                    {% if project.result %}<div><dt>Result</dt><dd>{{ project.result }}</dd></div>{% endif %}
+                </dl>
+                {% endif %}
+                <div class="lab-entry__tags">{% for tag in project.tech_tags %}<span>#{{ tag }}</span>{% endfor %}</div>
+                <div class="lab-entry__links">
+                    {% if project.demo_url %}<a href="{{ project.demo_url }}" target="_blank" rel="noopener">Website ↗</a>{% endif %}
+                    {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank" rel="noopener">GitHub ↗</a>{% endif %}
+                    {% if project.apple_store_url %}<a href="{{ project.apple_store_url }}" target="_blank" rel="noopener">App Store ↗</a>{% endif %}
+                    {% if project.google_play_url %}<a href="{{ project.google_play_url }}" target="_blank" rel="noopener">Google Play ↗</a>{% endif %}
+                </div>
+                {% if project.notes %}
+                <details class="lab-entry__notes">
+                    <summary>Lab notes</summary>
+                    <ul>{% for note in project.notes %}<li>{{ note }}</li>{% endfor %}</ul>
+                </details>
+                {% endif %}
+            </article>
             {% endfor %}
         </div>
     </div>

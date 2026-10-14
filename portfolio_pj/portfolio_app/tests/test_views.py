@@ -66,6 +66,13 @@ class StaticPageViewsTest(TestCase):
         response = self.client.get('/lab')
         self.assertTemplateUsed(response, 'lab.html')
 
+    def test_lab_renders_notebook_entries(self):
+        response = self.client.get('/lab')
+        self.assertContains(response, 'EXP-01')
+        self.assertContains(response, 'class="lab-phone"')
+        self.assertContains(response, 'Screenshot pending')
+        self.assertContains(response, 'ai-status.duynb.com')
+
     def test_contact_returns_200(self):
         response = self.client.get('/contact')
         self.assertEqual(response.status_code, 200)
