@@ -10,6 +10,7 @@ from .blog import Blog, Tag, Category, BlogComment
 from .skill import Skill
 from .certification import Certification
 from .tool import Tool
+from .hero_role import HeroRole
 from .hobby import Hobby
 from .service import Service
 from .side_project import SideProject

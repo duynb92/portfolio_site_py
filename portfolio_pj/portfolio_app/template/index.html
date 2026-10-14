@@ -7,9 +7,11 @@
             <div class="container intro__grid">
                 <div class="intro__who">
                     <h1 class="intro__name" id="intro-name">Duy Nguyen</h1>
-                    <p class="intro__role" aria-label="Senior Software Engineer, Claude & AWS & Google Certified">
-                        <span class="intro__typed" aria-hidden="true" data-roles='["Senior Software Engineer", "Claude & AWS & Google Certified"]'>Senior Software Engineer</span><span class="intro__caret" aria-hidden="true"></span>
+                    {% if context.hero_roles %}
+                    <p class="intro__role" aria-label="{{ context.hero_roles|join:', ' }}">
+                        <span class="intro__typed" aria-hidden="true" data-roles="{{ context.hero_roles_json }}">{{ context.hero_roles.0 }}</span><span class="intro__caret" aria-hidden="true"></span>
                     </p>
+                    {% endif %}
                     <p class="intro__what">I design AI integrations and automated workflows that take repetitive work off your team, and I lead the engineering that ships them to production.</p>
                     <div class="intro__actions">
                         <a href="/lab" class="intro__btn intro__btn--primary">See my work</a>
@@ -98,6 +100,7 @@
     var el = document.querySelector('.intro__typed');
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var roles = JSON.parse(el.getAttribute('data-roles'));
+    if (roles.length < 2) return;
     var i = 0, n = roles[0].length, deleting = false;
     function tick() {
         var word = roles[i];
