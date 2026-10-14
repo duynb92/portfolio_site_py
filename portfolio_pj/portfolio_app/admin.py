@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Blog, Tag, Category, BlogComment,
-    Skill, Certification, Hobby, Service, SideProject,
+    Skill, Certification, Tool, Hobby, Service, SideProject,
     Profile, ProfileItem, Project, Link,
 )
 
@@ -23,6 +23,12 @@ class SkillAdmin(admin.ModelAdmin):
 
 @admin.register(Certification)
 class CertificationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'order')
+    list_editable = ('order',)
+
+
+@admin.register(Tool)
+class ToolAdmin(admin.ModelAdmin):
     list_display = ('name', 'order')
     list_editable = ('order',)
 

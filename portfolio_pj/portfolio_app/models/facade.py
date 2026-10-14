@@ -1,6 +1,7 @@
 from django.db.models import Prefetch
 from .skill import Skill
 from .certification import Certification
+from .tool import Tool
 from .hobby import Hobby
 from .service import Service
 from .side_project import SideProject
@@ -37,6 +38,10 @@ class Facade:
     @staticmethod
     def getCertifications():
         return list(Certification.objects.all())
+
+    @staticmethod
+    def getTools():
+        return list(Tool.objects.all())
 
     @staticmethod
     def getServices():
