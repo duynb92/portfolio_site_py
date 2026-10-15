@@ -30,8 +30,20 @@ ALLOWED_HOSTS = [
     'duynb.com',
     '127.0.0.1',
     'localhost',
-    os.environ.get('RAILWAY_PUBLIC_DOMAIN', ''),
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.duynb.com',
+    'https://duynb.com',
+]
+
+RAILWAY_PUBLIC_DOMAIN = os.environ.get('RAILWAY_PUBLIC_DOMAIN')
+if RAILWAY_PUBLIC_DOMAIN:
+    ALLOWED_HOSTS.append(RAILWAY_PUBLIC_DOMAIN)
+    CSRF_TRUSTED_ORIGINS.append('https://' + RAILWAY_PUBLIC_DOMAIN)
+
+# TLS is terminated by the proxy (Railway / nginx) in front of gunicorn
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
@@ -44,7 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio_app',
-    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +75,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            './portfolio_app/template',
+            os.path.join(BASE_DIR, 'portfolio_app', 'template'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -74,7 +85,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.csrf',
-                'django.template.context_processors.request',
             ],
         },
     },
@@ -149,9 +159,9 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -161,21 +171,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # STATIC_URL = 'app/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/static/')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# CKEDITOR_BASEPATH = '/static/'
-CKEDITOR_CONFIGS = {
+STORAGES = {
     'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            [ 'Source', '-' ],
-            [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],
-            [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ],
-            [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ],
-            [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ],
-            [ 'Link', 'Unlink'],
-            [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] ,
-            [ 'Styles', 'Format', 'Font', 'FontSize','-','TextColor', 'BGColor' ]
-        ]
-    }
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
 }

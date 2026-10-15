@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from django.utils import timezone
+from datetime import datetime, timezone
 from portfolio_app.models.blog import Blog, Tag, Category
 
 
@@ -15,7 +15,7 @@ def make_blog(title="Test Blog", category=None, pub_date=None):
     if category is None:
         category = make_category()
     if pub_date is None:
-        pub_date = timezone.datetime(2024, 6, 15, 12, 0, 0, tzinfo=timezone.utc)
+        pub_date = datetime(2024, 6, 15, 12, 0, 0, tzinfo=timezone.utc)
     return Blog.objects.create(
         title=title,
         content="<p>Content</p>",

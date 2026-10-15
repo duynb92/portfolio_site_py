@@ -1,12 +1,10 @@
-version: '3.3'
-
 services:
   db:
-    image: postgres:11.1
+    image: postgres:17
     container_name: portfolio_site_db
     #restart: always
     volumes:
-      - psql:/var/lib/postgres/data
+      - psql:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=portfolio
       - POSTGRES_PASSWORD=password

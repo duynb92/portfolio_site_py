@@ -40,13 +40,13 @@ docker-compose logs -f web     # Follow Django app logs
 
 ## Architecture
 
-**Django 2.1.7 / Python 3.10** portfolio site with function-based views.
+**Django 6.1.2 / Python 3.13** portfolio site with function-based views. Requires Python ≥ 3.12 and PostgreSQL ≥ 15.
 
 ### Data layer — two distinct patterns
 
-1. **Facade pattern** (`portfolio_app/models/facade.py`): Portfolio data (projects, skills, profile, hobbies, services) is hardcoded as static methods on `Facade`. There is no database backing for this data — to update it, edit the Python file directly.
+1. **Facade pattern** (`portfolio_app/models/facade.py`): Portfolio data (projects, skills, certifications, tools, hero roles, profile, hobbies, services, side projects) is stored in ORM models editable in the Django admin. `Facade` static methods are thin query wrappers over those models; initial content is seeded by RunPython data migrations.
 
-2. **ORM models** (`portfolio_app/models/blog.py`): The blog system (Blog, Tag, Category, BlogComment) uses Django ORM with SQLite in development and PostgreSQL in production. All models use UUID primary keys.
+2. **Blog models** (`portfolio_app/models/blog.py`): The blog system (Blog, Tag, Category, BlogComment) uses Django ORM with SQLite in development and PostgreSQL in production. `Blog.content` is a plain `TextField` holding raw HTML (no rich-text editor). All models use UUID primary keys.
 
 ### Request flow
 
@@ -62,7 +62,9 @@ Context objects live in `portfolio_app/models/context/`. Each page has a dedicat
 
 - WhiteNoise serves static files in production.
 - Nginx proxies to Gunicorn on port 5201 (see `nginx/portfolio_site.conf`).
-- `docker-compose.yml` orchestrates `db` (Postgres 11.1), `web` (Django + Gunicorn), and `nginx`.
+- `docker-compose.yml` orchestrates `db` (Postgres 17), `web` (Django + Gunicorn), and `nginx`.
+- Production runs on Railway; `RAILWAY_PUBLIC_DOMAIN` is added to `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS`.
+- `STORAGES["staticfiles"]` uses WhiteNoise's manifest storage, so `collectstatic` fails on CSS/JS referencing missing files (including `sourceMappingURL` comments).
 - `SECRET_KEY` and `DEBUG` are read from environment variables in `portfolio_pj/settings.py`.
 
 ### Key paths
