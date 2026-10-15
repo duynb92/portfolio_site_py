@@ -1,6 +1,5 @@
 import uuid
 from django.db import models
-from ckeditor.fields import RichTextField
 import re
 from autoslug import AutoSlugField
 
@@ -28,7 +27,7 @@ class Blog(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from='title',unique=True,null=True)
-    content = RichTextField()
+    content = models.TextField()
     pub_date = models.DateTimeField('date published')
     tags = models.ManyToManyField(Tag)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
@@ -58,7 +57,7 @@ class Blog(models.Model):
         if (start > -1):
             end = self.content.find("</img>")
             substring = self.content[start:end]
-            return re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', substring)[0]
+            return re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', substring)[0]
         else:
             return None
 

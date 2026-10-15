@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.db import models
+from django.forms import Textarea
 from .models import (
     Blog, Tag, Category, BlogComment,
     Skill, Certification, Tool, HeroRole, Hobby, Service, SideProject,
@@ -8,6 +10,9 @@ from .models import (
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'pub_date')
+    formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows': 30, 'cols': 120})},
+    }
 
 
 admin.site.register(Tag)

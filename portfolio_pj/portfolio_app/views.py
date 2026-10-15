@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
-from django.template import RequestContext
-from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import *
 
 import os
 from django.http import HttpResponse
-from portfolio_pj import settings
+from django.conf import settings
 
 # Create your views here.
 def index(req):

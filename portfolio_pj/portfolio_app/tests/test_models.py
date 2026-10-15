@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.utils import timezone
+from datetime import datetime, timezone
 from portfolio_app.models.blog import Blog, BlogComment, Tag, Category
 
 
@@ -13,7 +13,7 @@ def make_blog(title="Test Blog", content="<p>Hello <b>world</b></p>", category=N
     return Blog.objects.create(
         title=title,
         content=content,
-        pub_date=timezone.datetime(2024, 6, 15, 12, 0, 0, tzinfo=timezone.utc),
+        pub_date=datetime(2024, 6, 15, 12, 0, 0, tzinfo=timezone.utc),
         category=category,
     )
 
@@ -102,13 +102,13 @@ class BlogGetArchivesTest(TestCase):
         Blog.objects.create(
             title="Blog 1",
             content="content",
-            pub_date=timezone.datetime(2024, 6, 1, tzinfo=timezone.utc),
+            pub_date=datetime(2024, 6, 1, tzinfo=timezone.utc),
             category=category,
         )
         Blog.objects.create(
             title="Blog 2",
             content="content",
-            pub_date=timezone.datetime(2024, 6, 15, tzinfo=timezone.utc),
+            pub_date=datetime(2024, 6, 15, tzinfo=timezone.utc),
             category=category,
         )
         archives = Blog.getArchives()
