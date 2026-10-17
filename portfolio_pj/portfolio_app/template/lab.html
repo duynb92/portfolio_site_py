@@ -32,14 +32,14 @@
                 </div>
                 <h3>{{ project.name }}</h3>
                 <div class="lab-entry__stage">
-                    {% if not project.thumbnail %}
+                    {% if not project.image_src %}
                     <div class="lab-pending"><div><b>Screenshot pending</b>{{ project.tech_tags|join:" · " }}</div></div>
                     {% elif project.is_mobile %}
-                    <div class="lab-phone"><img src="/static/img/lab/{{ project.thumbnail }}" alt="{{ project.name }} screenshot" loading="lazy"></div>
+                    <div class="lab-phone"><img src="{{ project.image_src }}" alt="{{ project.name }} screenshot" loading="lazy"></div>
                     {% else %}
                     <div class="lab-browser">
                         <div class="lab-browser__bar"><i></i><i></i><i></i><span>{{ project.demo_domain }}</span></div>
-                        <img src="/static/img/lab/{{ project.thumbnail }}" alt="{{ project.name }} screenshot" loading="lazy">
+                        <img src="{{ project.image_src }}" alt="{{ project.name }} screenshot" loading="lazy">
                     </div>
                     {% endif %}
                 </div>

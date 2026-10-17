@@ -58,10 +58,12 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(SideProject)
 class SideProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status', 'started', 'thumbnail', 'order')
+    list_display = ('name', 'status', 'started', 'thumbnail', 'thumbnail_url', 'order')
     list_editable = ('status', 'order')
     fieldsets = (
-        (None, {'fields': ('name', 'status', 'started', 'thumbnail', 'tech_tags_raw', 'order')}),
+        (None, {'fields': ('name', 'status', 'started', 'tech_tags_raw', 'order')}),
+        ('Image', {'fields': ('thumbnail_url', 'thumbnail'),
+                   'description': 'Image URL takes priority over the static file name.'}),
         ('Notebook entry', {'fields': ('question', 'result', 'notes_raw')}),
         ('Links', {'fields': ('demo_url', 'github_url', 'apple_store_url', 'google_play_url')}),
     )
