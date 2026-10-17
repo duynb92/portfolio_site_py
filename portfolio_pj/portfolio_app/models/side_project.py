@@ -1,6 +1,7 @@
 import uuid
 import json
 from urllib.parse import urlparse
+from django.conf import settings
 from django.db import models
 
 
@@ -16,8 +17,9 @@ class SideProject(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200)
-    # Blank shows a "Screenshot pending" placeholder on the Lab page
-    thumbnail = models.CharField(max_length=200, blank=True)
+    # Both blank shows a "Screenshot pending" placeholder on the Lab page
+    thumbnail = models.CharField(max_length=200, blank=True, help_text='File name under static/img/lab/')
+    thumbnail_url = models.URLField(max_length=500, blank=True, default="", help_text='External image URL; used instead of the static file when set')
     tech_tags_raw = models.TextField(default='[]', help_text='JSON list of strings, e.g. ["nextjs", "typescript"]')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=STATUS_LIVE)
     started = models.DateField(null=True, blank=True, help_text='Shown as month and year, e.g. Mar 2026')
@@ -43,6 +45,15 @@ class SideProject(models.Model):
     @property
     def notes(self):
         return json.loads(self.notes_raw or '[]')
+
+    @property
+    def image_src(self):
+        # External URL wins over the bundled static file
+        if self.thumbnail_url:
+            return self.thumbnail_url
+        if self.thumbnail:
+            return f'{settings.STATIC_URL}img/lab/{self.thumbnail}'
+        return ''
 
     @property
     def is_live(self):

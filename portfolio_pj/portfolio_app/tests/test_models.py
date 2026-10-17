@@ -1,6 +1,7 @@
 from django.test import TestCase
 from datetime import datetime, timezone
 from portfolio_app.models.blog import Blog, BlogComment, Tag, Category
+from portfolio_app.models.side_project import SideProject
 
 
 def make_category(title="Tech"):
@@ -148,3 +149,16 @@ class BlogCommentIsParentTest(TestCase):
             blog=self.blog,
         )
         self.assertFalse(reply.isParent)
+
+
+class SideProjectImageSrcTest(TestCase):
+    def test_prefers_url_over_static_file(self):
+        sp = SideProject(thumbnail='shot.png', thumbnail_url='https://example.com/shot.png')
+        self.assertEqual(sp.image_src, 'https://example.com/shot.png')
+
+    def test_falls_back_to_static_file(self):
+        sp = SideProject(thumbnail='shot.png')
+        self.assertEqual(sp.image_src, '/static/img/lab/shot.png')
+
+    def test_empty_when_neither_set(self):
+        self.assertEqual(SideProject().image_src, '')
