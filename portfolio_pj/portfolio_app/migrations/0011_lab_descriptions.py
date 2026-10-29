@@ -8,8 +8,13 @@ from django.db import migrations
 
 # Problem/Outcome text approved in draft form by the site owner on 2026-10-29.
 # The model fields are still named question/result; lab.html displays them
-# as Problem/Outcome. Notes are intentionally left empty: the owner asked
-# to remove the notes part from the Lab descriptions.
+# as Problem/Outcome.
+# Fill-only-if-blank: this migration only fills question/result when they
+# are blank, and only normalises notes to [] when notes are blank. Edits
+# made later in Django admin therefore survive a rollback and re-apply of
+# this migration. Later text changes need an admin edit or a new migration.
+# Notes are not added here: the owner asked to remove the notes part from
+# the Lab descriptions.
 DESCRIPTIONS = [
     {
         "name": "Claude Tools Directory",
@@ -81,10 +86,18 @@ def update_lab_descriptions(apps, schema_editor):
                 tech_tags_raw=json.dumps(data["tags"]),
                 order=data["order"],
             )
-        project.question = data["question"]
-        project.result = data["result"]
-        project.notes_raw = "[]"
-        project.save()
+        changed = False
+        if not (project.question or "").strip():
+            project.question = data["question"]
+            changed = True
+        if not (project.result or "").strip():
+            project.result = data["result"]
+            changed = True
+        if not (project.notes_raw or "").strip():
+            project.notes_raw = "[]"
+            changed = True
+        if changed:
+            project.save()
 
 
 class Migration(migrations.Migration):
