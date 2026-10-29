@@ -16,21 +16,28 @@ Including another URLconf
 #from django.conf.urls import url
 from django.urls import path, include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from portfolio_app.sitemaps import StaticSitemap
 from portfolio_app.views import *
+
+sitemaps = {
+    "static": StaticSitemap,
+}
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('services', service),
-    path('lab', lab),
-    path('contact', contact),
-    path('profile', profile),
-    path('blog/<int:blog_year>/<int:blog_month>', blogArchive),
-    path('blog/<int:blog_year>/<int:blog_month>/<int:blog_day>/<slug:blog_slug>', blogWithSlug),
-    path('blog/tag/<slug:tag_slug>', blogWithTag),
-    path('blog/category/<slug:category_slug>', blogWithCategory),
-    path('blog', blog),
-    path('cv', cv),
-    path('', index),
+    path('sitemap.xml', sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+    path('services', service, name="service"),
+    path('lab', lab, name="lab"),
+    path('contact', contact, name="contact"),
+    path('profile', profile, name="profile"),
+    path('blog/<int:blog_year>/<int:blog_month>', blogArchive, name="blog_archive"),
+    path('blog/<int:blog_year>/<int:blog_month>/<int:blog_day>/<slug:blog_slug>', blogWithSlug, name="blog_detail"),
+    path('blog/tag/<slug:tag_slug>', blogWithTag, name="blog_tag"),
+    path('blog/category/<slug:category_slug>', blogWithCategory, name="blog_category"),
+    path('blog', blog, name="blog"),
+    path('cv', cv, name="cv"),
+    path('', index, name="index"),
 
 ] + staticfiles_urlpatterns()
