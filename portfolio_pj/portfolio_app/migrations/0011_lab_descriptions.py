@@ -6,13 +6,14 @@ from datetime import date
 from django.db import migrations
 
 
-# Question/Result text approved in draft form by the site owner on 2026-10-29.
-# Notes are intentionally left empty: the owner asked to remove the notes part
-# from the Lab descriptions.
+# Problem/Outcome text approved in draft form by the site owner on 2026-10-29.
+# The model fields are still named question/result; lab.html displays them
+# as Problem/Outcome. Notes are intentionally left empty: the owner asked
+# to remove the notes part from the Lab descriptions.
 DESCRIPTIONS = [
     {
         "name": "Claude Tools Directory",
-        "question": "With new Claude tools and plugins appearing constantly, how do you find the ones actually worth trying without scrolling through GitHub all day?",
+        "question": "New Claude tools and plugins appear constantly, and finding the ones actually worth trying means scrolling through GitHub all day.",
         "result": "A one-stop directory for Claude tools and plugins that collects and ranks them, so you can browse what's trending instead of searching repo by repo.",
         "status": "live",
         "started": None,
@@ -22,7 +23,7 @@ DESCRIPTIONS = [
     },
     {
         "name": "AI Status Monitor",
-        "question": "When Claude, ChatGPT, Gemini, or another provider feels down, how do you check them all in one place instead of opening each status page?",
+        "question": "When Claude, ChatGPT, Gemini, or another provider feels down, checking them all means opening each status page separately.",
         "result": "A single dashboard showing operational status for major AI providers, including Claude, OpenAI, Gemini, Mistral, Groq, Cohere, DeepSeek, and Perplexity.",
         "status": "live",
         "started": None,
@@ -32,7 +33,7 @@ DESCRIPTIONS = [
     },
     {
         "name": "Coffee Mate",
-        "question": "How do you order coffee like a local when travelling, when the same drink has a different name in every country?",
+        "question": "When travelling, the same coffee drink has a different name in every country, so ordering like a local is hard.",
         "result": "An app for browsing hundreds of coffee types and finding what they're called in Italy, Japan, Vietnam, and beyond, with local names in 40+ countries, pronunciation, and coffee/milk/water ratios at a glance, with no account and no subscription.",
         "status": "live",
         "started": None,
@@ -42,7 +43,7 @@ DESCRIPTIONS = [
     },
     {
         "name": "HazeSg",
-        "question": "How do you check Singapore's haze at a glance, by region, without digging through a dashboard?",
+        "question": "Checking Singapore's haze at a glance, by region, means digging through a dashboard.",
         "result": "A Singapore air-quality app and widget showing PSI and PM2.5 by region — PSI for planning the next day, PM2.5 for the next hour — with region-level health guidance.",
         "status": "live",
         "started": date(2026, 10, 1),
@@ -52,7 +53,7 @@ DESCRIPTIONS = [
     },
     {
         "name": "Expiry Tracker",
-        "question": "How do you stop food expiring unnoticed in the fridge?",
+        "question": "Food expires unnoticed in the fridge.",
         "result": "In progress — landing page live, app coming to iOS. Scan barcodes, capture expiry dates, and get reminded before anything expires.",
         "status": "in_progress",
         "started": None,
