@@ -45,8 +45,8 @@
                 </div>
                 {% if project.question or project.result %}
                 <dl class="lab-entry__qa">
-                    {% if project.question %}<div><dt>Question</dt><dd class="is-question">{{ project.question }}</dd></div>{% endif %}
-                    {% if project.result %}<div><dt>Result</dt><dd>{{ project.result }}</dd></div>{% endif %}
+                    {% if project.question %}<div><dt>Problem</dt><dd class="is-question">{{ project.question }}</dd></div>{% endif %}
+                    {% if project.result %}<div><dt>Outcome</dt><dd>{{ project.result }}</dd></div>{% endif %}
                 </dl>
                 {% endif %}
                 <div class="lab-entry__tags">{% for tag in project.tech_tags %}<span>#{{ tag }}</span>{% endfor %}</div>
