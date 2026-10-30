@@ -14,7 +14,7 @@ from django.conf import settings
 # Create your views here.
 def index(req):
     context = HomeContext("Home", Facade.getSkills(), Facade.getCertifications(), Facade.getTools(), Facade.getHobbies(), Facade.getHeroRoles())
-    context.seo_title = "Duy Nguyen — AI Integrations & Automation"
+    context.seo_title = "Duy Nguyen - Certified AI Engineer"
     context.seo_description = "Duy Nguyen designs AI integrations and automated workflows that take repetitive work off your team, and leads the engineering that ships them to production."
     return render(req, 'index.html', {"context": context})
 
