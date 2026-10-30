@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-content">
-                    <h2>{{ context.title }}</h2>
+                    <h1>{{ context.title }}</h1>
                     <ul class="breadcrumb">
                         <li><a href="/">home</a></li>
                         <li>{{ context.title }}</li>
@@ -30,7 +30,7 @@
                     {% if project.started %}<span>{{ project.started|date:"M Y" }}</span>{% endif %}
                     <span class="lab-stamp lab-stamp--{{ project.status }}">{{ project.get_status_display }}</span>
                 </div>
-                <h3>{{ project.name }}</h3>
+                <h2>{{ project.name }}</h2>
                 <div class="lab-entry__stage">
                     {% if not project.image_src %}
                     <div class="lab-pending"><div><b>Screenshot pending</b>{{ project.tech_tags|join:" · " }}</div></div>
@@ -68,5 +68,7 @@
     </div>
 </div>
 <!-- lab projects area end -->
+
+<p class="lab-cta">Want to work together? <a href="/contact">Contact Duy Nguyen</a> — or <a href="/">back to Home</a>.</p>
 
 {% endblock %}

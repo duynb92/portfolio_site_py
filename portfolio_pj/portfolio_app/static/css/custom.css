@@ -1029,3 +1029,111 @@ button:focus-visible {
         transition: none;
     }
 }
+
+/* SEO Batch 2: heading-level fixes keep the old visual styles.
+   These rules mirror the old h2/h3/h4/h5 rules for the new tags,
+   so changing a heading level does not change how it looks. */
+.logo a .logo__wordmark {
+    display: inline-block;
+    margin: 0;
+    font-family: var(--sans);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.logo a .logo__wordmark span {
+    background-color: var(--ink);
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+}
+.breadcrumb-content h1 {
+    font-family: var(--sans);
+    font-size: clamp(44px, 6vw, 84px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: none;
+    margin: 0 0 16px;
+    color: var(--ink);
+}
+.lab-entry h2 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 10px 0 0;
+}
+@media (max-width: 767px) {
+    .lab-entry h2 {
+        font-size: 24px;
+    }
+}
+.profile-details-info .short-description .profile-time {
+    text-transform: capitalize;
+    font-size: 18px;
+    text-align: center;
+}
+.profile-details-info .description .profile-subtitle {
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.single-service-item h3 {
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+.blog-content h2 {
+    margin-bottom: 5px;
+}
+.blog-content h2 a {
+    color: #222;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    line-height: normal;
+}
+.blog-content h2 a:after {
+    background-color: #222;
+    content: "";
+    height: 1px;
+    left: -2%;
+    margin-top: 1px;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 0;
+}
+.single-blog:hover .blog-content h2 a:after {
+    width: 105%;
+}
+.single-sidebar-title h2 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+.author-comment h3 {
+    color: #333;
+    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.author-comment h3 a {
+    display: inline-block;
+    margin-right: 10px;
+    text-transform: capitalize;
+}
+.author-comment h3 a.reply {
+    color: #777;
+    margin-right: 15px;
+    font-weight: 700;
+}
+.blog-comment-form h2 {
+    text-transform: uppercase;
+}
+.lab-cta,
+.contact-cta {
+    margin-top: 24px;
+}
