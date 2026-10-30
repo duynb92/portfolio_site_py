@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_class %}home-page{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Duy Nguyen",
+  "url": "https://duynb.com/",
+  "description": "Duy Nguyen designs AI integrations and automated workflows that take repetitive work off your team, and leads the engineering that ships them to production.",
+  "address": {"@type": "PostalAddress", "addressCountry": "SG"},
+  "knowsAbout": ["AI integration", "Automation", "Claude", "Python", "Django"],
+  "sameAs": [
+    "https://github.com/duynb92",
+    "https://www.linkedin.com/in/duynb92/",
+    "https://medium.com/@duynb92",
+    "https://www.upwork.com/fl/duynb"
+  ]
+}
+</script>
+{% endblock %}
 {% block content %}
         <!-- intro start -->
         <section class="intro" aria-labelledby="intro-name">

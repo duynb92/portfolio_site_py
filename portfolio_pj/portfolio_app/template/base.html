@@ -8,8 +8,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="google-site-verification" content="D6GBwqQz8wRk_D1Vjm5TCBOzlUKvVjkHJvmiDxaCQ2Q" />
-    <title>Duy N. - {{ context.title }}</title>
-    <meta name="description" content="">
+    <title>{% if context.seo_title %}{{ context.seo_title }}{% else %}Duy N. - {{ context.title }}{% endif %}</title>
+    <meta name="description" content="{% if context.seo_description %}{{ context.seo_description }}{% else %}Duy Nguyen designs AI integrations and automated workflows that take repetitive work off your team, and leads the engineering that ships them to production.{% endif %}">
+    <link rel="canonical" href="https://duynb.com{{ request.path }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Duy Nguyen">
+    <meta property="og:title" content="{% if context.seo_title %}{{ context.seo_title }}{% else %}Duy N. - {{ context.title }}{% endif %}">
+    <meta property="og:description" content="{% if context.seo_description %}{{ context.seo_description }}{% else %}Duy Nguyen designs AI integrations and automated workflows that take repetitive work off your team, and leads the engineering that ships them to production.{% endif %}">
+    <meta property="og:url" content="https://duynb.com{{ request.path }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% if context.seo_title %}{{ context.seo_title }}{% else %}Duy N. - {{ context.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if context.seo_description %}{{ context.seo_description }}{% else %}Duy Nguyen designs AI integrations and automated workflows that take repetitive work off your team, and leads the engineering that ships them to production.{% endif %}">
     <!-- Mobile specific metas
         ************************* -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -102,6 +111,7 @@
 
   gtag('config', 'G-JY562PDFFW');
 </script>
+    {% block extra_head %}{% endblock %}
 </head>
 
 <body class="{% block body_class %}{% endblock %}">

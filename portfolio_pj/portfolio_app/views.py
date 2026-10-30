@@ -14,36 +14,52 @@ from django.conf import settings
 # Create your views here.
 def index(req):
     context = HomeContext("Home", Facade.getSkills(), Facade.getCertifications(), Facade.getTools(), Facade.getHobbies(), Facade.getHeroRoles())
+    context.seo_title = "Duy Nguyen - Certified AI Engineer"
+    context.seo_description = "Duy Nguyen designs AI integrations and automated workflows that take repetitive work off your team, and leads the engineering that ships them to production."
     return render(req, 'index.html', {"context": context})
 
 def profile(req):
     profile_context = ProfileContext("Profile", Facade.getProfiles())
+    profile_context.seo_title = "Profile — Duy Nguyen"
+    profile_context.seo_description = "Background, work experience, education and skills of Duy Nguyen, who designs AI integrations and automated workflows."
     return render(req, 'profile.html', {"context": profile_context})
 
 def portfolio(req):
     portfolio_context = PortfolioContext("Portfolio", Facade.getProjects())
+    portfolio_context.seo_title = "Portfolio — Duy Nguyen"
+    portfolio_context.seo_description = "Projects by Duy Nguyen in AI integration and automation."
     return render(req, 'portfolio-gird-3.html', {"context": portfolio_context})
 
 def service(req):
     service_context = ServiceContext("Services", Facade.getServices())
+    service_context.seo_title = "Services — Duy Nguyen"
+    service_context.seo_description = "Services by Duy Nguyen in AI integration and automation."
     return render(req, 'services.html', {"context": service_context,})
 
 def lab(req):
     lab_context = LabContext("Lab", Facade.getSideProjects())
+    lab_context.seo_title = "Lab — Duy Nguyen"
+    lab_context.seo_description = "Experiments and shipped side projects by Duy Nguyen, including Claude Tools Directory, AI Status Monitor, Coffee Mate, HazeSg, and Expiry Tracker."
     return render(req, 'lab.html', {"context": lab_context})
 
 def contact(req):
     context = BaseContext("Contact")
+    context.seo_title = "Contact — Duy Nguyen"
+    context.seo_description = "Contact Duy Nguyen in Singapore for AI integration and automation work — email duy@duynb.com or book a 30-minute call."
     return render(req, 'contact-3.html', {"context": context,})
 
 def blog(req):
     blogs = getBlogsWithPaging(req, Blog.objects.all().order_by('-pub_date'))
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    blog_context.seo_title = "Blog — Duy Nguyen"
+    blog_context.seo_description = "Posts by Duy Nguyen."
     return render(req, 'blog-list.html', {"context": blog_context})
 
 def blogWithSlug(req, blog_year, blog_month, blog_day, blog_slug):
     blog = Blog.objects.get(slug=blog_slug)
     blog_context = BlogContext("Blog", blog, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    blog_context.seo_title = "%s — Duy Nguyen" % blog.title
+    blog_context.seo_description = blog.getPreview()
     # if this is a POST request we need to process the form data
     if req.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -69,16 +85,22 @@ def blogWithSlug(req, blog_year, blog_month, blog_day, blog_slug):
 def blogArchive(req, blog_year, blog_month):
     blogs = getBlogsWithPaging(req, Blog.objects.filter(pub_date__year=blog_year, pub_date__month=blog_month))
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    blog_context.seo_title = "Blog — Duy Nguyen"
+    blog_context.seo_description = "Posts by Duy Nguyen."
     return render(req, 'blog-list.html', {"context": blog_context})
 
 def blogWithTag(req, tag_slug):
     blogs = getBlogsWithPaging(req,Tag.objects.get(slug=tag_slug).blog_set.all())
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    blog_context.seo_title = "Blog — Duy Nguyen"
+    blog_context.seo_description = "Posts by Duy Nguyen."
     return render(req, 'blog-list.html', {"context":blog_context})
 
 def blogWithCategory(req, category_slug):
     blogs = getBlogsWithPaging(req,Category.objects.get(slug=category_slug).blog_set.all())
     blog_context = BlogsContext("Blog", blogs, getRecentBlogs(), getCategories(), getTags(), getArchives())
+    blog_context.seo_title = "Blog — Duy Nguyen"
+    blog_context.seo_description = "Posts by Duy Nguyen."
     return render(req, 'blog-list.html', {"context":blog_context})
 
 def cv(req):
